@@ -25,6 +25,13 @@ import org.json.JSONObject;
 		public  String username = EnvirommentManager.getInstance().getProperty("dbUsername");
 		// Database Password
 		public  String password = EnvirommentManager.getInstance().getProperty("dbPassword");
+		
+
+		public  String dbUrlint = EnvirommentManager.getInstance().getProperty("dbURLint");
+		// Database Username
+		public  String usernameint = EnvirommentManager.getInstance().getProperty("dbUsernameint");
+		// Database Password
+		public  String passwordint= EnvirommentManager.getInstance().getProperty("dbPasswordint");
 
 		public static java.sql.Connection con;
 		String environment;
@@ -39,8 +46,20 @@ import org.json.JSONObject;
 			try {
 				// Create Connection to DB
 				Class.forName("com.mysql.jdbc.Driver");
-				con = DriverManager.getConnection(dbUrl, username, password);
+				String root_url = System.getProperty("ROOT_URL");
+		    	
+		    	String environment = "";
+				if (root_url.contains("qa")) {
+					con = DriverManager.getConnection(dbUrl, username, password);
+					System.err.println("CONNECT TO DATABASE");
+				} else if (root_url.contains("int")){
+					con = DriverManager.getConnection(dbUrlint, usernameint, passwordint);
+					System.err.println("CONNECT TO DATABASE");
+				}
+				 else 
+						con = DriverManager.getConnection(dbUrlint, usernameint, passwordint);
 				System.err.println("CONNECT TO DATABASE");
+				
 			}
 
 			catch (Exception e) {
