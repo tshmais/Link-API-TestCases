@@ -555,9 +555,9 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 
 	}
 
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and dogs for each user and the same start with $name")
+	@Given("Create users to url : $url with body: $body with method $method and dogs for each user and the same start with $name")
 	public void Create_Users_with_Dogs(String url1, String body1,
-			String user_name, String method1, String Dog_Name)
+			 String method1, String Dog_Name)
 			throws URISyntaxException, ClientProtocolException, IOException {
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
@@ -567,15 +567,15 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		writedata_user_other(user_email_file, dog_ID_file);
 		for (int i = 1; i <= items1; i++) {
 
-			createUserswithdogs(items1, url1, body1, user_name, method1, dogs,
+			createUserswithdogs(items1, url1, body1, method1, dogs,
 					Dog_Name, i);
 
 		}
 	}
 
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and BaseStations for each user")
+	@Given("Create users to url : $url with body: $body with method $method and BaseStations for each user")
 	public void Create_Users_with_BaseStation(String url1, String body1,
-			String user_name, String method1) throws URISyntaxException,
+			 String method1) throws URISyntaxException,
 			ClientProtocolException, IOException {
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
@@ -585,16 +585,16 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		writedata_user_other(user_email_file, basestarion_ID_file);
 		for (int i = 1; i <= items1; i++) {
 
-			createUserswithbaseStation(items1, url1, body1, user_name, method1,
+			createUserswithbaseStation(items1, url1, body1, method1,
 					basestations, i);
 
 		}
 
 	}
 
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and collars for each user")
+	@Given("Create users to url : $url with body: $body with method $method and collars for each user")
 	public void Create_Users_with_collars(String url1, String body1,
-			String user_name, String method1) throws URISyntaxException,
+			 String method1) throws URISyntaxException,
 			ClientProtocolException, IOException {
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
@@ -605,16 +605,16 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 
 		for (int i = 1; i <= items1; i++) {
 
-			createUserswithcollars(items1, url1, body1, user_name, method1,
+			createUserswithcollars(items1, url1, body1, method1,
 					collars, i);
 
 		}
 
 	}
 
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method with collars and basestations for each user")
+	@Given("Create users to url : $url with body: $body with method $method with collars and basestations for each user")
 	public void Create_Users_with_collarsAnd_Basestations(String url1,
-			String body1, String user_name, String method1)
+			String body1, String method1)
 			throws URISyntaxException, ClientProtocolException, IOException {
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
@@ -627,15 +627,15 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		for (int i = 1; i <= items1; i++) {
 
 			createUserswithcollarsAnd_Basestations(items1, url1, body1,
-					user_name, method1, collars, basestations, i);
+					 method1, collars, basestations, i);
 
 		}
 
 	}
 
-	@Given("Create users to url : $url with body : $body and the name of users start with $user_name with method $method with dogs start with $Name and collars and basestations for each user")
+	@Given("Create users to url : $url with body : $body with method $method with dogs start with $Name and collars and basestations for each user")
 	public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1,
-			String body1, String user_name, String method1, String Dog_name)
+			String body1, String method1, String Dog_name)
 			throws URISyntaxException, ClientProtocolException, IOException {
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
@@ -651,7 +651,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		for (int i = 1; i <= items1; i++) {
 
 			createUserswith_dogs_collarsAnd_Basestations(items1, url1, body1,
-					user_name, method1, dogs, Dog_name, collars, basestations,
+					 method1, dogs, Dog_name, collars, basestations,
 					i);
 
 		}
@@ -689,9 +689,9 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
-
+		String user_useremail = EnvirommentManager.getInstance().getProperty("User_email");
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		User_Email = "linkakcusersakc" + i + "@LinkAKC.com";
+		User_Email = user_useremail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -709,7 +709,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 	}
 
 	private void createUserswithdogs(int items, String url, String body,
-			String username, String method, int Dogs, String Dog_Name, int i)
+			String method, int Dogs, String Dog_Name, int i)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -742,8 +742,9 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+		String user_dogemail = EnvirommentManager.getInstance().getProperty("User_email_with_dogs");
 
-		User_Email = username + i + "@LinkAKC.com";
+		User_Email = user_dogemail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -764,7 +765,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 	}
 
 	private void createUserswithbaseStation(int items, String url, String body,
-			String username, String method, int BaseStations, int i)
+			 String method, int BaseStations, int i)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -797,8 +798,8 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-
-		User_Email = username + i + "@LinkAKC.com";
+		String user_BaseStationemail = EnvirommentManager.getInstance().getProperty("User_email_with_baseStations");
+		User_Email = user_BaseStationemail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -819,7 +820,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 	}
 
 	private void createUserswithcollars(int items, String url, String body,
-			String username, String method, int collars, int i)
+			 String method, int collars, int i)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -852,8 +853,8 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-
-		User_Email = username + i + "@LinkAKC.com";
+		String user_collaremail = EnvirommentManager.getInstance().getProperty("User_email_with_collars");
+		User_Email = user_collaremail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -874,7 +875,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 	}
 
 	private void createUserswithcollarsAnd_Basestations(int items, String url,
-			String body, String username, String method, int collars,
+			String body, String method, int collars,
 			int basestations, int i) throws ClientProtocolException,
 			URISyntaxException, IOException {
 		String name = "Content-Type";
@@ -907,8 +908,8 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-
-		User_Email = username + i + "@LinkAKC.com";
+		String user_collar_base_email = EnvirommentManager.getInstance().getProperty("User_email_with_collars_baseStation");
+		User_Email = user_collar_base_email + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -940,7 +941,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 	}
 
 	private void createUserswith_dogs_collarsAnd_Basestations(int items,
-			String url, String body, String username, String method, int dogs,
+			String url, String body, String method, int dogs,
 			String dog_name, int collars, int basestations, int i)
 			throws ClientProtocolException, URISyntaxException, IOException {
 		String name = "Content-Type";
@@ -973,8 +974,8 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-
-		User_Email = username + i + "@LinkAKC.com";
+		String user_Dog_collar_base_mail = EnvirommentManager.getInstance().getProperty("User_email_with_dogs_collars_baseStation");
+		User_Email = user_Dog_collar_base_mail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
