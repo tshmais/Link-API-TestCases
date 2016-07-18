@@ -47,8 +47,11 @@ import org.json.JSONObject;
 				// Create Connection to DB
 				Class.forName("com.mysql.jdbc.Driver");
 				String root_url = System.getProperty("ROOT_URL");
+				if (root_url == null) {
+					root_url = EnvirommentManager.getInstance().getProperty("ROOT_URL");
+				}
 		    	
-		    	String environment = "";
+		    	
 				if (root_url.contains("qa")) {
 					con = DriverManager.getConnection(dbUrl, username, password);
 					System.err.println("CONNECT TO DATABASE");
@@ -56,9 +59,7 @@ import org.json.JSONObject;
 					con = DriverManager.getConnection(dbUrlint, usernameint, passwordint);
 					System.err.println("CONNECT TO DATABASE");
 				}
-				 else 
-						con = DriverManager.getConnection(dbUrlint, usernameint, passwordint);
-				System.err.println("CONNECT TO DATABASE");
+				
 				
 			}
 
