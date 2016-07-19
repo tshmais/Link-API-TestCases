@@ -66,6 +66,7 @@ public class Steps {
 	public String JsonValue;
 	public String JsonValue2;
 
+
 	// Create Data
 	int i;
 	public String User_Email;
@@ -75,8 +76,19 @@ public class Steps {
 	public String dog_ID_file = "Dog ID";
 	public String collar_ID_file = "Collar ID";
 	public String basestarion_ID_file = "Base Station ID";
+	public String resp1;
+	public String resp2;
+	public String resp3;
+	String id;
+	
+	
+	
+	
 	 String buildName = System.getProperty("buildName");
-String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + ")" + ".csv";
+	 String ReportName = System.getProperty("Report_Name");
+	 String CSVName = ReportName.replaceFirst(".html", ".csv");
+		
+
 
 	private String getRootUrl() {
 
@@ -152,6 +164,41 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		System.out.println("The URL is: " + URL);
 	}
 
+	
+	@When("service url equal : $url with $params parameters")
+	@Then("service url equal : $url with $params parameters")
+	public void setServicesURLwithtwoParametrs(String url , int  params)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		
+		for (int p = 1; p <= params; p++) {
+			switch (p) {
+            case 1:  id = resp1;
+                     break;
+            case 2: id = resp2;
+                     break;
+            case 3:  id = resp3;
+                     break;}
+	 
+		URL = URL.replaceFirst("\\[param"+p+"\\]", id);
+		}
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
+	
+	
 	@Given("service method is $method")
 	@When("service method is $method")
 	@Then("service method is $method")
@@ -264,6 +311,30 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 				+ JsonPath.parse(StringjsonResponse).read(expression,
 						String.class);
 		System.err.println("The token for the created item is: " + response);
+	}
+	
+	@When("Retrieve first id from response")
+	@Then("Retrieve first id from response")
+	public void RetrieveJsonItemFirstID() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		String first_id = "$.id";
+		String StringjsonResponse = jsonResponse.toString();
+		resp1 = JsonPath.parse(StringjsonResponse).read(first_id,
+				String.class);
+		System.err.println("The token for the created item is: " + resp1);
+	}
+	
+	@When("Retrieve second id from response")
+	@Then("Retrieve second id from response")
+	public void RetrieveJsonItemsecondID() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		String second_id = "$.id";
+		String StringjsonResponse = jsonResponse.toString();
+		resp2 = JsonPath.parse(StringjsonResponse).read(second_id,
+				String.class);
+		System.err.println("The token for the created item is: " + resp2);
 	}
 
 	@When("the service url changes to: $url with $param")
@@ -689,7 +760,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
-		String user_useremail = EnvirommentManager.getInstance().getProperty("User_email");
+		String user_useremail = EnvirommentManager.getInstance().getProperty("User_name");
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
 		User_Email = user_useremail + i + "@LinkAKC.com";
 
@@ -742,7 +813,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		String user_dogemail = EnvirommentManager.getInstance().getProperty("User_email_with_dogs");
+		String user_dogemail = EnvirommentManager.getInstance().getProperty("User_name_with_dogs");
 
 		User_Email = user_dogemail + i + "@LinkAKC.com";
 
@@ -798,7 +869,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		String user_BaseStationemail = EnvirommentManager.getInstance().getProperty("User_email_with_baseStations");
+		String user_BaseStationemail = EnvirommentManager.getInstance().getProperty("User_name_with_baseStations");
 		User_Email = user_BaseStationemail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
@@ -853,7 +924,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		String user_collaremail = EnvirommentManager.getInstance().getProperty("User_email_with_collars");
+		String user_collaremail = EnvirommentManager.getInstance().getProperty("User_name_with_collars");
 		User_Email = user_collaremail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
@@ -908,7 +979,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		String user_collar_base_email = EnvirommentManager.getInstance().getProperty("User_email_with_collars_baseStation");
+		String user_collar_base_email = EnvirommentManager.getInstance().getProperty("User_name_with_collars_baseStation");
 		User_Email = user_collar_base_email + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
@@ -974,7 +1045,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		String user_Dog_collar_base_mail = EnvirommentManager.getInstance().getProperty("User_email_with_dogs_collars_baseStation");
+		String user_Dog_collar_base_mail = EnvirommentManager.getInstance().getProperty("User_name_with_dogs_collars_baseStation");
 		User_Email = user_Dog_collar_base_mail + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
@@ -1234,7 +1305,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(',');
-		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + ReportName, true);
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + CSVName, true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
@@ -1256,7 +1327,7 @@ String	 ReportName = "Link Created data file " + "(BuildNumber " + buildName + "
 		sb.append(',');
 		sb.append(Dog_id);
 		sb.append(',');
-		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + ReportName, true);
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + CSVName, true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
