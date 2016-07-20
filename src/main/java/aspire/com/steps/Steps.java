@@ -1329,24 +1329,7 @@ public class Steps {
 
 	}
 
-//	public void writedata_user(String name) throws FileNotFoundException {
-//
-//		StringBuilder sb = new StringBuilder();
-//		sb.append(name);
-//		sb.append(',');
-//		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + "akctest", true);
-//				BufferedWriter bw = new BufferedWriter(fw);
-//				PrintWriter out = new PrintWriter(bw)) {
-//			out.println(sb.toString());
-//			// more code
-//		} catch (IOException e) {
-//			// exception handling left as an exercise for the reader
-//		}
-//		// pw.write(sb.toString());
-//		// pw.close();
-//		System.err.println("Write the data to csv file is done!");
-//
-//	}
+
 	public void writedata_user(String name) throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
 		 String ReportName = System.getProperty("Report_Name");
@@ -1370,28 +1353,7 @@ public class Steps {
 
 	}
 
-//	public void writedata_user_other(String name, String Dog_id)
-//			throws FileNotFoundException {
-//
-//		StringBuilder sb = new StringBuilder();
-//		sb.append(name);
-//		sb.append(',');
-//		sb.append(Dog_id);
-//		sb.append(',');
-//		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + "akctest", true);
-//				BufferedWriter bw = new BufferedWriter(fw);
-//				PrintWriter out = new PrintWriter(bw)) {
-//			out.println(sb.toString());
-//			// more code
-//		} catch (IOException e) {
-//			// exception handling left as an exercise for the reader
-//		}
-//		// pw.write(sb.toString());
-//		// pw.close();
-//		System.err.println("Write the data to csv file is done!");
-//		
-//
-//	}
+
 	public void writedata_user_other(String name, String Dog_id)
 			throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
