@@ -80,13 +80,15 @@ public class Steps {
 	public String resp2;
 	public String resp3;
 	String id;
+	String Generated_ID;
+	String Generated_device_ID;
 	
 	
 	
 	
 	 String buildName = System.getProperty("buildName");
-	 String ReportName = System.getProperty("Report_Name");
-	 String CSVName = ReportName.replaceFirst(".html", ".csv");
+//	 String ReportName = System.getProperty("Report_Name");
+//	 String CSVName = ReportName.replaceFirst(".html", ".csv");
 		
 
 
@@ -165,8 +167,8 @@ public class Steps {
 	}
 
 	
-	@When("service url equal : $url with $params parameters")
-	@Then("service url equal : $url with $params parameters")
+	@When("service url equals : $url with $params parameters")
+	@Then("service url equals : $url with $params parameters")
 	public void setServicesURLwithtwoParametrs(String url , int  params)
 			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
@@ -179,7 +181,7 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		URL = URL.replaceFirst("\\[parameter1\\]", user_id);
 		
 		for (int p = 1; p <= params; p++) {
 			switch (p) {
@@ -264,9 +266,19 @@ public class Steps {
 
 		if (json.contains("LoginID")) {
 
-			json = json.replace("LoginID", response2);
+			json = json.replace("LoginID", user_id);
+		}
+			if (json.contains("collarID")) {
+
+				json = json.replace("collarID", Generated_ID);
 
 		}
+			if (json.contains("device_Id")) {
+
+				json = json.replace("device_Id", Generated_device_ID);
+
+		}
+			
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
 
@@ -384,6 +396,12 @@ public class Steps {
 	public void addToken(String name) {
 
 		reqHandler.setRequestHeader(name, response);
+	}
+	@When("add Session $name to Request headers")
+	@Then("add Session $name to Request headers")
+	public void addTokens(String name) {
+
+		reqHandler.setRequestHeader(name, access_token);
 	}
 
 	@Given("url contains the parameter: $value")
@@ -1291,9 +1309,15 @@ public class Steps {
 			jsonResponse = parsers.asJson(resp);
 			System.err.println(jsonResponse);
 			String StringjsonResponse = jsonResponse.toString();
-			String expression2 = "$.id";
+			String expression2 = "$.id"; 
 			String Collar_ID = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
+			 Generated_ID = Collar_ID;
+			 String expression3 = "$.deviceId"; 
+				String Collar_Device_ID = JsonPath.parse(StringjsonResponse).read(
+						expression3, String.class);
+				 Generated_device_ID = Collar_Device_ID;
+			
 			writedata_user_other(User_Email, Collar_ID);
 
 		}
@@ -1305,7 +1329,7 @@ public class Steps {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(',');
-		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + CSVName, true);
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + "akctest", true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
@@ -1327,7 +1351,7 @@ public class Steps {
 		sb.append(',');
 		sb.append(Dog_id);
 		sb.append(',');
-		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + CSVName, true);
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + "akctest", true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
