@@ -72,6 +72,8 @@ public class Steps {
 	public String resp2;
 	public String resp3;
 	String id;
+	String Generated_ID;
+	String Generated_device_ID;
 	
 
 	
@@ -331,9 +333,8 @@ public class Steps {
 		// JsonReader.GenerateJson("sql_get_all_users");
 
 		String first_id = "$.id";
-		String StringjsonResponse = cds.jsonResponse.toString();
 		resp1 = JsonPath.parse(StringjsonResponse).read(first_id, String.class);
-		System.err.println("The token for the created item is: " + resp1);
+		System.err.println("The first id is: " + resp1);
 	}
 
 	@When("Retrieve second id from response")
@@ -342,10 +343,9 @@ public class Steps {
 		// JsonReader.GenerateJson("sql_get_all_users");
 
 		String second_id = "$.id";
-		String StringjsonResponse = cds.jsonResponse.toString();
 		resp2 = JsonPath.parse(StringjsonResponse)
 				.read(second_id, String.class);
-		System.err.println("The token for the created item is: " + resp2);
+		System.err.println("The second id is: " + resp2);
 	}
 
 	@When("the service url changes to: $url with $param")
@@ -517,6 +517,119 @@ public class Steps {
 		CloseableHttpResponse resp = reqHandler.execute(myResponse);
 		jsonResponse = parsers.asJson(resp);
 		System.err.println(jsonResponse);
+
+	}
+	
+	
+	@Given("Create new collar")
+	public void Create_collar () throws ClientProtocolException, URISyntaxException, IOException{
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_New_collars_service"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createCollarbody");
+		int range = (99999 - 10000);
+		int newrand = (int) (Math.random() * range) + 10000;
+		String Device_ID = "2345678" + newrand;
+		System.err.println("The MacID for the created item is: " + Device_ID);
+
+		if (jsonbody.contains("Generated-deviceid")) {
+
+			jsonbody = jsonbody.replace("Generated-deviceid", Device_ID);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.println(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.err.println(jsonResponse);
+			 StringjsonResponse = jsonResponse.toString();
+			String expression2 = "$.id";
+			String Collar_ID = JsonPath.parse(StringjsonResponse).read(
+					expression2, String.class);
+			Generated_ID = Collar_ID;
+			String expression3 = "$.deviceId";
+			String Collar_Device_ID = JsonPath.parse(StringjsonResponse).read(
+					expression3, String.class);
+	}}
+	
+	@Given("Create new dog")
+	public void Create_dog () throws URISyntaxException, ClientProtocolException, IOException{
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_New_Dog_service"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createdogbody");
+
+		String Dog_Name1 = "Pucy";
+
+		if (jsonbody.contains("Generated-name")) {
+
+			jsonbody = jsonbody.replace("Generated-name", Dog_Name1);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.println(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.err.println(jsonResponse);
+			 StringjsonResponse = jsonResponse.toString();
+			String expression2 = "$.id";
+			String Dog_id = JsonPath.parse(StringjsonResponse).read(
+					expression2, String.class);
+		
+	}}
+	
+	@Given("Create new BaseStation")
+	public void Create_BaseStation () throws URISyntaxException, ClientProtocolException, IOException{
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_New_BaseStation_service"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createBaseStationbody");
+		int range = (99999 - 10000);
+		int newrand = (int) (Math.random() * range) + 10000;
+		String BaseStation_mac = "2345678" + newrand;
+		System.err.println("The MacID for the created item is: "
+				+ BaseStation_mac);
+
+		if (jsonbody.contains("Generated-macid")) {
+
+			jsonbody = jsonbody.replace("Generated-macid", BaseStation_mac);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.println(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.err.println(jsonResponse);
+			 StringjsonResponse = jsonResponse.toString();
+			String expression2 = "$.id";
+			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
+					expression2, String.class);
+			
+		}
 
 	}
 
