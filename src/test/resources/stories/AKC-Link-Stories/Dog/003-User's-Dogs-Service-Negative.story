@@ -33,6 +33,10 @@ And we set Body with {
                     },
                     {
                     "name" : "custom Name"
+    "mix": false,
+    "breeds" : [
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -45,10 +49,6 @@ And we set Body with {
     
 Then the service response should be: 409
 |--And json response should equal:Negative_TC-001_Post_Dog_to_User_service
-
-
-
-
 
 Scenario: TC-003_DOG_Negative: Verify Add Dog service using empty data  for gender
 
@@ -73,6 +73,14 @@ And we set Body with {
                     },
                     {
                     "name" : "custom Name"
+    "name" : "dds",
+    "gender" : "",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -109,6 +117,14 @@ And we set Body with {
                     },
                     {
                     "name" : "custom Name"
+    "name" : "dds",
+    "gender" : "F",
+    "neutered" : "",
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -145,6 +161,14 @@ And we set Body with {
                     },
                     {
                     "name" : "custom Name"
+    "name" : "dds",
+    "gender" : "F",
+    "neutered" : true,
+    "age" : "",
+    "mix": false,
+    "breeds" : [
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -158,7 +182,7 @@ Then the service response should be: 409
 And json response should equal:Negative_TC-005_Post_Dog_to_User_service
 
 
-Scenario: TC-006_DOG_Negative: Verify Add Dog service using empty data  for breedSource
+Scenario: TC-006_DOG_Negative: Verify Add Dog service using empty data  for mix
 
 Given Create new user
 And Login with valid cridintials
@@ -181,6 +205,14 @@ And we set Body with {
                     },
                     {
                     "name" : "custom Name"
+    "name" : "dds",
+    "gender" : "F",
+    "neutered" : true,
+    "age" : 5,
+    "mix": "",
+    "breeds" : [
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -210,6 +242,7 @@ And we set Body with {
     "neutered" : false,
     "age" : 4,
     "mix": true,
+    "mix": false,
     "breeds" : [
                     {
                     "id" : ""
@@ -247,12 +280,14 @@ And we set Body with {
     "neutered" : false,
     "age" : 4,
     "mix": true,
+    "mix": false,
     "breeds" : [
                     {
                     "id" : ""
                     },
                     {
                     "id" : 13
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -268,10 +303,6 @@ And we set Body with {
     
 Then the service response should be: 409
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
-
-
-
-Scenario: TC-010_DOG_Negative: Verify Add Dog service when breedSource is "unlisted Breed" and unlistedBreedName is empty
 
 Given Create new user
 And Login with valid cridintials
@@ -368,6 +399,14 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -405,6 +444,14 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -442,6 +489,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -449,6 +507,7 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
@@ -469,17 +528,23 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
     "name" : " ",
-    "photo" : "https://cdn.xyz.com/…..jpg",
     "gender" : "M",
     "neutered" : false,
-    "age" : "3",
-    "breedSource": "unlisted breed",
-    "breedId1" : "1",
-    "breedId2" : "2",
-    "breedId1Percentage" : "50",
-    "unlistedBreedName": "New Breed",
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "custom Name"
+                    }
+                ],
     "description" : "My dog Pucy",
-    "dateOfBirth" : "2015-12-08",
+    "dateOfBirth" : "2013-03-07",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
@@ -509,6 +574,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "S",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -545,6 +621,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : "ss",
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -580,6 +667,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "s",
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -649,6 +747,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "Z"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -684,6 +793,17 @@ And we set Body with {
                     },
                     {
                     "id" : ss
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "id" : "Z"
                     },
                     {
                     "name" : "custom Name"
@@ -720,12 +840,24 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
                     }
                 ],
     "description" : "123SSS@Da",
+    "description" : "@@",
     "dateOfBirth" : "2013-03-07",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
@@ -756,6 +888,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -791,6 +934,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -799,6 +953,7 @@ And we set Body with {
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
     "weight" : @,
+    "weight" : "@",
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
@@ -826,6 +981,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -861,6 +1027,18 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -868,6 +1046,7 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "@@",
@@ -896,6 +1075,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -903,6 +1093,7 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
@@ -947,8 +1138,6 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-0031_Post_Dog_to_User_service
 
 
-Scenario: TC-032_DOG_Negative: Verify Add Dog service using invalid data  (-1,0,24, 26,49,51,74,76,60,100,255) for breed_id1_percentage
-
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -982,7 +1171,6 @@ And we set Body with {
 Then the service response should be: 409
 |--And json response should equal:Negative_TC-0032_Post_Dog_to_User_service
 
-
 Scenario: TC-033_DOG_Negative: Verify Add Dog service using  invalid data (-1) for age
 
 Given Create new user
@@ -1003,6 +1191,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : -4,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -1010,6 +1209,7 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
@@ -1039,6 +1239,17 @@ And we set Body with {
                     },
                     {
                     "id" : 13
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 51,
+    "mix": false,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
                     },
                     {
                     "name" : "custom Name"
@@ -1046,6 +1257,7 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2013-03-07",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
