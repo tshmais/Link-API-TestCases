@@ -74,6 +74,7 @@ public class Steps {
 	String id;
 	String Generated_ID;
 	String Generated_device_ID;
+	String Generated_Mac_ID;
 	
 
 	
@@ -169,7 +170,7 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter1\\]", cds.user_id);
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
 
 		for (int p = 1; p <= params; p++) {
 			switch (p) {
@@ -259,6 +260,36 @@ public class Steps {
 		if (json.contains("UserID")) {
 
 			json = json.replace("UserID", response2);
+		}
+		
+		if (json.contains("collar_ID")) {
+
+			json = json.replace("collar_ID", Generated_ID);
+			}
+		
+		if (json.contains("Device_Id")) {
+
+			json = json.replace("Device_Id", Generated_device_ID);
+
+		}
+		
+		
+		if (json.contains("Base_Id")) {
+
+			json = json.replace("Base_Id", Generated_ID);
+
+		}
+		if (json.contains("Mac_Id")) {
+
+			json = json.replace("Mac_Id", Generated_Mac_ID);
+
+		}
+		
+		
+		if (json.contains("Dog_Id")) {
+
+			json = json.replace("Dog_Id", Generated_ID);
+
 		}
 
 		if (json.contains("LoginID")) {
@@ -401,7 +432,7 @@ public class Steps {
 	@Then("add Session $name to Request headers")
 	public void addTokens(String name) {
 
-		reqHandler.setRequestHeader(name, cds.access_token);
+		reqHandler.setRequestHeader(name, response);
 	}
 
 	@Given("url contains the parameter: $value")
@@ -558,6 +589,9 @@ public class Steps {
 			String expression3 = "$.deviceId";
 			String Collar_Device_ID = JsonPath.parse(StringjsonResponse).read(
 					expression3, String.class);
+			Generated_device_ID = Collar_Device_ID;
+			
+			
 	}}
 	
 	@Given("Create new dog")
@@ -591,7 +625,7 @@ public class Steps {
 			String expression2 = "$.id";
 			String Dog_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
-		
+			Generated_ID = Dog_id;
 	}}
 	
 	@Given("Create new BaseStation")
@@ -628,7 +662,12 @@ public class Steps {
 			String expression2 = "$.id";
 			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
+			Generated_ID = baseStation_id;
 			
+			String expression3 = "$.macAddrId";
+			String baseStation_macAddrId = JsonPath.parse(StringjsonResponse).read(
+					expression3, String.class);
+			Generated_Mac_ID =baseStation_macAddrId;
 		}
 
 	}
