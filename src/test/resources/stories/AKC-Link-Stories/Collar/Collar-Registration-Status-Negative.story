@@ -1,10 +1,5 @@
 Meta:
-@Collar
-@Collar_Registration_Status_Negative_scenarios
-@Collar_Negative
-@ReportName Collar_Negative
-@Link
-
+@skip
 Narrative:
 In order to test Update User Service
 As a tester

@@ -63,6 +63,7 @@ public class Steps {
 	public List<String> dataList = new ArrayList<String>();
 	public String JsonValue;
 	public String JsonValue2;	
+	public String user_id_file = "User ID";
 	public String user_email_file = "User_email_address";
 	public String dog_ID_file = "Dog ID";
 	public String collar_ID_file = "Collar ID";
@@ -251,6 +252,12 @@ public class Steps {
 		}
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
+		
+
+		if (json.contains("UserID")) {
+
+			json = json.replace("UserID", response2);
+		}
 
 		if (json.contains("LoginID")) {
 
@@ -620,8 +627,8 @@ public class Steps {
 
 		int items1 = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_users")));
-		cds.writedata_user("Users");
-		cds.writedata_user(user_email_file);
+		cds.writedata_user_type("Users");
+		cds.writedata_user(user_id_file,user_email_file,"Password");
 		// prepare URL
 		/*
 		 * String emailAddress1 = EnvirommentManager.getInstance()
@@ -645,8 +652,8 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_users")));
 		int dogs = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_dogs")));
-		cds.writedata_user("Users With Dogs");
-		cds.writedata_user_other(user_email_file, dog_ID_file);
+		cds.writedata_user_type("Users With Dogs");
+		cds.writedata_user_other(user_id_file,user_email_file, dog_ID_file,"Password");
 		for (int i = 1; i <= items1; i++) {
 
 			cds.createUserswithdogs(items1, url1, body1, method1, dogs, Dog_Name, i);
@@ -662,8 +669,8 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_users")));
 		int basestations = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_basestations")));
-		cds.writedata_user("Users With BaseStations");
-		cds.writedata_user_other(user_email_file, basestarion_ID_file);
+		cds.writedata_user_type("Users With BaseStations");
+		cds.writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
 		for (int i = 1; i <= items1; i++) {
 
 			cds.createUserswithbaseStation(items1, url1, body1, method1,
@@ -681,8 +688,8 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_users")));
 		int collars = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user("Users With Collars");
-		cds.writedata_user_other(user_email_file, collar_ID_file);
+		cds.writedata_user_type("Users With Collars");
+		cds.writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
 
 		for (int i = 1; i <= items1; i++) {
 
@@ -702,7 +709,7 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_basestations")));
 		int collars = Integer.parseInt(String.format(EnvirommentManager
 				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user("Users with BaseStations and collars");
+		cds.writedata_user_type("Users with BaseStations and collars");
 
 		for (int i = 1; i <= items1; i++) {
 
@@ -727,7 +734,7 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_collars")));
 	
 
-		cds.writedata_user("Users with Dogs BaseStations and Collars");
+		cds.writedata_user_type("Users with Dogs BaseStations and Collars");
 
 		for (int i = 1; i <= items1; i++) {
 

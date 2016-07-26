@@ -50,6 +50,7 @@ public class Create_Data_Steps {
 	public String access_token;
 	public String user_id;
 	public String user_email_file = "User_email_address";
+	public String user_id_file = "User ID";
 	public String dog_ID_file = "Dog ID";
 	public String collar_ID_file = "Collar ID";
 	public String basestarion_ID_file = "Base Station ID";
@@ -113,8 +114,8 @@ public class Create_Data_Steps {
 			System.out.println(jsonbody);
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
-
-			writedata_user(User_Email);
+			login();
+			writedata_user(user_id,User_Email,"P@ssw0rd");
 
 		}
 
@@ -337,7 +338,7 @@ public class Create_Data_Steps {
 			jsonResponse = parsers.asJson(resp);
 
 		}
-		writedata_user_other(user_email_file, collar_ID_file);
+		writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
 		for (int x = 1; x <= collars; x++) {
 
 			login();
@@ -345,7 +346,7 @@ public class Create_Data_Steps {
 
 		}
 
-		writedata_user_other(user_email_file, basestarion_ID_file);
+		writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
 
 		for (int y = 1; y <= basestations; y++) {
 
@@ -404,14 +405,14 @@ public class Create_Data_Steps {
 
 		}
 
-		writedata_user_other(user_email_file, collar_ID_file);
+		writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
 		for (int x = 1; x <= collars; x++) {
 
 			login();
 			Create_Collars(url, method);
 
 		}
-		writedata_user_other(user_email_file, basestarion_ID_file);
+		writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
 
 		for (int y = 1; y <= basestations; y++) {
 
@@ -420,7 +421,7 @@ public class Create_Data_Steps {
 
 		}
 
-		writedata_user_other(user_email_file, dog_ID_file);
+		writedata_user_other(user_id_file,user_email_file, dog_ID_file,"Password");
 
 		for (int z = 1; z <= dogs; z++) {
 
@@ -521,7 +522,7 @@ public class Create_Data_Steps {
 			String expression2 = "$.id";
 			String Dog_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
-			writedata_user_other(User_Email, Dog_id);
+			writedata_user_other(user_id,User_Email, Dog_id,"P@ssw0rd");
 
 		}
 
@@ -581,7 +582,7 @@ public class Create_Data_Steps {
 			String expression2 = "$.id";
 			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
-			writedata_user_other(User_Email, baseStation_id);
+			writedata_user_other(user_id,User_Email, baseStation_id,"P@ssw0rd");
 		}
 
 	}
@@ -645,13 +646,13 @@ public class Create_Data_Steps {
 					expression3, String.class);
 			Generated_device_ID = Collar_Device_ID;
 
-			writedata_user_other(User_Email, Collar_ID);
+			writedata_user_other(user_id,User_Email, Collar_ID,"P@ssw0rd");
 
 		}
 
 	}
 
-	protected void writedata_user(String name) throws FileNotFoundException {
+	protected void writedata_user(String U_id ,String name , String Pass) throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
 		String ReportName = System.getProperty("Report_Name");
 		String CSVName = ReportName == null ? null : ReportName.replaceFirst(
@@ -660,11 +661,15 @@ public class Create_Data_Steps {
 			CSVName = "Extracted data file " + buildName + ".csv";
 		}
 		StringBuilder sb = new StringBuilder();
+		sb.append(U_id);
+		sb.append(',');
 		sb.append(name);
+		sb.append(',');
+		sb.append(Pass);
 		sb.append(',');
 		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
 				.getReportDataManager().getReportPath()
-				+ File.separator + "akctest", true);
+				+ File.separator + CSVName, true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
@@ -678,7 +683,7 @@ public class Create_Data_Steps {
 
 	}
 
-	protected void writedata_user_other(String name, String Dog_id)
+	protected void writedata_user_other(String U_id,String name, String Dog_id ,String Pass)
 			throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
 		String ReportName = System.getProperty("Report_Name");
@@ -688,13 +693,17 @@ public class Create_Data_Steps {
 			CSVName = "Extracted data file " + buildName + ".csv";
 		}
 		StringBuilder sb = new StringBuilder();
+		sb.append(U_id);
+		sb.append(',');
 		sb.append(name);
 		sb.append(',');
 		sb.append(Dog_id);
 		sb.append(',');
+		sb.append(Pass);
+		sb.append(',');
 		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
 				.getReportDataManager().getReportPath()
-				+ File.separator + "akctest", true);
+				+ File.separator + CSVName, true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bw)) {
 			out.println(sb.toString());
@@ -707,6 +716,35 @@ public class Create_Data_Steps {
 		System.err.println("Write the data to csv file is done!");
 
 	}
+	protected void writedata_user_type(String name)
+			throws FileNotFoundException {
+		String buildName = System.getProperty("buildName");
+		String ReportName = System.getProperty("Report_Name");
+		String CSVName = ReportName == null ? null : ReportName.replaceFirst(
+				".html", ".csv");
+		if (CSVName == null) {
+			CSVName = "Extracted data file " + buildName + ".csv";
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(name);
+		sb.append(',');
+		
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
+				.getReportDataManager().getReportPath()
+				+ File.separator + CSVName, true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw)) {
+			out.println(sb.toString());
+			// more code
+		} catch (IOException e) {
+			// exception handling left as an exercise for the reader
+		}
+		// pw.write(sb.toString());
+
+		System.err.println("Write the data to csv file is done!");
+
+	}
+
 
 }
 
