@@ -679,6 +679,13 @@ public class Steps {
 
 		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
 	}
+	
+	@Given("I want to close the MySQL DB connection")
+	@Then("I want to close the MySQL DB connection")
+	public void Close_connect2MySQL() throws ClassNotFoundException, SQLException {
+
+		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
+	}
 
 	@When("I want to pull the data from the DB using $query query")
 	@Then("I want to pull the data from the DB using $query query")

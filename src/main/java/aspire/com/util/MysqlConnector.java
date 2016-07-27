@@ -71,6 +71,20 @@ import org.json.JSONObject;
 
 			return true;
 		}
+		
+		public  boolean dbcloseConn(){
+			 try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("Cannot close");
+				return false;
+			}
+			 System.err.println("Connection closed");
+			 return true;
+		}
+		 
 
 		/*
 		 * public List<String> ExecuteSpecificQuery(String Query) throws
