@@ -156,42 +156,7 @@ public class Steps {
 		System.out.println("The URL is: " + URL);
 	}
 
-	@When("service url equals : $url with $params parameters")
-	@Then("service url equals : $url with $params parameters")
-	public void setServicesURLwithtwoParametrs(String url, int params)
-			throws URISyntaxException {
-		if (url.toLowerCase().startsWith("http://www")
-				|| url.toLowerCase().startsWith("https://www")) {
-			URL = url;
-		} else if (url.startsWith("%s")) {
-			URL = String.format(url, getRootUrl());
-		} else {
-			URL = String.format(
-					EnvirommentManager.getInstance().getProperty(url),
-					getRootUrl());
-		}
-		URL = URL.replaceFirst("\\[parameter1\\]", response2);
-
-		for (int p = 1; p <= params; p++) {
-			switch (p) {
-			case 1:
-				id = resp1;
-				break;
-			case 2:
-				id = resp2;
-				break;
-			case 3:
-				id = resp3;
-				break;
-			}
-
-			URL = URL.replaceFirst("\\[param" + p + "\\]", id);
-		}
-		reqHandler.setRequestUrl(URL);
-
-		ASReport.getInstance().append(URL);
-		System.out.println("The URL is: " + URL);
-	}
+	
 
 	@Given("service method is $method")
 	@When("service method is $method")
@@ -401,6 +366,109 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
+	
+	@When("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
+	@Then("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
+	public void setServicesURLwithParameters(String url, String param1 , String param2, String param3)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		URL = URL.replaceFirst("\\[parameter1\\]", param1);
+		URL = URL.replaceFirst("\\[parameter2\\]", param2);
+		URL = URL.replaceFirst("\\[parameter3\\]", param3);
+
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
+
+	@When("service url equals : $url with $parameter1 and $parameter2")
+	@Then("service url equals : $url with $parameter1 and $parameter2")
+	public void setServicesURLwithParameters(String url, String param1 , String param2)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		URL = URL.replaceFirst("\\[parameter1\\]", param1);
+		URL = URL.replaceFirst("\\[parameter2\\]", param2);
+		
+
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
+	
+	@When("service url equals : $url with $params parameters")
+	@Then("service url equals : $url with $params parameters")
+	public void setServicesURLwithtwoParametrs(String url, int params)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+
+		for (int p = 1; p <= params; p++) {
+			switch (p) {
+			case 1:
+				id = resp1;
+				break;
+			case 2:
+				id = resp2;
+				break;
+			case 3:
+				id = resp3;
+				break;
+			}
+
+			URL = URL.replaceFirst("\\[param" + p + "\\]", id);
+		}
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
+
+	@When("set service url equals : $url with $parameter1")
+	@Then("set service url equals : $url with $parameter1 ")
+	public void setServicesURLwithParameters(String url, String param1 )
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		URL = URL.replaceFirst("\\[parameter1\\]", param1);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
 
 	// @When("the service url changes to: $url")
 	// public void setServicesURL(String url) throws URISyntaxException {
@@ -553,6 +621,7 @@ public class Steps {
 	
 	
 	@Given("Create new collar")
+	@When("Create new collar")
 	public void Create_collar () throws ClientProtocolException, URISyntaxException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
@@ -595,7 +664,7 @@ public class Steps {
 	}}
 	
 	@Given("Create new dog")
-	@When("Create new dog")
+    @When("Create new dog")
 	public void Create_dog () throws URISyntaxException, ClientProtocolException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
@@ -664,7 +733,6 @@ public class Steps {
 			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
 			Generated_ID = baseStation_id;
-			
 			String expression3 = "$.macAddrId";
 			String baseStation_macAddrId = JsonPath.parse(StringjsonResponse).read(
 					expression3, String.class);
@@ -678,13 +746,6 @@ public class Steps {
 	public void connect2MySQL() throws ClassNotFoundException, SQLException {
 
 		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
-	}
-	
-	@Given("I want to close the MySQL DB connection")
-	@Then("I want to close the MySQL DB connection")
-	public void Close_connect2MySQL() throws ClassNotFoundException, SQLException {
-
-		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
 	}
 
 	@When("I want to pull the data from the DB using $query query")

@@ -8,13 +8,15 @@ Meta:
 
 
 Narrative:
-In order to test Update User Service
+In order to test Update Collar Service
 As a tester
-I want to make sure all return the code 2xx
+I want to make sure all return the code 2XX and 4XX
 
 
 Scenario: TC-001_COLLAR_Negative: Verify Update Collar service using empty value for ID
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
@@ -22,79 +24,87 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
   "id": "",
-  "deviceId": "device_Id",
+  "deviceId": "Device_Id",
   "hardwareVersion": "DS5s60",
   "firmwareVersion": "1.2",
-  "primaryUserId": "LoginID",
+  "primaryUserId": "UserID",
   "version": 0
 }
 
 Then the service response should be: 409
 
 Scenario: TC-002_COLLAR_Negative: Verify Update Collar service using empty value for deviceId
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
-  "id": "collarID",
+  "id": "collar_ID",
   "deviceId": "",
   "hardwareVersion": "DS5s60",
   "firmwareVersion": "1.2",
-  "primaryUserId": "LoginID",
+  "primaryUserId": "UserID",
   "version": 0
 }
 
 Then the service response should be: 409
 
 Scenario: TC-003_COLLAR_Negative: Verify Update Collar service using empty value for hardwareVersion
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
-  "id": "collarID",
-  "deviceId": "device_Id",
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
   "hardwareVersion": "",
   "firmwareVersion": "1.2",
-  "primaryUserId": "LoginID",
+  "primaryUserId": "UserID",
   "version": 0
 }
 
 Then the service response should be: 200
 
 Scenario: TC-004_COLLAR_Negative: Verify Update Collar service using empty value for firmwareVersion
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
-  "id": "collarID",
-  "deviceId": "device_Id",
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
   "hardwareVersion": "DS5s60",
   "firmwareVersion": "",
-  "primaryUserId": "LoginID",
+  "primaryUserId": "UserID",
   "version": 0
 }
 
 Then the service response should be: 200
 
 Scenario: TC-005_COLLAR_Negative: Verify Update Collar service using empty value for primaryUserId
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
-  "id": "collarID",
-  "deviceId": "device_Id",
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
   "hardwareVersion": "DS5s60",
   "firmwareVersion": "1.2",
   "primaryUserId": "",
@@ -105,19 +115,185 @@ Then the service response should be: 409
 
 
 Scenario: TC-006_COLLAR_Negative: Verify Update Collar service using empty value for version
-Given Create users to url : Create_User_service with body: createuserbody with method post and collars for each user
+Given Create new user
+And Login with valid cridintials
+And Create new collar
 When Retrieve first id from response
 And service method is put
 And service url equals : Update_Collar with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 And we set Body with {
-  "id": "collarID",
-  "deviceId": "device_Id",
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
   "hardwareVersion": "DS5s60",
   "firmwareVersion": "1.2",
-  "primaryUserId": "",
+  "primaryUserId": "UserID",
   "version": ""
+}
+Then the service response should be: 409
+
+
+
+Scenario: TC-007_COLLAR_Negative: Verify Update Collar service using invalid data for deviceId
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "@#",
+  "hardwareVersion": "DS5s60",
+  "firmwareVersion": "1.2",
+  "primaryUserId": "UserID",
+  "version": "0"
 }
 
 Then the service response should be: 409
+
+Scenario: TC-008_COLLAR_Negative: Verify Update Collar service using invalid data for hardwareVersion
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "@#",
+  "firmwareVersion": "1.2",
+  "primaryUserId": "UserID",
+  "version": "0"
+}
+
+Then the service response should be: 200
+
+Scenario: TC-009_COLLAR_Negative: Verify Update Collar service using invalid data for firmwareVersion
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "$",
+  "primaryUserId": "UserID",
+  "version": "0"
+}
+
+Then the service response should be: 200
+
+Scenario: TC-010_COLLAR_Negative: Verify Update Collar service using invalid data for primaryUserId
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "1",
+  "primaryUserId": "#$",
+  "version": "0"
+}
+
+Then the service response should be: 400
+
+Scenario: TC-011_COLLAR_Negative: Verify Update Collar service using invalid data for version
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "1",
+  "primaryUserId": "UserID",
+  "version": "*"
+}
+
+Then the service response should be: 400
+
+
+Scenario: TC-012_COLLAR_Negative: Verify Update Collar service using  for User ID not exist
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "1",
+  "primaryUserId": "123456789",
+  "version": "0"
+}
+
+Then the service response should be: 409
+
+Scenario: TC-013_COLLAR_Negative: Verify Update Collar service using invalid data for ID
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "@#",
+  "deviceId": "Device_Id",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "1",
+  "primaryUserId": "UserID",
+  "version": "0"
+}
+
+Then the service response should be: 400
+
+
+Scenario: TC-014_COLLAR_Negative: Verify Update Collar service using Collar ID not exist
+Given Create new user
+And Login with valid cridintials
+And Create new collar
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Collar with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with {
+  "id": "collar_ID",
+  "deviceId": "019101299287",
+  "hardwareVersion": "DS232",
+  "firmwareVersion": "1",
+  "primaryUserId": "UserID",
+  "version": "0"
+}
+
+Then the service response should be: 409
+
