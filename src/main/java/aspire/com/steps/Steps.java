@@ -595,6 +595,7 @@ public class Steps {
 	}}
 	
 	@Given("Create new dog")
+	@When("Create new dog")
 	public void Create_dog () throws URISyntaxException, ClientProtocolException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
