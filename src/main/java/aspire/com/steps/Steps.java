@@ -449,6 +449,96 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
+	
+	
+	@When("The service url equals : $url with $user and $First_Param")
+	@Then("The service url equals : $url with $user and $First_Param")
+	public void setServicesURLwithTwoParametrsa(String url,String User, String First_Param)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		
+
+		if (User.equalsIgnoreCase("Same_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		}
+		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
+		}
+		if (User.equalsIgnoreCase("Existing_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "1");
+		}
+		if (First_Param.equalsIgnoreCase("Same_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", response2);
+		}
+		if (First_Param.equalsIgnoreCase("Not_Exist_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
+		}
+		if (First_Param.equalsIgnoreCase("Existing_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "1");
+		}
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
+	
+	@When("The service url equals : $url with $user and $First_Param and $Second_Param")
+	@Then("The service url equals : $url with $user and $First_Param and $Second_Param")
+	public void setServicesURLwithThreeParametrsa(String url,String User, String First_Param, String Second_Param)
+			throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+		
+
+		if (User.equalsIgnoreCase("Same_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		}
+		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
+		}
+		if (User.equalsIgnoreCase("Existing_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "1");
+		}
+		if (First_Param.equalsIgnoreCase("Same_First_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", resp1);
+		}
+		if (First_Param.equalsIgnoreCase("Not_Exist_First_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
+		}
+		if (First_Param.equalsIgnoreCase("Existing_First_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "1");
+		}
+		if (Second_Param.equalsIgnoreCase("Same_Second_ID")) {
+			URL = URL.replaceFirst("\\[parameter3\\]", resp2);
+		}
+		if (Second_Param.equalsIgnoreCase("Not_Exist_Second_ID")) {
+			URL = URL.replaceFirst("\\[parameter3\\]", "100000000");
+		}
+		if (Second_Param.equalsIgnoreCase("Existing_Second_ID")) {
+			URL = URL.replaceFirst("\\[parameter3\\]", "1");
+		}
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
 
 	@When("set service url equals : $url with $parameter1")
 	@Then("set service url equals : $url with $parameter1 ")
