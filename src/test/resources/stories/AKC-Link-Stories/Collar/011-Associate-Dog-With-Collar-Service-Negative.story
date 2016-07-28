@@ -1,9 +1,5 @@
 Meta:
-@Collar
-@Associate-Dog-With-Collar-Service-Negative
-@Collar_Positive
-@ReportName Collar_Negative
-@Link
+@skip
 
 Narrative:
 In order to test Associate_Dog_With_Collar_Service

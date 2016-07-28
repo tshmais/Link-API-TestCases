@@ -81,7 +81,7 @@ And we set Body with
     "loginProviderToken": ""
    }
 }
-Then the service response should be: 409
+Then the service response should be: 201
 
 Scenario: TC-005_USER_Negative: Verify Create User service using empty data for timezone
 Given service method is post
