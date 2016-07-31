@@ -469,6 +469,10 @@ public class Steps {
 
 		if (User.equalsIgnoreCase("Same_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", response2);
+			
+		}
+		if (First_Param.equalsIgnoreCase("Empty_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", " ");
 		}
 		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
@@ -482,6 +486,9 @@ public class Steps {
 		if (First_Param.equalsIgnoreCase("Not_Exist_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
 		}
+		if (First_Param.equalsIgnoreCase("Empty_ID")) {
+				URL = URL.replaceFirst("\\[parameter2\\]", " ");
+		}
 		if (First_Param.equalsIgnoreCase("Existing_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
 		}
@@ -491,8 +498,8 @@ public class Steps {
 		System.out.println("The URL is: " + URL);
 	}
 	
-	@When("The service url equals : $url with $user and $First_Param and $Second_Param")
-	@Then("The service url equals : $url with $user and $First_Param and $Second_Param")
+	@When("The service url equal : $url with $user and $First_Param and $Second_Param")
+	@Then("The service url equal : $url with $user and $First_Param and $Second_Param")
 	public void setServicesURLwithThreeParametrsa(String url,String User, String First_Param, String Second_Param)
 			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
@@ -621,6 +628,7 @@ public class Steps {
 	}
 
 	@Given("Login with valid cridintials")
+	@Then("Login with valid cridintials")
 	public void Login() throws URISyntaxException, ClientProtocolException,
 			IOException {
 		String name = "Content-Type";
@@ -661,6 +669,7 @@ public class Steps {
 	}
 
 	@Given("Create new user")
+	@Then("Create new user")
 	public void Create_User() throws URISyntaxException,
 			ClientProtocolException, IOException {
 		String name = "Content-Type";
@@ -712,6 +721,7 @@ public class Steps {
 	
 	@Given("Create new collar")
 	@When("Create new collar")
+	@Then("Create new collar")
 	public void Create_collar () throws ClientProtocolException, URISyntaxException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
@@ -755,6 +765,7 @@ public class Steps {
 	
 	@Given("Create new dog")
     @When("Create new dog")
+	@Then("Create new dog")
 	public void Create_dog () throws URISyntaxException, ClientProtocolException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";

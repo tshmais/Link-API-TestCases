@@ -41,7 +41,6 @@ And we set Body with {
 
 Then the service response should be: 201
 
-
 Scenario: TC-003_COLLAR_Negative: Verify Add Collar service using empty data  for firmwareVersion
 Given Create new user
 And Login with valid cridintials
@@ -106,7 +105,7 @@ And we set Body with {
 
 Then the service response should be: 201
                                     
-Scenario: TC-007_COLLAR_Negative: Verify Add Collar service using deleted data  for  exist collar
+Scenario: TC-008_COLLAR_Negative: Verify Add Collar service using data  for Non consistent token with the id
 Given Create new user
 And Login with valid cridintials
 And service method is post
