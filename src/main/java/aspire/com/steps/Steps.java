@@ -481,7 +481,7 @@ public class Steps {
 			URL = URL.replaceFirst("\\[parameter1\\]", "1");
 		}
 		if (First_Param.equalsIgnoreCase("Same_ID")) {
-			URL = URL.replaceFirst("\\[parameter2\\]", response2);
+			URL = URL.replaceFirst("\\[parameter2\\]", resp1);
 		}
 		if (First_Param.equalsIgnoreCase("Not_Exist_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
