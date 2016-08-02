@@ -939,151 +939,132 @@ public class Steps {
 	}
 
 	// /////////////////////////////////////////////++++++ Create Data
-	// ++++++///////////////////////////////////////////////////
+		// ++++++///////////////////////////////////////////////////
 
-	/*
-	 * @When("we set DataSetBody with :$jsonbody")
-	 * 
-	 * @Then("we set DataSetBody with :$jsonbody") public void
-	 * setJsonBodySetData(String jsonbody) throws UnsupportedEncodingException {
-	 * 
-	 * 
-	 * if (jsonbody.contains("Generated-Email")) { String emailAddress1 =
-	 * EnvirommentManager.getInstance().getProperty( "User_Email_Address");
-	 * String emails []; emails = emailAddress1.split(",");
-	 * 
-	 * for (int x = 0; x < emails.length; x++) { for (int j = 0; j <
-	 * emails[x].length(); j++) {
-	 * 
-	 * jsonbody = jsonbody.replace("Generated-Email", emails[x]);
-	 * 
-	 * }
-	 * 
-	 * } reqHandler.setRequestBody(jsonbody); System.out.print(jsonbody); } }
-	 */
 
-	@Given("Create users to url: $url with body: $body with method $method")
-	public void createnthItems(String url1, String body1, String method1)
-			throws URISyntaxException, ClientProtocolException, IOException {
 
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		cds.writedata_user_type("Users");
-		cds.writedata_user(user_id_file,user_email_file,"Password");
-		// prepare URL
-		/*
-		 * String emailAddress1 = EnvirommentManager.getInstance()
-		 * .getProperty("User_Email_Address");
-		 */
+		@Given("Create users to url: $url with body: $body")
+		public void createnthItems(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
 
-		// emails = emailAddress1.split(",");
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			cds.writedata_user_type("Users");
+			cds.writedata_user(user_id_file, user_email_file, "Password");
+			// prepare URL
+			/*
+			 * String emailAddress1 = EnvirommentManager.getInstance()
+			 * .getProperty("User_Email_Address");
+			 */
 
-		for (int i = 1; i <= items1; i++) {
-			cds.create_Users(items1, url1, body1, method1, i);
+			// emails = emailAddress1.split(",");
+
+			for (int i = 1; i <= items1; i++) {
+				cds.create_Users(items1, url1, body1,i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with dogs for each user and the same start with $name")
+		public void Create_Users_with_Dogs(String url1, String body1,
+				String Dog_Name) throws URISyntaxException,
+				ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int dogs = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_dogs")));
+			cds.writedata_user_type("Users With Dogs");
+			cds.writedata_user_other(user_id_file, user_email_file, dog_ID_file,
+					"Password");
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithdogs(items1, url1, body1,dogs,
+						Dog_Name, i);
+
+			}
+		}
+
+		@Given("Create users to url : $url with body: $body with BaseStations for each user")
+		public void Create_Users_with_BaseStation(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			cds.writedata_user_type("Users With BaseStations");
+			cds.writedata_user_other(user_id_file, user_email_file,
+					basestarion_ID_file, "Password");
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithbaseStation(items1, url1, body1, basestations, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with collars for each user")
+		public void Create_Users_with_collars(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+			cds.writedata_user_type("Users With Collars");
+			cds.writedata_user_other(user_id_file, user_email_file, collar_ID_file,
+					"Password");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithcollars(items1, url1, body1, collars, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with collars and basestations for each user")
+		public void Create_Users_with_collarsAnd_Basestations(String url1,
+				String body1) throws URISyntaxException, ClientProtocolException,
+				IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+			cds.writedata_user_type("Users with BaseStations and collars");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithcollarsAnd_Basestations(items1, url1, body1,
+						collars, basestations, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body : $body with dogs start with $Name and collars and basestations for each user")
+		public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1,
+				String body1, String Dog_name) throws URISyntaxException,
+				ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int dogs = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_dogs")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+
+			cds.writedata_user_type("Users with Dogs BaseStations and Collars");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswith_dogs_collarsAnd_Basestations(items1, url1,
+						body1, dogs, Dog_name, collars, basestations, i);
+
+			}
 
 		}
 
 	}
-
-	@Given("Create users to url : $url with body: $body with method $method and dogs for each user and the same start with $name")
-	public void Create_Users_with_Dogs(String url1, String body1,
-			String method1, String Dog_Name) throws URISyntaxException,
-			ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int dogs = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_dogs")));
-		cds.writedata_user_type("Users With Dogs");
-		cds.writedata_user_other(user_id_file,user_email_file, dog_ID_file,"Password");
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithdogs(items1, url1, body1, method1, dogs, Dog_Name, i);
-
-		}
-	}
-
-	@Given("Create users to url : $url with body: $body with method $method and BaseStations for each user")
-	public void Create_Users_with_BaseStation(String url1, String body1,
-			String method1) throws URISyntaxException, ClientProtocolException,
-			IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		cds.writedata_user_type("Users With BaseStations");
-		cds.writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithbaseStation(items1, url1, body1, method1,
-					basestations, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body: $body with method $method and collars for each user")
-	public void Create_Users_with_collars(String url1, String body1,
-			String method1) throws URISyntaxException, ClientProtocolException,
-			IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user_type("Users With Collars");
-		cds.writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithcollars(items1, url1, body1, method1, collars, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body: $body with method $method with collars and basestations for each user")
-	public void Create_Users_with_collarsAnd_Basestations(String url1,
-			String body1, String method1) throws URISyntaxException,
-			ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user_type("Users with BaseStations and collars");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithcollarsAnd_Basestations(items1, url1, body1,
-					method1, collars, basestations, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body : $body with method $method with dogs start with $Name and collars and basestations for each user")
-	public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1,
-			String body1, String method1, String Dog_name)
-			throws URISyntaxException, ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int dogs = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_dogs")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-	
-
-		cds.writedata_user_type("Users with Dogs BaseStations and Collars");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswith_dogs_collarsAnd_Basestations(items1, url1, body1,
-					method1, dogs, Dog_name, collars, basestations, i);
-
-		}
-
-	}
-
-}

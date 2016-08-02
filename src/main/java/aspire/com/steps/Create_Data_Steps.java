@@ -28,24 +28,23 @@ import com.google.gson.JsonElement;
 import com.jayway.jsonpath.JsonPath;
 
 public class Create_Data_Steps {
-	
+
 	private static String JsonResponse = null;
 	HttpRequestHandler reqHandler = HttpRequestHandler.getInstance();
 	Parsers parsers = new Parsers();
 	String URL, myResponse = "myResponse";
 	JsonElement jsonResponse;
-	
+
 	public String StringjsonResponse;
 	public String response;
 	public String response2;
-	
 
 	Gson gson = new Gson();
 	public String JsonValue;
 	public String JsonValue2;
 
 	// Create Data
-	
+
 	public String User_Email;
 	public String access_token;
 	public String user_id;
@@ -59,8 +58,7 @@ public class Create_Data_Steps {
 	String Generated_device_ID;
 
 	String buildName = System.getProperty("buildName");
-	
-	
+
 	protected String getRootUrl() {
 
 		String root_url = System.getProperty("ROOT_URL");
@@ -70,32 +68,12 @@ public class Create_Data_Steps {
 		System.out.println("ROOT_URL: " + root_url);
 		return root_url;
 	}
-	
-	protected void create_Users(int items, String url, String body,
-			String method, int i) throws URISyntaxException,
-			ClientProtocolException, IOException {
+
+	protected void create_Users(int items, String url, String body, int i)
+			throws URISyntaxException, ClientProtocolException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
@@ -115,45 +93,26 @@ public class Create_Data_Steps {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			login();
-			writedata_user(user_id,User_Email,"P@ssw0rd");
+			writedata_user(user_id, User_Email, "P@ssw0rd");
 
 		}
 
 	}
 
 	protected void createUserswithdogs(int items, String url, String body,
-			String method, int Dogs, String Dog_Name, int i)
-			throws URISyntaxException, ClientProtocolException, IOException {
+			int Dogs, String Dog_Name, int i) throws URISyntaxException,
+			ClientProtocolException, IOException {
 
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
-		
+
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
@@ -174,38 +133,19 @@ public class Create_Data_Steps {
 		for (int z = 1; z <= Dogs; z++) {
 
 			login();
-			create_dog(method, Dog_Name, z, i);
+			create_dog(Dog_Name, z, i);
 
 		}
 
 	}
 
-	protected void createUserswithbaseStation(int items, String url, String body,
-			String method, int BaseStations, int i) throws URISyntaxException,
+	protected void createUserswithbaseStation(int items, String url,
+			String body, int BaseStations, int i) throws URISyntaxException,
 			ClientProtocolException, IOException {
 
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
@@ -230,38 +170,19 @@ public class Create_Data_Steps {
 		for (int x = 1; x <= BaseStations; x++) {
 
 			login();
-			Create_BaseStation(url, method);
+			Create_BaseStation(url);
 
 		}
 
 	}
 
 	protected void createUserswithcollars(int items, String url, String body,
-			String method, int collars, int i) throws URISyntaxException,
+			int collars, int i) throws URISyntaxException,
 			ClientProtocolException, IOException {
 
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
@@ -286,37 +207,18 @@ public class Create_Data_Steps {
 		for (int x = 1; x <= collars; x++) {
 
 			login();
-			Create_Collars(url, method);
+			Create_Collars(url);
 
 		}
 
 	}
 
-	protected void createUserswithcollarsAnd_Basestations(int items, String url,
-			String body, String method, int collars, int basestations, int i)
+	protected void createUserswithcollarsAnd_Basestations(int items,
+			String url, String body, int collars, int basestations, int i)
 			throws ClientProtocolException, URISyntaxException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
@@ -338,51 +240,34 @@ public class Create_Data_Steps {
 			jsonResponse = parsers.asJson(resp);
 
 		}
-		writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
+		writedata_user_other(user_id_file, user_email_file, collar_ID_file,
+				"Password");
 		for (int x = 1; x <= collars; x++) {
 
 			login();
-			Create_Collars(url, method);
+			Create_Collars(url);
 
 		}
 
-		writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
+		writedata_user_other(user_id_file, user_email_file,
+				basestarion_ID_file, "Password");
 
 		for (int y = 1; y <= basestations; y++) {
 
 			login();
-			Create_BaseStation(url, method);
+			Create_BaseStation(url);
 
 		}
 
 	}
 
 	protected void createUserswith_dogs_collarsAnd_Basestations(int items,
-			String url, String body, String method, int dogs, String dog_name,
-			int collars, int basestations, int i)
-			throws ClientProtocolException, URISyntaxException, IOException {
+			String url, String body, int dogs, String dog_name, int collars,
+			int basestations, int i) throws ClientProtocolException,
+			URISyntaxException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
@@ -405,28 +290,31 @@ public class Create_Data_Steps {
 
 		}
 
-		writedata_user_other(user_id_file,user_email_file, collar_ID_file,"Password");
+		writedata_user_other(user_id_file, user_email_file, collar_ID_file,
+				"Password");
 		for (int x = 1; x <= collars; x++) {
 
 			login();
-			Create_Collars(url, method);
+			Create_Collars(url);
 
 		}
-		writedata_user_other(user_id_file,user_email_file, basestarion_ID_file,"Password");
+		writedata_user_other(user_id_file, user_email_file,
+				basestarion_ID_file, "Password");
 
 		for (int y = 1; y <= basestations; y++) {
 
 			login();
-			Create_BaseStation(url, method);
+			Create_BaseStation(url);
 
 		}
 
-		writedata_user_other(user_id_file,user_email_file, dog_ID_file,"Password");
+		writedata_user_other(user_id_file, user_email_file, dog_ID_file,
+				"Password");
 
 		for (int z = 1; z <= dogs; z++) {
 
 			login();
-			create_dog(method, dog_name, z, i);
+			create_dog(dog_name, z, i);
 
 		}
 
@@ -472,30 +360,11 @@ public class Create_Data_Steps {
 				String.class);
 	}
 
-	protected void create_dog(String method, String Dog_Name, int z, int i)
+	protected void create_dog(String Dog_Name, int z, int i)
 			throws URISyntaxException, ParseException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
@@ -522,37 +391,18 @@ public class Create_Data_Steps {
 			String expression2 = "$.id";
 			String Dog_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
-			writedata_user_other(user_id,User_Email, Dog_id,"P@ssw0rd");
+			writedata_user_other(user_id, User_Email, Dog_id, "P@ssw0rd");
 
 		}
 
 	}
 
-	protected void Create_BaseStation(String url, String method)
-			throws URISyntaxException, ClientProtocolException, IOException {
+	protected void Create_BaseStation(String url) throws URISyntaxException,
+			ClientProtocolException, IOException {
 
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
@@ -582,36 +432,18 @@ public class Create_Data_Steps {
 			String expression2 = "$.id";
 			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
-			writedata_user_other(user_id,User_Email, baseStation_id,"P@ssw0rd");
+			writedata_user_other(user_id, User_Email, baseStation_id,
+					"P@ssw0rd");
 		}
 
 	}
 
-	protected void Create_Collars(String url, String method)
-			throws URISyntaxException, ClientProtocolException, IOException {
+	protected void Create_Collars(String url) throws URISyntaxException,
+			ClientProtocolException, IOException {
 
 		String name = "Content-Type";
 		String value = "application/json";
-		Method methodName;
-		switch (method) {
-		case "get":
-			methodName = Method.GET;
-			break;
-		case "put":
-			methodName = Method.PUT;
-			break;
-		case "post":
-			methodName = Method.POST;
-			break;
-		case "delete":
-			methodName = Method.DELETE;
-			break;
-		default:
-			methodName = Method.GET;
-			break;
-		}
-
-		reqHandler.createNewRequest(methodName, myResponse);
+		reqHandler.createNewRequest(Method.POST, myResponse);
 
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
@@ -646,13 +478,14 @@ public class Create_Data_Steps {
 					expression3, String.class);
 			Generated_device_ID = Collar_Device_ID;
 
-			writedata_user_other(user_id,User_Email, Collar_ID,"P@ssw0rd");
+			writedata_user_other(user_id, User_Email, Collar_ID, "P@ssw0rd");
 
 		}
 
 	}
 
-	protected void writedata_user(String U_id ,String name , String Pass) throws FileNotFoundException {
+	protected void writedata_user(String U_id, String name, String Pass)
+			throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
 		String ReportName = System.getProperty("Report_Name");
 		String CSVName = ReportName == null ? null : ReportName.replaceFirst(
@@ -683,8 +516,8 @@ public class Create_Data_Steps {
 
 	}
 
-	protected void writedata_user_other(String U_id,String name, String Dog_id ,String Pass)
-			throws FileNotFoundException {
+	protected void writedata_user_other(String U_id, String name,
+			String Dog_id, String Pass) throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
 		String ReportName = System.getProperty("Report_Name");
 		String CSVName = ReportName == null ? null : ReportName.replaceFirst(
@@ -697,9 +530,9 @@ public class Create_Data_Steps {
 		sb.append(',');
 		sb.append(name);
 		sb.append(',');
-		sb.append(Dog_id);
-		sb.append(',');
 		sb.append(Pass);
+		sb.append(',');
+		sb.append(Dog_id);
 		sb.append(',');
 		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
 				.getReportDataManager().getReportPath()
@@ -716,6 +549,7 @@ public class Create_Data_Steps {
 		System.err.println("Write the data to csv file is done!");
 
 	}
+
 	protected void writedata_user_type(String name)
 			throws FileNotFoundException {
 		String buildName = System.getProperty("buildName");
@@ -728,7 +562,7 @@ public class Create_Data_Steps {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(',');
-		
+
 		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
 				.getReportDataManager().getReportPath()
 				+ File.separator + CSVName, true);
@@ -745,8 +579,4 @@ public class Create_Data_Steps {
 
 	}
 
-
 }
-
-
-
