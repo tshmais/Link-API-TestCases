@@ -517,6 +517,13 @@ public class Steps {
 		if (User.equalsIgnoreCase("Same_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", response2);
 		}
+		if (User.equalsIgnoreCase("Empty_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "");		
+			
+		}
+		if (User.equalsIgnoreCase("Invalid_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "@");	
+	}
 		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
 		}
@@ -532,6 +539,12 @@ public class Steps {
 		if (First_Param.equalsIgnoreCase("Existing_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
 		}
+		if (First_Param.equalsIgnoreCase("Empty_First_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "");	
+		}
+		if (First_Param.equalsIgnoreCase("Invalid_First_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", "@");
+		}
 		if (Second_Param.equalsIgnoreCase("Same_Second_ID")) {
 			URL = URL.replaceFirst("\\[parameter3\\]", resp2);
 		}
@@ -540,6 +553,12 @@ public class Steps {
 		}
 		if (Second_Param.equalsIgnoreCase("Existing_Second_ID")) {
 			URL = URL.replaceFirst("\\[parameter3\\]", "1");
+		}
+		if (Second_Param.equalsIgnoreCase("Empty_Second_ID")) {
+			URL = URL.replaceFirst("\\[parameter3\\]", "");
+		}
+		if (Second_Param.equalsIgnoreCase("Invalid_Second_ID")) {
+			URL = URL.replaceFirst("\\[parameter3\\]", "@");	
 		}
 		reqHandler.setRequestUrl(URL);
 

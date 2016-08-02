@@ -23,10 +23,18 @@ And we set Body with {
     "gender" : "M",
     "neutered" : false,
     "age" : 4,
-    "mix": false,
+    "mix": true,
     "breeds" : [
                     {
-                    "name" : "Custom Breed"
+                    "id" : "1"
+                    },
+                    
+                    {
+                    "id" : "2"
+                    },
+                    
+                    {
+                    "id" : 12
                     }
                 ],
     "description" : "My dog Pucy",
