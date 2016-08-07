@@ -24,7 +24,7 @@ And we set Body with {
     "gender" : "M",
     "neutered" : false,
     "age" : 4,
-    "mix": false,
+    "mix": true,
     "breeds" : [
                     {
                     "id" : "1"
@@ -67,15 +67,8 @@ And we set Body with {
     "mix": false,
     "breeds" : [
                     {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : ""
-                    },
-                    {
-                    "name" : "custom Name"
-                    }
-                ],
+                    "id" : "1" }
+                                    ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
@@ -88,49 +81,6 @@ And I want to open a connection to MySQL DB
 And Retrieve Json path $.id response
 And I want to pull the data from the DB using TC-001_select_Dog query with response ID
 And print the value
-
-
-Scenario: TC-004_DOG_Positive: Verify Add Dog service using "breedSource" as Listed  Breed"  and Both breedId1 and breedId2 are provided
- 
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "name" : "Pucy",
-    "gender" : "M",
-    "neutered" : false,
-    "age" : 4,
-    "mix": false,
-    "breeds" : [
-                    {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    },
-                    {
-                    "name" : "custom Name"
-                    }
-                ],
-    "description" : "My dog Pucy",
-    "dateOfBirth" : "2016-07-22",
-    "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-}
-Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using TC-001_select_Dog query with response ID
-And print the value
-
-
-
-
 
 
 
@@ -311,9 +261,6 @@ And we set Body with {
                     },
                     {
                     "id" : "2"
-                    },
-                    {
-                    "name" : ""
                     }
                 ],
     "description" : "My dog Pucy",
@@ -350,9 +297,6 @@ And we set Body with {
                     },
                     {
                     "id" : "2"
-                    },
-                    {
-                    "name" : ""
                     }
                 ],
     "description" : "My dog Pucy",
@@ -389,9 +333,6 @@ And we set Body with {
                     },
                     {
                     "id" : "2"
-                    },
-                    {
-                    "name" : ""
                     }
                 ],
     "description" : "My dog Pucy",
@@ -428,9 +369,6 @@ And we set Body with {
                     },
                     {
                     "id" : "2"
-                    },
-                    {
-                    "name" : ""
                     }
                 ],
     "description" : "My dog Pucy",

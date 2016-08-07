@@ -22,19 +22,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "1",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
     "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -50,19 +49,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
     "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
-    "version" : "1"
-
+    "version" : "2"
 }
 
 Then the service response should be: 409
@@ -77,19 +75,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
     "name" : "",
-    "emailAddress" : "say12@ayyash.com",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
     "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -105,19 +102,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
+    "name" : "testaqa",
     "emailAddress" : "",
     "phoneNo" : "877-444-1234",
     "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -133,19 +129,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "",
     "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -161,19 +156,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
     "cellNo" : "",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -189,19 +183,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -217,19 +210,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -245,19 +237,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -272,19 +263,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -299,19 +289,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -326,19 +315,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : ""
-
 }
 
 Then the service response should be: 409
@@ -354,19 +342,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa#",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa@#",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -382,19 +369,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash",
+    "name" : "testaqa",
+    "emailAddress" : "SS",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -410,21 +396,19 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
-    "phoneNo" : "877-444-123B",
-    "cellNo" : "877-444-1234",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
+    "phoneNo" : "###",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
-
 Then the service response should be: 200
 
 
@@ -438,19 +422,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "####",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -466,21 +449,19 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
-    "facebookUserId" : "ABC",
+    "cellNo" : "877-555-1234",
+    "facebookUserId" : "AAA",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
-
 Then the service response should be: 409
 
 Scenario: TC-018_USER_Negative: Verify Update User service using invalid data for gender
@@ -493,19 +474,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
-    "gender" : "X",
+    "loginProvider" : "LINK",
+    "gender" : "Q",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -521,19 +501,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
-    "passcode" : "ABCD",
+    "passcode" : "#@#@",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 200
@@ -549,19 +528,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
-    "timezone" : "INT",
+    "timezone" : "QA",
     "locale" : "en_US",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -577,19 +555,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
-    "locale" : "123",
+    "locale" : "SAS",
     "version" : "0"
-
 }
 
 Then the service response should be: 409
@@ -605,19 +582,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
-    "version" : "A"
-
+    "version" : "#"
 }
 
 Then the service response should be: 400
@@ -633,21 +609,19 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "0",
-    "name" : "testqa",
-    "emailAddress" : "say12@ayyash.com",
+    "name" : "testaqa",
+    "emailAddress" : "Same_User_Email",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "M",
     "passcode" : "2683",
     "timezone" : "Etc/GMT-6",
     "locale" : "en_US",
     "version" : "0"
-
 }
-
 Then the service response should be: 409
 
 
@@ -661,19 +635,18 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with 
 {
- 
     "id" : "UserID",
-    "name" : "testqa",
+    "name" : "testaqa",
     "emailAddress" : "say12@ayyash",
     "phoneNo" : "877-444-1234",
-    "cellNo" : "877-444-1234b",
+    "cellNo" : "877-555-1234",
     "facebookUserId" : "",
+    "loginProvider" : "LINK",
     "gender" : "X",
     "passcode" : "ABC",
     "timezone" : "ASD",
     "locale" : "AGV",
     "version" : "HH"
-
 }
 
 Then the service response should be: 400
