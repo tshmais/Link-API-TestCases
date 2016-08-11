@@ -15,7 +15,7 @@ I want to make sure all return the code 2XX and 4XX
 
 Scenario: TC-001_COLLAR_Negative: Verify Update Collar service using empty value for ID
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -35,7 +35,7 @@ Then the service response should be: 409
 
 Scenario: TC-002_COLLAR_Negative: Verify Update Collar service using empty value for deviceId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -55,7 +55,7 @@ Then the service response should be: 409
 
 Scenario: TC-003_COLLAR_Negative: Verify Update Collar service using empty value for hardwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -75,7 +75,7 @@ Then the service response should be: 200
 
 Scenario: TC-004_COLLAR_Negative: Verify Update Collar service using empty value for firmwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -95,7 +95,7 @@ Then the service response should be: 200
 
 Scenario: TC-005_COLLAR_Negative: Verify Update Collar service using empty value for primaryUserId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -116,7 +116,7 @@ Then the service response should be: 409
 
 Scenario: TC-006_COLLAR_Negative: Verify Update Collar service using empty value for version
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -137,7 +137,7 @@ Then the service response should be: 409
 
 Scenario: TC-007_COLLAR_Negative: Verify Update Collar service using invalid data for deviceId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -157,7 +157,7 @@ Then the service response should be: 409
 
 Scenario: TC-008_COLLAR_Negative: Verify Update Collar service using invalid data for hardwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -177,7 +177,7 @@ Then the service response should be: 200
 
 Scenario: TC-009_COLLAR_Negative: Verify Update Collar service using invalid data for firmwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -197,7 +197,7 @@ Then the service response should be: 200
 
 Scenario: TC-010_COLLAR_Negative: Verify Update Collar service using invalid data for primaryUserId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -217,7 +217,7 @@ Then the service response should be: 400
 
 Scenario: TC-011_COLLAR_Negative: Verify Update Collar service using invalid data for version
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -238,7 +238,7 @@ Then the service response should be: 400
 
 Scenario: TC-012_COLLAR_Negative: Verify Update Collar service using  for User ID not exist
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -258,7 +258,7 @@ Then the service response should be: 409
 
 Scenario: TC-013_COLLAR_Negative: Verify Update Collar service using invalid data for ID
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put
@@ -279,7 +279,7 @@ Then the service response should be: 400
 
 Scenario: TC-014_COLLAR_Negative: Verify Update Collar service using Collar ID not exist
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is put

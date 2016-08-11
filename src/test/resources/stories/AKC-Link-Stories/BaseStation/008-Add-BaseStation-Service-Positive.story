@@ -12,7 +12,7 @@ I want to make sure all return the code are pass
 
 Scenario: TC-001_BASE_Positive: Verify Create Base service using valid data for new user
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -31,7 +31,7 @@ And print the value
 
 Scenario: TC-006_BASE_Positive: Verify Create Base service using valid data  have leading Zero’s[000] for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -50,7 +50,7 @@ And print the value
 
 Scenario: TC-007_BASE_Positive: Verify Create Base service using valid data [one word] for title
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -69,7 +69,7 @@ And print the value
 
 Scenario: TC-008_BASE_Positive: Verify Create Base service using valid data [90] for latitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -88,7 +88,7 @@ And print the value
 
 Scenario: TC-009_BASE_Positive: Verify Create Base service using valid data [185] for longitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -107,7 +107,7 @@ And print the value
 
 Scenario: TC-009_BASE_Positive: Verify Create Base service using valid data [185] for longitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -126,7 +126,7 @@ And print the value
 
 Scenario: TC-010_BASE_Positive: Verify Create Base service using valid data [12 digits included char] for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -145,7 +145,7 @@ And print the value
 
 Scenario: TC-011_BASE_Positive: Verify Create Base service using valid data [11 digits and can have leading Zero’s] for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -160,7 +160,7 @@ Then the service response should be: 409
 
 Scenario: TC-012_BASE_Positive: Verify Create Base service using valid data [13 digits and can have leading Zero’s] for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -175,7 +175,7 @@ Then the service response should be: 409
 
 Scenario: TC-013_BASE_Positive: Verify Create Base service using valid data [1 characters] for title
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -190,7 +190,7 @@ Then the service response should be: 409
 
 Scenario: TC-014_BASE_Positive: Verify Create Base service using valid data [46 characters] for title
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -205,7 +205,7 @@ Then the service response should be: 409
 
 Scenario: TC-015_BASE_Positive: Verify Create Base service using vaild data [-95.1235] for latitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -220,7 +220,7 @@ Then the service response should be: 409
 
 Scenario: TC-016_BASE_Positive: Verify Create Base service using vaild data [+95.1235] for latitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -235,7 +235,7 @@ Then the service response should be: 409
 
 Scenario: TC-017_BASE_Positive: Verify Create Base service using vaild data [-185.1235] for longitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -250,7 +250,7 @@ Then the service response should be: 409
 
 Scenario: TC-018_BASE_Positive: Verify Create Base service using vaild data [+185.1235] for longitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json

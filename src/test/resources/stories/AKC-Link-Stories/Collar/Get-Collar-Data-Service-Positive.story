@@ -14,7 +14,7 @@ I want to make sure all return the code 2xx
 
 Scenario: TC-001_COLLAR_Positive: Verify Get Collar data service using valid registered data  for collar ID  
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is get

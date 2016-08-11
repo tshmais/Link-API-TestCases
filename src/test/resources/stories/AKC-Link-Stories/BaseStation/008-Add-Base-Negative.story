@@ -12,7 +12,7 @@ I want to make sure all return the code Pass
 
 Scenario:TC-001_BASE_Negative: Verify Create Base service using empty data for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -27,7 +27,7 @@ Then the service response should be: 409
 
 Scenario:TC-002_BASE_Negative: Verify Create Base service using empty data for title
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -42,7 +42,7 @@ Then the service response should be: 409
 
 Scenario:TC-003_BASE_Negative: Verify Create Base service using empty data for latitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -57,7 +57,7 @@ Then the service response should be: 409
 
 Scenario:TC-004_BASE_Negative: Verify Create Base service using empty data for longitude
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -72,7 +72,7 @@ Then the service response should be: 409
 
 Scenario:TC-005_BASE_Negative: Verify Create Base service using empty data for All parameters
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json
@@ -87,7 +87,7 @@ Then the service response should be: 409
 
 Scenario:TC-006_BASE_Negative: Verify Create Base service using invalid data for macAddrId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_BaseStation
 And add to the header Content-Type with value application/json

@@ -13,7 +13,7 @@ I want to make sure all return the code 2xx and 4xx
 
 Scenario: TC-001_COLLAR_Negative: Verify Collar Registration Status service using devices Id for Empty data
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is post
@@ -29,7 +29,7 @@ Then the service response should be: 200
 
 Scenario: TC-002_COLLAR_Positive: Verify Collar Registration Status service using one deviceId for user with registered and access as "false"   
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is post
@@ -46,7 +46,7 @@ Then the service response should be: 200
 
 Scenario: TC-001_COLLAR_Negative: Verify Collar Registration Status service using devices Id for Empty data
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is post
@@ -62,7 +62,7 @@ Then the service response should be: 409
 
 Scenario: TC-002_COLLAR_Negative: Verify Collar Registration Status service using devices Id for devices Id not exist 
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is post
@@ -78,7 +78,7 @@ Then the service response should be: 200
 
 Scenario: TC-004_COLLAR_Negative: Verify Collar Registration Status service using invalid data for Special char  
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is post

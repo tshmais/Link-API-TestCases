@@ -14,7 +14,7 @@ I want to make sure all return the code 2xx
 
 Scenario: TC-001_USER_Positive: Verify Get User's Data service using valid data  for new LINK user
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is get
 When service url equal : Get_User_service
 And add to the header Content-Type with value application/json

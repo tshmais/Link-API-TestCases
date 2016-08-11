@@ -13,7 +13,7 @@ I want to make sure all return the code 201 for POST scenarios
 
 Scenario: TC-001_Dog-Collar Association_Positive: Verify Associate Dog With Collar service using Valid ID's for User,Dog and Collar
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new dog
 When Retrieve first id from response
 And Create new collar
@@ -28,7 +28,7 @@ Then the service response should be: 200
 
 Scenario: TC-002_Dog-Collar Association_Positive: Verify Associate Dog With Collar service using a valid userId that has more than one collar
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new dog
 When Retrieve first id from response
 And Create new collar
@@ -45,7 +45,7 @@ Then the service response should be: 200
 
 Scenario: TC-006_Dog-Collar Association_Positive: Verify Associate Dog With Collar service using a valid userId that has more than one dog
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new dog
 And Create new dog
 And Create new dog
@@ -61,7 +61,7 @@ Then the service response should be: 200
 
 Scenario: TC-007_Dog-Collar Association_Positive: Verify Associate Dog With Collar service using a valid userId that has multi dogs and multi collars
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And Create new dog
 And Create new dog
 And Create new dog

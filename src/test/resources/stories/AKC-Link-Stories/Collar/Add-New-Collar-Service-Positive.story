@@ -14,7 +14,7 @@ I want to make sure all return the code 201
                                   
 Scenario: TC-001_COLLAR_Positive: Verify Add Collar service using valid data  for New Collar
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json

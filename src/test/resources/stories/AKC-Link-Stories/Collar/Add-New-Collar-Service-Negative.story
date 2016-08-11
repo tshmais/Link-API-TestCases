@@ -13,7 +13,7 @@ I want to make sure all return the code 4xx
     
 Scenario:TC-001_COLLAR_Negative: Verify Add Collar service using empty data  for deviceId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -26,9 +26,10 @@ And we set Body with {
 
 Then the service response should be: 409
 
+
 Scenario: TC-002_COLLAR_Negative: Verify Add Collar service using empty data  for hardwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -43,7 +44,7 @@ Then the service response should be: 201
 
 Scenario: TC-003_COLLAR_Negative: Verify Add Collar service using empty data  for firmwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -60,7 +61,7 @@ Then the service response should be: 201
 
 Scenario: TC-004_COLLAR_Negative: Verify Add Collar service using invalid data  for deviceId
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -76,7 +77,7 @@ Then the service response should be: 409
 
 Scenario: TC-005_COLLAR_Negative: Verify Add Collar service using invalid data  for hardwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -92,7 +93,7 @@ Then the service response should be: 201
 
 Scenario: TC-006_COLLAR_Negative: Verify Add Collar service using invalid data  for firmwareVersion
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -107,7 +108,7 @@ Then the service response should be: 201
                                     
 Scenario: TC-008_COLLAR_Negative: Verify Add Collar service using data  for Non consistent token with the id
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
@@ -123,7 +124,7 @@ Then the service response should be: 401
 
 Scenario: TC-009_COLLAR_Negative: Verify Add Collar service using empty data  for All parametes
 Given Create new user
-And Login with valid cridintials
+And Login with valid credentials
 And service method is post
 When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json

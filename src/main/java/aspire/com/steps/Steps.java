@@ -62,7 +62,7 @@ public class Steps {
 	Create_Data_Steps cds = new Create_Data_Steps();
 	public List<String> dataList = new ArrayList<String>();
 	public String JsonValue;
-	public String JsonValue2;
+	public String JsonValue2;	
 	public String user_id_file = "User ID";
 	public String user_email_file = "User_email_address";
 	public String dog_ID_file = "Dog ID";
@@ -75,6 +75,9 @@ public class Steps {
 	String Generated_ID;
 	String Generated_device_ID;
 	String Generated_Mac_ID;
+	
+
+	
 
 	// String ReportName = System.getProperty("Report_Name");
 	// String CSVName = ReportName.replaceFirst(".html", ".csv");
@@ -153,6 +156,8 @@ public class Steps {
 		System.out.println("The URL is: " + URL);
 	}
 
+	
+
 	@Given("service method is $method")
 	@When("service method is $method")
 	@Then("service method is $method")
@@ -215,23 +220,25 @@ public class Steps {
 		}
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
+		
 
 		if (json.contains("UserID")) {
 
 			json = json.replace("UserID", response2);
 		}
-
+		
 		if (json.contains("collar_ID")) {
 
 			json = json.replace("collar_ID", Generated_ID);
-		}
-
+			}
+		
 		if (json.contains("Device_Id")) {
 
 			json = json.replace("Device_Id", Generated_device_ID);
 
 		}
-
+		
+		
 		if (json.contains("Base_Id")) {
 
 			json = json.replace("Base_Id", Generated_ID);
@@ -242,7 +249,8 @@ public class Steps {
 			json = json.replace("Mac_Id", Generated_Mac_ID);
 
 		}
-
+		
+		
 		if (json.contains("Dog_Id")) {
 
 			json = json.replace("Dog_Id", Generated_ID);
@@ -268,13 +276,6 @@ public class Steps {
 			json = json.replace("device_Id", cds.Generated_device_ID);
 
 		}
-		if (json.contains("Same_User_Email")) {
-
-			json = json.replace("Same_User_Email", emailAddress);
-
-		}
-		
-		
 
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
@@ -365,11 +366,11 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
-
+	
 	@When("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
 	@Then("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
-	public void setServicesURLwithParameters(String url, String param1,
-			String param2, String param3) throws URISyntaxException {
+	public void setServicesURLwithParameters(String url, String param1 , String param2, String param3)
+			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -384,14 +385,15 @@ public class Steps {
 		URL = URL.replaceFirst("\\[parameter2\\]", param2);
 		URL = URL.replaceFirst("\\[parameter3\\]", param3);
 
+
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
 
 	@When("service url equals : $url with $parameter1 and $parameter2")
 	@Then("service url equals : $url with $parameter1 and $parameter2")
-	public void setServicesURLwithParameters(String url, String param1,
-			String param2) throws URISyntaxException {
+	public void setServicesURLwithParameters(String url, String param1 , String param2)
+			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -404,11 +406,13 @@ public class Steps {
 		}
 		URL = URL.replaceFirst("\\[parameter1\\]", param1);
 		URL = URL.replaceFirst("\\[parameter2\\]", param2);
+		
+
 
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
-
+	
 	@When("service url equals : $url with $params parameters")
 	@Then("service url equals : $url with $params parameters")
 	public void setServicesURLwithtwoParametrs(String url, int params)
@@ -445,11 +449,12 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
-
+	
+	
 	@When("The service url equals : $url with $user and $First_Param")
 	@Then("The service url equals : $url with $user and $First_Param")
-	public void setServicesURLwithTwoParametrsa(String url, String User,
-			String First_Param) throws URISyntaxException {
+	public void setServicesURLwithTwoParametrsa(String url,String User, String First_Param)
+			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -460,10 +465,11 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
+		
 
 		if (User.equalsIgnoreCase("Same_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", response2);
-
+			
 		}
 		if (First_Param.equalsIgnoreCase("Empty_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", " ");
@@ -481,7 +487,7 @@ public class Steps {
 			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
 		}
 		if (First_Param.equalsIgnoreCase("Empty_ID")) {
-			URL = URL.replaceFirst("\\[parameter2\\]", " ");
+				URL = URL.replaceFirst("\\[parameter2\\]", " ");
 		}
 		if (First_Param.equalsIgnoreCase("Existing_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
@@ -491,11 +497,11 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
-
+	
 	@When("The service url equal : $url with $user and $First_Param and $Second_Param")
 	@Then("The service url equal : $url with $user and $First_Param and $Second_Param")
-	public void setServicesURLwithThreeParametrsa(String url, String User,
-			String First_Param, String Second_Param) throws URISyntaxException {
+	public void setServicesURLwithThreeParametrsa(String url,String User, String First_Param, String Second_Param)
+			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -506,17 +512,18 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
+		
 
 		if (User.equalsIgnoreCase("Same_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", response2);
 		}
 		if (User.equalsIgnoreCase("Empty_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter1\\]", "");
-
+			URL = URL.replaceFirst("\\[parameter1\\]", "");		
+			
 		}
 		if (User.equalsIgnoreCase("Invalid_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter1\\]", "@");
-		}
+			URL = URL.replaceFirst("\\[parameter1\\]", "@");	
+	}
 		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
 		}
@@ -533,7 +540,7 @@ public class Steps {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
 		}
 		if (First_Param.equalsIgnoreCase("Empty_First_ID")) {
-			URL = URL.replaceFirst("\\[parameter2\\]", "");
+			URL = URL.replaceFirst("\\[parameter2\\]", "");	
 		}
 		if (First_Param.equalsIgnoreCase("Invalid_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "@");
@@ -551,7 +558,7 @@ public class Steps {
 			URL = URL.replaceFirst("\\[parameter3\\]", "");
 		}
 		if (Second_Param.equalsIgnoreCase("Invalid_Second_ID")) {
-			URL = URL.replaceFirst("\\[parameter3\\]", "@");
+			URL = URL.replaceFirst("\\[parameter3\\]", "@");	
 		}
 		reqHandler.setRequestUrl(URL);
 
@@ -561,7 +568,7 @@ public class Steps {
 
 	@When("set service url equals : $url with $parameter1")
 	@Then("set service url equals : $url with $parameter1 ")
-	public void setServicesURLwithParameters(String url, String param1)
+	public void setServicesURLwithParameters(String url, String param1 )
 			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
@@ -639,8 +646,8 @@ public class Steps {
 
 	}
 
-	@Given("Login with valid cridintials")
-	@Then("Login with valid cridintials")
+	@Given("Login with valid credentials")
+	@Then("Login with valid credentials")
 	public void Login() throws URISyntaxException, ClientProtocolException,
 			IOException {
 		String name = "Content-Type";
@@ -729,12 +736,12 @@ public class Steps {
 		System.err.println(jsonResponse);
 
 	}
-
+	
+	
 	@Given("Create new collar")
 	@When("Create new collar")
 	@Then("Create new collar")
-	public void Create_collar() throws ClientProtocolException,
-			URISyntaxException, IOException {
+	public void Create_collar () throws ClientProtocolException, URISyntaxException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
@@ -762,7 +769,7 @@ public class Steps {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			System.err.println(jsonResponse);
-			StringjsonResponse = jsonResponse.toString();
+			 StringjsonResponse = jsonResponse.toString();
 			String expression2 = "$.id";
 			String Collar_ID = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
@@ -771,15 +778,14 @@ public class Steps {
 			String Collar_Device_ID = JsonPath.parse(StringjsonResponse).read(
 					expression3, String.class);
 			Generated_device_ID = Collar_Device_ID;
-
-		}
-	}
-
+			
+			
+	}}
+	
 	@Given("Create new dog")
-	@When("Create new dog")
+    @When("Create new dog")
 	@Then("Create new dog")
-	public void Create_dog() throws URISyntaxException,
-			ClientProtocolException, IOException {
+	public void Create_dog () throws URISyntaxException, ClientProtocolException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
@@ -805,17 +811,15 @@ public class Steps {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			System.err.println(jsonResponse);
-			StringjsonResponse = jsonResponse.toString();
+			 StringjsonResponse = jsonResponse.toString();
 			String expression2 = "$.id";
 			String Dog_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
 			Generated_ID = Dog_id;
-		}
-	}
-
+	}}
+	
 	@Given("Create new BaseStation")
-	public void Create_BaseStation() throws URISyntaxException,
-			ClientProtocolException, IOException {
+	public void Create_BaseStation () throws URISyntaxException, ClientProtocolException, IOException{
 		String name = "Content-Type";
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
@@ -844,15 +848,15 @@ public class Steps {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			System.err.println(jsonResponse);
-			StringjsonResponse = jsonResponse.toString();
+			 StringjsonResponse = jsonResponse.toString();
 			String expression2 = "$.id";
 			String baseStation_id = JsonPath.parse(StringjsonResponse).read(
 					expression2, String.class);
 			Generated_ID = baseStation_id;
 			String expression3 = "$.macAddrId";
-			String baseStation_macAddrId = JsonPath.parse(StringjsonResponse)
-					.read(expression3, String.class);
-			Generated_Mac_ID = baseStation_macAddrId;
+			String baseStation_macAddrId = JsonPath.parse(StringjsonResponse).read(
+					expression3, String.class);
+			Generated_Mac_ID =baseStation_macAddrId;
 		}
 
 	}
@@ -863,12 +867,12 @@ public class Steps {
 
 		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
 	}
-
+	
 	@Then("I want to close the MySQL DB connection")
-	public void closeMySQL() throws ClassNotFoundException, SQLException {
+	 public void closeMySQL() throws ClassNotFoundException, SQLException {
 
-		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
-	}
+	  assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
+	 }
 
 	@When("I want to pull the data from the DB using $query query")
 	@Then("I want to pull the data from the DB using $query query")
@@ -941,129 +945,132 @@ public class Steps {
 	}
 
 	// /////////////////////////////////////////////++++++ Create Data
-	// ++++++///////////////////////////////////////////////////
+		// ++++++///////////////////////////////////////////////////
 
-	@Given("Create users to url: $url with body: $body")
-	public void createnthItems(String url1, String body1)
-			throws URISyntaxException, ClientProtocolException, IOException {
 
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		cds.writedata_user_type("Users");
-		cds.writedata_user(user_id_file, user_email_file, "Password");
-		// prepare URL
-		/*
-		 * String emailAddress1 = EnvirommentManager.getInstance()
-		 * .getProperty("User_Email_Address");
-		 */
 
-		// emails = emailAddress1.split(",");
+		@Given("Create users to url: $url with body: $body")
+		public void createnthItems(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
 
-		for (int i = 1; i <= items1; i++) {
-			cds.create_Users(items1, url1, body1, i);
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			cds.writedata_user_type("Users");
+			cds.writedata_user(user_id_file, user_email_file, "Password");
+			// prepare URL
+			/*
+			 * String emailAddress1 = EnvirommentManager.getInstance()
+			 * .getProperty("User_Email_Address");
+			 */
+
+			// emails = emailAddress1.split(",");
+
+			for (int i = 1; i <= items1; i++) {
+				cds.create_Users(items1, url1, body1,i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with dogs for each user and the same start with $name")
+		public void Create_Users_with_Dogs(String url1, String body1,
+				String Dog_Name) throws URISyntaxException,
+				ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int dogs = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_dogs")));
+			cds.writedata_user_type("Users With Dogs");
+			cds.writedata_user_other(user_id_file, user_email_file, dog_ID_file,
+					"Password");
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithdogs(items1, url1, body1,dogs,
+						Dog_Name, i);
+
+			}
+		}
+
+		@Given("Create users to url : $url with body: $body with BaseStations for each user")
+		public void Create_Users_with_BaseStation(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			cds.writedata_user_type("Users With BaseStations");
+			cds.writedata_user_other(user_id_file, user_email_file,
+					basestarion_ID_file, "Password");
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithbaseStation(items1, url1, body1, basestations, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with collars for each user")
+		public void Create_Users_with_collars(String url1, String body1)
+				throws URISyntaxException, ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+			cds.writedata_user_type("Users With Collars");
+			cds.writedata_user_other(user_id_file, user_email_file, collar_ID_file,
+					"Password");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithcollars(items1, url1, body1, collars, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body: $body with collars and basestations for each user")
+		public void Create_Users_with_collarsAnd_Basestations(String url1,
+				String body1) throws URISyntaxException, ClientProtocolException,
+				IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+			cds.writedata_user_type("Users with BaseStations and collars");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswithcollarsAnd_Basestations(items1, url1, body1,
+						collars, basestations, i);
+
+			}
+
+		}
+
+		@Given("Create users to url : $url with body : $body with dogs start with $Name and collars and basestations for each user")
+		public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1,
+				String body1, String Dog_name) throws URISyntaxException,
+				ClientProtocolException, IOException {
+			int items1 = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_users")));
+			int dogs = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_dogs")));
+			int basestations = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_basestations")));
+			int collars = Integer.parseInt(String.format(EnvirommentManager
+					.getInstance().getProperty("Number_Of_collars")));
+
+			cds.writedata_user_type("Users with Dogs BaseStations and Collars");
+
+			for (int i = 1; i <= items1; i++) {
+
+				cds.createUserswith_dogs_collarsAnd_Basestations(items1, url1,
+						body1, dogs, Dog_name, collars, basestations, i);
+
+			}
 
 		}
 
 	}
-
-	@Given("Create users to url : $url with body: $body with dogs for each user and the same start with $name")
-	public void Create_Users_with_Dogs(String url1, String body1,
-			String Dog_Name) throws URISyntaxException,
-			ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int dogs = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_dogs")));
-		cds.writedata_user_type("Users With Dogs");
-		cds.writedata_user_other(user_id_file, user_email_file, dog_ID_file,
-				"Password");
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithdogs(items1, url1, body1, dogs, Dog_Name, i);
-
-		}
-	}
-
-	@Given("Create users to url : $url with body: $body with BaseStations for each user")
-	public void Create_Users_with_BaseStation(String url1, String body1)
-			throws URISyntaxException, ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		cds.writedata_user_type("Users With BaseStations");
-		cds.writedata_user_other(user_id_file, user_email_file,
-				basestarion_ID_file, "Password");
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithbaseStation(items1, url1, body1, basestations, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body: $body with collars for each user")
-	public void Create_Users_with_collars(String url1, String body1)
-			throws URISyntaxException, ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user_type("Users With Collars");
-		cds.writedata_user_other(user_id_file, user_email_file, collar_ID_file,
-				"Password");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithcollars(items1, url1, body1, collars, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body: $body with collars and basestations for each user")
-	public void Create_Users_with_collarsAnd_Basestations(String url1,
-			String body1) throws URISyntaxException, ClientProtocolException,
-			IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-		cds.writedata_user_type("Users with BaseStations and collars");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswithcollarsAnd_Basestations(items1, url1, body1,
-					collars, basestations, i);
-
-		}
-
-	}
-
-	@Given("Create users to url : $url with body : $body with dogs start with $Name and collars and basestations for each user")
-	public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1,
-			String body1, String Dog_name) throws URISyntaxException,
-			ClientProtocolException, IOException {
-		int items1 = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_users")));
-		int dogs = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_dogs")));
-		int basestations = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_basestations")));
-		int collars = Integer.parseInt(String.format(EnvirommentManager
-				.getInstance().getProperty("Number_Of_collars")));
-
-		cds.writedata_user_type("Users with Dogs BaseStations and Collars");
-
-		for (int i = 1; i <= items1; i++) {
-
-			cds.createUserswith_dogs_collarsAnd_Basestations(items1, url1,
-					body1, dogs, Dog_name, collars, basestations, i);
-
-		}
-
-	}
-
-}
