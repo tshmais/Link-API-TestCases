@@ -24,10 +24,7 @@ And we set Body with {
   "longitude": "-90.298205"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
+
 
 Scenario: TC-006_BASE_Positive: Verify Create Base service using valid data  have leading Zero’s[000] for macAddrId
 Given Create new user
@@ -43,10 +40,7 @@ And we set Body with {
   "longitude": "-90.298205"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
+
 
 Scenario: TC-007_BASE_Positive: Verify Create Base service using valid data [one word] for title
 Given Create new user
@@ -62,10 +56,7 @@ And we set Body with {
   "longitude": "-90.298205"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
+
 
 Scenario: TC-008_BASE_Positive: Verify Create Base service using valid data [90] for latitude
 Given Create new user
@@ -81,10 +72,7 @@ And we set Body with {
   "longitude": "-90.298205"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
+
 
 Scenario: TC-009_BASE_Positive: Verify Create Base service using valid data [185] for longitude
 Given Create new user
@@ -100,10 +88,7 @@ And we set Body with {
   "longitude": "-90.298205"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
+
 
 Scenario: TC-009_BASE_Positive: Verify Create Base service using valid data [185] for longitude
 Given Create new user
@@ -119,10 +104,6 @@ And we set Body with {
   "longitude": "170"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
 
 Scenario: TC-010_BASE_Positive: Verify Create Base service using valid data [12 digits included char] for macAddrId
 Given Create new user
@@ -138,10 +119,6 @@ And we set Body with {
   "longitude": "170"
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And Retrieve Json path $.id response
-And I want to pull the data from the DB using Select_BaseStation query with response ID
-And print the value
 
 Scenario: TC-011_BASE_Positive: Verify Create Base service using valid data [11 digits and can have leading Zero’s] for macAddrId
 Given Create new user

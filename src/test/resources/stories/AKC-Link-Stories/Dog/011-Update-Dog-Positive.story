@@ -52,7 +52,7 @@ And we set Body with {
 Then the service response should be: 200
 
 
-Scenario: TC-002_DOG_Positive: Verify Update Dog service using duplicat dog data for same user
+Scenario: TC-002_DOG_Positive: Verify Update Dog service using duplicate dog data for same user
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -61,33 +61,64 @@ And service method is put
 And service url equals : Update_Dog with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And we set Body with {  
-"id": Dog_Id,
-  "version": 0,
-   "name": "Pucy",
-   "gender":"M",
-   "neutered":true,
-   "age":50,
-   "mix":true,
-   "breeds":[  
-      {  
-         "id":""
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
-      }
-   ],
-   "description":"My dog Pucy",
-   "dateOfBirth":"2016-07-22",
-   "weight":8.9,
-   "eyeColor":"BROWN",
-   "weightClass":"NA",
-   "akcRegistrationNo":"ABC00123",
-   "accountId": UserID
-}
+And we set Body with {
+      "id": Dog_Id,
+      "version": 0,
+      "name": "Pucy",
+      "gender": "M",
+      "neutered": false,
+      "description": "My dog Pucy",
+      "age" : 6,
+      "mix": true,
+      "breeds" : [
+                        {
+                        "name" : "Custom Breed"
+                        },
+                        {
+                        "id" : 2
+                        },
+                        {
+                        "id" : 8
+                        }
+                    ],
+      "dateOfBirth": "2013-03-07",
+      "weight": 8.9,
+      "weightClass": "NA",
+      "eyeColor": "BROWN",
+      "akcRegistrationNo": "ABC00123",
+      "accountId": UserID
+    }
+And service method is put
+And service url equals : Update_Dog with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+      "id": Dog_Id,
+      "version": 0,
+      "name": "Pucy",
+      "gender": "M",
+      "neutered": false,
+      "description": "My dog Pucy",
+      "age" : 6,
+      "mix": true,
+      "breeds" : [
+                        {
+                        "name" : "Custom Breed"
+                        },
+                        {
+                        "id" : 2
+                        },
+                        {
+                        "id" : 8
+                        }
+                    ],
+      "dateOfBirth": "2013-03-07",
+      "weight": 8.9,
+      "weightClass": "NA",
+      "eyeColor": "BROWN",
+      "akcRegistrationNo": "ABC00123",
+      "accountId": UserID
+    }
 Then the service response should be: 200
 
 Scenario: TC-003_DOG_Positive: Verify Update Dog service using neutered "true" for valid dog data
@@ -109,13 +140,7 @@ And we set Body with {
    "mix":true,
    "breeds":[  
       {  
-         "id":""
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
+         "id":"1"
       }
    ],
    "description":"My dog Pucy",
@@ -148,12 +173,6 @@ And we set Body with {
    "breeds":[  
       {  
          "id":"1"
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
       }
    ],
    "description":"My dog Pucy",
@@ -182,16 +201,10 @@ And we set Body with {
    "gender":"M",
    "neutered":true,
    "age":25,
-   "mix":false,
+   "mix":true,
    "breeds":[  
       {  
          "id":"1"
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
       }
    ],
    "description":"My dog Pucy",
@@ -224,12 +237,6 @@ And we set Body with {
    "breeds":[  
       {  
          "id":"1"
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
       }
    ],
    "description":"My dog Pucy",
@@ -242,43 +249,6 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-006_DOG_Positive: Verify Update Dog service using "breedSource" as "Listed  Breed"  for Both breedId1 and breedId2 are provided
-Given Create new user
-And Login with valid credentials
-And Create new dog
-When Retrieve first id from response
-And service method is put
-And service url equals : Update_Dog with 1 parameters
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {  
-"id": Dog_Id,
-  "version": 0,
-   "name": "Pucy",
-   "gender":"M",
-   "neutered":true,
-   "age":25,
-   "mix":false,
-   "breeds":[  
-      {  
-         "id":"1"
-      },
-      {  
-         "id":"2"
-      },
-      {  
-         "name":""
-      }
-   ],
-   "description":"My dog Pucy",
-   "dateOfBirth":"2016-07-22",
-   "weight":8.9,
-   "eyeColor":"BROWN",
-   "weightClass":"NA",
-   "akcRegistrationNo":"ABC00123",
-   "accountId": UserID
-}
-Then the service response should be: 200
 
 
 
@@ -294,7 +264,7 @@ And service method is put
 And service url equals : Update_Dog with 1 parameters
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And we set Body with {  
+And we set Body with {
 "id": Dog_Id,
   "version": 0,
    "name": "Pucy",
@@ -357,43 +327,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-015_DOG_Positive: Verify Update Dog service using "breedSource" as "unknown Breed" for breedId1, breedId2, unListedBreedNam and breedId1Percentage are provided
-Given Create new user
-And Login with valid credentials
-And Create new dog
-When Retrieve first id from response
-And service method is put
-And service url equals : Update_Dog with 1 parameters
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {  
-"id": Dog_Id,
-  "version": 0,
-   "name": "Pucy",
-   "gender":"M",
-   "neutered":true,
-   "age":25,
-   "mix":true,
-   "breeds":[  
-      {  
-         "id":""
-      },
-      {  
-         "id":""
-      },
-      {  
-         "name":""
-      }
-   ],
-   "description":"My dog Pucy",
-   "dateOfBirth":"2016-07-22",
-   "weight":8.9,
-   "eyeColor":"BROWN",
-   "weightClass":"NA",
-   "akcRegistrationNo":"ABC00123",
-   "accountId": UserID
-}
-Then the service response should be: 200
+
 
 
 
@@ -416,13 +350,10 @@ And we set Body with {
    "mix":true,
    "breeds":[  
       {  
-         "id":""
+         "id":"1"
       },
       {  
-         "id":""
-      },
-      {  
-         "name":""
+         "id":"2"
       }
    ],
    "description":"My dog Pucy",
@@ -454,13 +385,10 @@ And we set Body with {
    "mix":true,
    "breeds":[  
       {  
-         "id":""
+         "id":"1"
       },
       {  
-         "id":""
-      },
-      {  
-         "name":""
+         "id":"2"
       }
    ],
    "description":"My dog Pucy",
@@ -494,13 +422,10 @@ And we set Body with {
    "mix":true,
    "breeds":[  
       {  
-         "id":""
+         "id":"1"
       },
       {  
-         "id":""
-      },
-      {  
-         "name":""
+         "id":"2"
       }
    ],
    "description":"My dog Pucy",
@@ -533,13 +458,10 @@ And we set Body with {
    "mix":true,
    "breeds":[  
       {  
-         "id":""
+         "id":"2"
       },
       {  
-         "id":""
-      },
-      {  
-         "name":""
+         "id":"1"
       }
    ],
    "description":"My dog Pucy",

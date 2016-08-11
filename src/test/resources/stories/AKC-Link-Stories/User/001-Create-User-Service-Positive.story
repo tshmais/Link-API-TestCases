@@ -33,6 +33,3 @@ And we set Body with
    }
 }
 Then the service response should be: 201
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using TC-001_select_user query
-And print the value

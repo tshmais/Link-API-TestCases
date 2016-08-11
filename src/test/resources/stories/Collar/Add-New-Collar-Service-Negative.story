@@ -26,7 +26,6 @@ And we set Body with {
 
 Then the service response should be: 409
 
-
 Scenario: TC-002_COLLAR_Negative: Verify Add Collar service using empty data  for hardwareVersion
 Given Create new user
 And Login with valid credentials

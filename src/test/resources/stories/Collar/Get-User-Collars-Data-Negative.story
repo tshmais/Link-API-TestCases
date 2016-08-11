@@ -13,6 +13,7 @@ Given Create new user
 And Login with valid credentials
 And Create new collar
 When service method is get
+And The service url equals : Get_Collars_data with Empty_User_ID and $First_Param
 And The service url equals : Get_Collars_data with Empty_User_ID and Same_ID
 And service url equal : Get_Collars_data
 And add to the header Content-Type with value application/json

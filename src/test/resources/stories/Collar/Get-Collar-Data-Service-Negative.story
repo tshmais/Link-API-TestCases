@@ -1,5 +1,9 @@
 Meta:
-@skip
+@Collar
+@Retrieve_Collar_Profile_Nigative_scenarios
+@Collar_Nigative
+@ReportName Collar_Nigative
+@Link
 
 
 
@@ -10,15 +14,16 @@ I want to make sure all return the code 4xx for GET scenarios
 
 
 Scenario: TC-001_COLLAR_Negative: Verify Get Collar data service using Invalid userId
+
 Given Create new user
 And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is get
-
+And The service url equals: Get_Collar_data with Existing_User_ID with Existing_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
-Then the service response should be: 200
+Then the service response should be: 403
 
 
 Scenario: TC-002_COLLAR_Negative: Verify Get Collar data service using Invalid collarId
@@ -27,23 +32,24 @@ And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is get
-And service url equals : Get_Collar_data with 1 parameters
+And The service url equals: Get_Collar_data with Same_User_ID with Existing_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
-Then the service response should be: 200
+Then the service response should be: 403
 
 
 
 Scenario: TC-003_COLLAR_Negative: Verify Get Collar data service using unexisting data for user/collar IDs
+
 Given Create new user
 And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is get
-And service url equals : Get_Collar_data with 1 parameters
+And The service url equals: Get_Collar_data with Not_Exist_User_ID with Not_Exist_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
-Then the service response should be: 200
+Then the service response should be: 404
 
 
 
@@ -53,7 +59,7 @@ And Login with valid credentials
 And Create new collar
 When Retrieve first id from response
 And service method is get
-And service url equals : Get_Collar_data with 1 parameters
+And The service url equals: Get_Collar_data with Same_User_ID with Empty_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 200
