@@ -7,7 +7,6 @@ Meta:
 
 Scenario: TC-001_USER_Positive: Verify Login service using valid data  for new LINK user
 Given Create new user
-And Login with valid cridintials
-And service method is get
+And Login with valid credentials
 Then the service response should be: 200
 |--And json response should equal:Positive_TC-001_Login_service

@@ -42,7 +42,7 @@ And we set Body with {
 }
     
 Then the service response should be: 409
-|--And json response should equal:Negative_TC-001_Post_Dog_to_User_service
+
 
 
 

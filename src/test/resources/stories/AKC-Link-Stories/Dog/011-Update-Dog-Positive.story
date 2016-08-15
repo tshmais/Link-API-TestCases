@@ -121,6 +121,7 @@ And we set Body with {
     }
 Then the service response should be: 200
 
+
 Scenario: TC-003_DOG_Positive: Verify Update Dog service using neutered "true" for valid dog data
 Given Create new user
 And Login with valid credentials
@@ -152,6 +153,8 @@ And we set Body with {
    "accountId": UserID
 }
 Then the service response should be: 200
+
+
 
 Scenario: TC-004_DOG_Positive: Verify Update Dog service using gender "f" for valid dog data
 Given Create new user
@@ -185,6 +188,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
+
 Scenario: TC-004_DOG_Positive: Verify Update Dog service using gender "M" for valid dog data
 Given Create new user
 And Login with valid credentials
@@ -217,7 +221,9 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-005_DOG_Positive: Verify Update Dog service using "breedSource" as "Listed  Breed"  for Only breedId1 is entered
+
+
+Scenario: TC-005_DOG_Positive: Verify Update Dog service using mix as false and Only breedId1 is entered
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -253,9 +259,7 @@ Then the service response should be: 200
 
 
 
-
-
-Scenario: TC-013_DOG_Positive: Verify Update Dog service using "breedSource" as "Unlisted Breed"  for only unListedBreedName is provided
+Scenario: TC-013_DOG_Positive: Verify Update Dog service using mix as true and Name is provided
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -288,7 +292,8 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-014_DOG_Positive: Verify Update Dog service using "breedSource" as "Unlisted Breed" for unListedBreedName/breedId1/breedId2 are provided 
+
+Scenario: TC-014_DOG_Positive: Verify Update Dog service using mix as true and Name/breedId1/breedId2 are provided 
 
 Given Create new user
 And Login with valid credentials
@@ -326,6 +331,7 @@ And we set Body with {
    "accountId": UserID
 }
 Then the service response should be: 200
+
 
 
 
@@ -365,6 +371,7 @@ And we set Body with {
    "accountId": UserID
 }
 Then the service response should be: 200
+
 
 Scenario: TC-018_DOG_Positive: Verify Update Dog service using "akcRegistrationNo" with char for valid dog data
 Given Create new user
@@ -437,6 +444,7 @@ And we set Body with {
    "accountId": UserID
 }
 Then the service response should be: 200
+
 
 Scenario: TC-021_DOG_Positive: Verify Update Dog service using 25 for Age
 

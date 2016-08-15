@@ -21,7 +21,7 @@ When the service url equal: Get_User's_Dogs_service with *
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 400
-|--And json response should equal:
+
 
 
 Scenario: TC-003_DOG_Negative: Verify Get all dogs for a user service using user not exist  for  user parameter

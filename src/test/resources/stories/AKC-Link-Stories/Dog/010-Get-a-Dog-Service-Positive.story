@@ -1,7 +1,6 @@
 Meta:
 @skip
-@Collar
-@Link
+
 
 
 Narrative:

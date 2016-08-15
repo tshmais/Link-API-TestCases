@@ -42,7 +42,23 @@ And we set Body with {
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
 }
+
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -72,6 +88,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -102,6 +133,21 @@ And we set Body with  {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -135,6 +181,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -170,6 +231,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario:TC-008_DOG_Positive: Verify Add Dog service using "mix" as "true" and name provided 
@@ -198,6 +274,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
     }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
     
     
 Scenario:TC-009_DOG_Positive: Verify Add Dog service using "mix" as "false" and name provided 
@@ -226,6 +317,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -259,6 +365,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -291,6 +412,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario: TC-012_DOG_Positive: Verify Add Dog service using age as 1
@@ -322,6 +458,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -354,6 +505,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -386,7 +552,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
-A
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 Scenario: TC-017_DOG_Positive: Verify Add Dog service using age as 5.1
 Given Create new user
@@ -420,6 +600,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -444,7 +639,7 @@ And we set Body with {
                     "id" : "2"
                     }
                 ],
-    "description" : "My dog Pucy My dog PucyMy dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy ",
+    "description" : "My dog Pucy My dog PucyMy dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "BROWN",
@@ -452,7 +647,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
-
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario: TC-020_DOG_Positive: Verify Add Dog service description with short text 
@@ -484,7 +693,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
-
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 Scenario: TC-021_DOG_Positive: Verify Add Dog service dateOfBirth with correct format yyyy-mm-dd
 Given Create new user
@@ -515,6 +738,22 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
+
 
 
 
@@ -547,6 +786,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -584,6 +838,21 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -611,12 +880,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :500.5,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -645,12 +929,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -678,12 +977,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "cds",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 
@@ -712,12 +1026,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario: TC-029_DOG_Positive: Verify Add Dog service using weightClass known
@@ -743,12 +1072,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "1",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario: TC-030_DOG_Positive: Verify Add Dog service using akcRegistrationNo known
@@ -774,12 +1118,27 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "1",
     "akcRegistrationNo" : "ABC00123"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 
 
 Scenario: TC-031_DOG_Positive: Verify Add Dog service using akcRegistrationNo as NA
@@ -805,10 +1164,25 @@ And we set Body with {
                 ],
     "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
-    "weight" :500,
+    "weight" :8.9,
     "eyeColor" : "BROWN",
     "weightClass" : "1",
     "akcRegistrationNo" : "NA"
 }   
 Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
 

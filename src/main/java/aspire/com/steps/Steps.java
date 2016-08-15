@@ -527,7 +527,7 @@ String	Second_one  ;
 	@When("The service url equal : $url with $user and $First_Param and $Second_Param")
 	@Then("The service url equal : $url with $user and $First_Param and $Second_Param")
 	public void setServicesURLwithThreeParametrsa(String url, String User,
-			String First_Param, String Second_Param) throws URISyntaxException {
+			String First_Param  , String Second_Param) throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -558,6 +558,7 @@ String	Second_one  ;
 		if (First_Param.equalsIgnoreCase("Same_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", resp1);
 		}
+		
 		if (First_Param.equalsIgnoreCase("Not_Exist_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
 		}
@@ -847,6 +848,7 @@ String	Second_one  ;
 	}
 
 	@Given("Create new BaseStation")
+	@When("Create new BaseStation")
 	public void Create_BaseStation() throws URISyntaxException,
 			ClientProtocolException, IOException {
 		String name = "Content-Type";
@@ -936,6 +938,17 @@ String	Second_one  ;
 		dataList = dbConn.ExecuteAPIQuery(getQuery);
 	
 	}
+	
+	@Then("I want to pull the data from the DB using $query query and response ID")
+	@When("I want to pull the data from the DB using $query query and response ID")
+	public void getDBDataID(String query) throws ClassNotFoundException,
+			SQLException {
+		String getQuery = String.format(EnvirommentManager.getInstance()
+				.getProperty(query));
+		getQuery = getQuery.replaceFirst("\\[parameter\\]", resp1);
+		dataList = dbConn.ExecuteAPIQuery(getQuery);
+	
+	}
 
 	@When("Retrieve Json path $expression response")
 	@Then("Retrieve Json path $expression response")
@@ -958,8 +971,8 @@ String	Second_one  ;
 
 	}
 
-	@Then("json path $expression should be equal:$expected")
-	@When("json path $expression should be equal:$expected")
+	@Then("json path $expression should be : $expected")
+	@When("json path $expression should be : $expected")
 	public void getItemfromDB(String expression, int expec)
 			throws JSONException {
 		// JsonReader.GenerateJson("sql_get_all_users");
