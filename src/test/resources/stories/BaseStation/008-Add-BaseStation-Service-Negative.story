@@ -1,5 +1,5 @@
 Meta:
-@BaseStation
+@Base
 @Add_BaseStation_Negative_scenarios
 @BaseStation_Negative
 @ReportName BaseStation_Negative

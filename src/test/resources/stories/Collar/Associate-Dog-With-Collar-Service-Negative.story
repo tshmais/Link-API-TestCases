@@ -190,7 +190,6 @@ And Login with valid credentials
 And Create new dog
 When Retrieve first id from response
 And Create new collar
-And Retrieve second id from response
 And service method is post
 And The service url equal : Associate_Dog_With_Collar with Same_User_ID and Existing_First_ID and Same_Second_ID
 And add to the header Content-Type with value application/json

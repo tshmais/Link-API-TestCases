@@ -1,47 +1,45 @@
 Meta:
-@Collars
-@Retrieve_Collars_Profile_Negative_scenarios
-@Collars_Negative
-@ReportName Collars_Negative
+@Base
+@Retrieve_Base_Profile_Negative_scenarios
+@Base_Negative
+@ReportName Base_Negative
 @Link
 
+
 Narrative:
-In order to test Retrieve Collars Service
+In order to test Retrieve Base Service
 As a tester
 I want to make sure all return the code 2xx
 
-
-Scenario: TC-001_COLLAR_Negative: Get Collars data for Empty userId
+Scenario: TC-001_BASE_Negative: Get Base stations data for Empty userId
 Given Create new user
 And Login with valid credentials
-And Create new collar
-When service method is get
+And Create new BaseStation
 When Retrieve first id from response
-And URL equal: Get_Collars_data with Empty_User_ID
+And service method is get
+And URL equal: Get_All_Basestation_data with Empty_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 400
 
-Scenario: TC-002_COLLAR_Negative: Get Collars data for unexisting userId
+Scenario: TC-002_BASE_Negative: Get Base stations data for unexisting userId
 Given Create new user
 And Login with valid credentials
-And Create new collar
+And Create new BaseStation
 When Retrieve first id from response
-When service method is get
-And URL equal: Get_Collars_data with Not_Exist_User_ID
+And service method is get
+And URL equal: Get_All_Basestation_data with Not_Exist_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 404
 
-
-
-Scenario: TC-003_COLLAR_Negative: Get Collars data for existing userId
+Scenario: TC-003_BASE_Negative: Get Base stations data for existing userId
 Given Create new user
 And Login with valid credentials
-And Create new collar
-When service method is get
+And Create new BaseStation
 When Retrieve first id from response
-And URL equal: Get_Collars_data with Existing_User_ID
+And service method is get
+And URL equal: Get_All_Basestation_data with Existing_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
-Then the service response should be: 403
+Then the service response should be: 404

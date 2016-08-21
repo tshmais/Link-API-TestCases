@@ -478,6 +478,36 @@ String	Second_one  ;
 		System.out.println("The URL is: " + URL);
 	}
 
+	@When("URL equal: $url with $user")
+	@Then("URL equal: $url with $user")
+	public void setServicesURLwithOneParametrsa(String url, String User) throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+
+		if (User.equalsIgnoreCase("Same_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter\\]", response2);
+
+		}
+		if (User.equalsIgnoreCase("Empty_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter\\]", "");
+		}
+		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter\\]", "100000000");
+		}
+		if (User.equalsIgnoreCase("Existing_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter\\]", "1");
+		}
+		}
+	
+	
 	@When("The service url equals: $url with $user with $First_Param")
 	@Then("The service url equals: $url with $user with $First_Param")
 	public void setServicesURLwithTwoParametrsa(String url, String User,
@@ -714,6 +744,7 @@ String	Second_one  ;
 	}
 
 	@Given("Create new user")
+	@When("Create new user")
 	@Then("Create new user")
 	public void Create_User() throws URISyntaxException,
 			ClientProtocolException, IOException {
@@ -849,6 +880,7 @@ String	Second_one  ;
 
 	@Given("Create new BaseStation")
 	@When("Create new BaseStation")
+	@Then("Create new BaseStation")
 	public void Create_BaseStation() throws URISyntaxException,
 			ClientProtocolException, IOException {
 		String name = "Content-Type";
@@ -891,6 +923,8 @@ String	Second_one  ;
 		}
 
 	}
+	
+
 
 	@Given("I want to open a connection to MySQL DB")
 	@When("I want to open a connection to MySQL DB")
