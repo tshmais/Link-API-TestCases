@@ -1,5 +1,5 @@
 Meta:
-@Base
+@BaseStation
 @Add_BaseStation_Positive_scenarios
 @BaseStation_Positive
 @ReportName BaseStation_Positive
@@ -27,7 +27,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Get_base query and response ID
-And json path id should be : 0
+And json path id should be : 0 
 And json path version should be : 1
 And json path macAddrId should be : 2
 And json path title should be : 3

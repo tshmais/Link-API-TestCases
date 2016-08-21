@@ -43,22 +43,51 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 
+
+Scenario: TC-002_DOG_Positive: Verify Add Dog service using valid user data for valid dog data
+Given Check if FB user created
+And service method is post
+And the service url is: Login_service
+And add to the header Content-Type with value application/json
+When we set Body with {
+  "loginProvider": "FB",
+  "loginProviderId": "1675940472725867",
+  "password": "",
+   "loginProviderToken": "generated_access_token"
+}
+And the service response should be: 200
+And Retrieve json path access_token response
+And Retrieve user id userId response
+And service method is post
+And service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "custom Name"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+
 Then the service response should be: 201
-And Retrieve first id from response
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_dog query and response ID
-And json path id should be : 0
-And json path version should be : 1
-And json path name should be : 2
-And json path gender should be : 3
-And json path description should be : 4
-And json path age should be : 5
-And json path dateOfBirth should be : 6
-And json path weight should be : 7
-And json path weightClass should be : 8
-And json path eyeColor should be : 9
-And json path akcRegistrationNo should be : 10
-And json path accountId should be : 11
 
 
 

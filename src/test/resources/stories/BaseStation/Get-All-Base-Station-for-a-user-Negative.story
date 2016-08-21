@@ -42,4 +42,4 @@ And service method is get
 And URL equal: Get_All_Basestation_data with Existing_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
-Then the service response should be: 404
+Then the service response should be: 403

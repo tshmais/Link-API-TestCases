@@ -48,6 +48,7 @@ Then the service response should be: 404
 
 
 Scenario: TC-004_BASE_Negative: Get BaseStations for a User does not have a Base stations
+
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation
@@ -57,3 +58,14 @@ And The service url equals: Get_Base_data with Same_User_ID with Empty_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 200
+
+Scenario: TC-005_BASE_Positive: Get Base station data for User did not have acsess
+Given Create new user
+And Login with valid credentials
+And Create new BaseStation
+When Retrieve first id from response
+And service method is get
+And The service url equals: Get_Base_data with Existing_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+Then the service response should be: 403

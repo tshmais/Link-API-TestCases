@@ -27,6 +27,7 @@ Scenario: TC-002_BASE_Positive: Get BaseStations data for a old user
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation
+When Retrieve first id from response
 When service method is get
 And service url equal : Get_All_Basestation_data
 And add to the header Content-Type with value application/json

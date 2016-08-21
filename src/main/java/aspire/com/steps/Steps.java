@@ -57,14 +57,17 @@ public class Steps {
 	public String response;
 	public String response2;
 	private String params;
-	String First_one  ;
-String	Second_one  ;
-	String  Third_one ;
+	String First_one;
+	String Second_one;
+	String Third_one;
+	String Folder;
+	String Signature;
 
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
 	Create_Data_Steps cds = new Create_Data_Steps();
 	public List<String> dataList = new ArrayList<String>();
+	public String[] TagsKey;
 	public String JsonValue;
 	public String JsonValue2;
 	public String user_id_file = "User ID";
@@ -127,7 +130,7 @@ String	Second_one  ;
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter\\]", param);
+		URL = URL.replaceFirst("\\[parameter1\\]", param);
 
 		reqHandler.setRequestUrl(URL);
 
@@ -149,7 +152,7 @@ String	Second_one  ;
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
 
 		reqHandler.setRequestUrl(URL);
 
@@ -183,6 +186,7 @@ String	Second_one  ;
 		reqHandler.createNewRequest(methodName, myResponse);
 	}
 
+	@Given("add to the header $name with value $value")
 	@When("add to the header $name with value $value")
 	@Then("add to the header $name with value $value")
 	public void setHeader(String name, String value) {
@@ -192,7 +196,7 @@ String	Second_one  ;
 	@When("we set Body with $json")
 	@Then("we set Body with $json")
 	public void setJsonBody(String json) throws UnsupportedEncodingException {
-		
+
 		if (json.equalsIgnoreCase("null")) {
 			json = "";
 		}
@@ -282,19 +286,61 @@ String	Second_one  ;
 
 			json = json.replace("First_DeviceId", dataList.get(0));
 		}
-		
+
 		if (json.contains("Second_DeviceId")) {
 
 			json = json.replace("Second_DeviceId", dataList.get(1));
 		}
-		
+
 		if (json.contains("Third_DeviceId")) {
 
 			json = json.replace("Third_DeviceId", dataList.get(2));
 
 		}
-		
-		
+
+		if (json.contains("generated_access_token")) {
+			String access_token = EnvirommentManager.getInstance().getProperty(
+					"FB_Access_Token");
+
+			json = json.replace("generated_access_token", access_token);
+
+		}
+
+		if (json.contains("First_Tag")) {
+
+			json = json.replace("First_Tag", TagsKey[0]);
+
+		}
+
+		if (json.contains("Second_Tag")) {
+
+			json = json.replace("Second_Tag", TagsKey[1]);
+
+		}
+
+		if (json.contains("Third_Tag")) {
+
+			json = json.replace("Third_Tag", TagsKey[2]);
+
+		}
+
+		if (json.contains("Fourth_Tag")) {
+
+			json = json.replace("Fourth_Tag", TagsKey[3]);
+
+		}
+
+		if (json.contains("Generated_folder")) {
+
+			json = json.replace("Generated_folder", Folder);
+
+		}
+
+		if (json.contains("Generated_signature")) {
+
+			json = json.replace("Generated_signature", Signature);
+
+		}
 
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
@@ -342,6 +388,47 @@ String	Second_one  ;
 		System.err.println("The token for the created item is: " + response);
 	}
 
+	@When("Retrieve user id $expression response")
+	@Then("Retrieve user id $expression response")
+	public void RetrieveuserID(String expression) throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		response2 = JsonPath.parse(StringjsonResponse).read(expression,
+				String.class);
+		System.err.println("The token for the created item is: " + response2);
+	}
+
+	@When("Retrieve tags response")
+	@Then("Retrieve tags response")
+	public void RetrieveTags() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		String Tags = JsonPath.parse(StringjsonResponse).read("tags",
+				String.class);
+		TagsKey = Tags.split(",");
+
+	}
+
+	@When("Retrieve folder response")
+	@Then("Retrieve folder response")
+	public void folder() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		Folder = JsonPath.parse(StringjsonResponse)
+				.read("folder", String.class);
+
+	}
+
+	@When("Retrieve signature response")
+	@Then("Retrieve signature response")
+	public void signature() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		Signature = JsonPath.parse(StringjsonResponse).read("signature",
+				String.class);
+
+	}
+
 	@When("Retrieve first id from response")
 	@Then("Retrieve first id from response")
 	public void RetrieveJsonItemFirstID() throws JSONException {
@@ -362,7 +449,7 @@ String	Second_one  ;
 				.read(second_id, String.class);
 		System.err.println("The second id is: " + resp2);
 	}
-	
+
 	@When("Retrieve third id from response")
 	@Then("Retrieve third id from response")
 	public void RetrieveJsonItemthirdID() throws JSONException {
@@ -478,36 +565,6 @@ String	Second_one  ;
 		System.out.println("The URL is: " + URL);
 	}
 
-	@When("URL equal: $url with $user")
-	@Then("URL equal: $url with $user")
-	public void setServicesURLwithOneParametrsa(String url, String User) throws URISyntaxException {
-		if (url.toLowerCase().startsWith("http://www")
-				|| url.toLowerCase().startsWith("https://www")) {
-			URL = url;
-		} else if (url.startsWith("%s")) {
-			URL = String.format(url, getRootUrl());
-		} else {
-			URL = String.format(
-					EnvirommentManager.getInstance().getProperty(url),
-					getRootUrl());
-		}
-
-		if (User.equalsIgnoreCase("Same_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter\\]", response2);
-
-		}
-		if (User.equalsIgnoreCase("Empty_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter\\]", "");
-		}
-		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter\\]", "100000000");
-		}
-		if (User.equalsIgnoreCase("Existing_User_ID")) {
-			URL = URL.replaceFirst("\\[parameter\\]", "1");
-		}
-		}
-	
-	
 	@When("The service url equals: $url with $user with $First_Param")
 	@Then("The service url equals: $url with $user with $First_Param")
 	public void setServicesURLwithTwoParametrsa(String url, String User,
@@ -553,11 +610,45 @@ String	Second_one  ;
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
+	
+	@When("URL equal: $url with $user")
+	@Then("URL equal: $url with $user")
+	public void setServicesURLwithOneParametrsa(String url, String User) throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, getRootUrl());
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+		}
+
+		if (User.equalsIgnoreCase("Same_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", response2);
+
+		}
+		if (User.equalsIgnoreCase("Empty_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "");
+		}
+		if (User.equalsIgnoreCase("Not_Exist_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "100000000");
+		}
+		if (User.equalsIgnoreCase("Existing_User_ID")) {
+			URL = URL.replaceFirst("\\[parameter1\\]", "1");
+		}
+		
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+	}
 
 	@When("The service url equal : $url with $user and $First_Param and $Second_Param")
 	@Then("The service url equal : $url with $user and $First_Param and $Second_Param")
 	public void setServicesURLwithThreeParametrsa(String url, String User,
-			String First_Param  , String Second_Param) throws URISyntaxException {
+			String First_Param, String Second_Param) throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -588,7 +679,7 @@ String	Second_one  ;
 		if (First_Param.equalsIgnoreCase("Same_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", resp1);
 		}
-		
+
 		if (First_Param.equalsIgnoreCase("Not_Exist_First_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "100000000");
 		}
@@ -744,7 +835,6 @@ String	Second_one  ;
 	}
 
 	@Given("Create new user")
-	@When("Create new user")
 	@Then("Create new user")
 	public void Create_User() throws URISyntaxException,
 			ClientProtocolException, IOException {
@@ -788,11 +878,46 @@ String	Second_one  ;
 		}
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
-		
+
 		CloseableHttpResponse resp = reqHandler.execute(myResponse);
 		jsonResponse = parsers.asJson(resp);
 		System.err.println(jsonResponse);
 
+	}
+
+	@Given("Check if FB user created")
+	@Then("Check if FB user created")
+	public void Create_FB_User() throws URISyntaxException,
+			ClientProtocolException, IOException, ClassNotFoundException,
+			SQLException {
+		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
+		String getQuery = String.format(EnvirommentManager.getInstance()
+				.getProperty("Get_FB_User_ID"));
+		dataList = dbConn.ExecuteAPIQuery(getQuery);
+
+		if (dataList.isEmpty()) {
+			String name = "Content-Type";
+			String value = "application/json";
+
+			reqHandler.createNewRequest(Method.POST, myResponse);
+			String url = "Create_User_service";
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+			reqHandler.setRequestUrl(URL);
+			ASReport.getInstance().append(URL);
+			reqHandler.setRequestHeader(name, value);
+
+			String json = EnvirommentManager.getInstance().getProperty(
+					"createFBuserbody");
+
+			reqHandler.setRequestBody(json);
+			System.out.println(json);
+
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.err.println(jsonResponse);
+		}
 	}
 
 	@Given("Create new collar")
@@ -807,7 +932,7 @@ String	Second_one  ;
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_collars_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
@@ -852,7 +977,7 @@ String	Second_one  ;
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_Dog_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
@@ -880,7 +1005,6 @@ String	Second_one  ;
 
 	@Given("Create new BaseStation")
 	@When("Create new BaseStation")
-	@Then("Create new BaseStation")
 	public void Create_BaseStation() throws URISyntaxException,
 			ClientProtocolException, IOException {
 		String name = "Content-Type";
@@ -890,7 +1014,7 @@ String	Second_one  ;
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_BaseStation_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", response2);
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
@@ -923,8 +1047,6 @@ String	Second_one  ;
 		}
 
 	}
-	
-
 
 	@Given("I want to open a connection to MySQL DB")
 	@When("I want to open a connection to MySQL DB")
@@ -970,9 +1092,9 @@ String	Second_one  ;
 				.getProperty(query));
 		getQuery = getQuery.replaceFirst("\\[parameter\\]", response2);
 		dataList = dbConn.ExecuteAPIQuery(getQuery);
-	
+
 	}
-	
+
 	@Then("I want to pull the data from the DB using $query query and response ID")
 	@When("I want to pull the data from the DB using $query query and response ID")
 	public void getDBDataID(String query) throws ClassNotFoundException,
@@ -981,7 +1103,7 @@ String	Second_one  ;
 				.getProperty(query));
 		getQuery = getQuery.replaceFirst("\\[parameter\\]", resp1);
 		dataList = dbConn.ExecuteAPIQuery(getQuery);
-	
+
 	}
 
 	@When("Retrieve Json path $expression response")
@@ -989,7 +1111,7 @@ String	Second_one  ;
 	public void RetrieveJsonvalue(String expression) throws JSONException {
 		// JsonReader.GenerateJson("sql_get_all_users");
 
-		JsonValue = JsonPath.parse(StringjsonResponse).read(expression,
+		response = JsonPath.parse(StringjsonResponse).read(expression,
 				String.class);
 		System.err.println("The value for the created item is: " + JsonValue);
 	}
@@ -1148,7 +1270,5 @@ String	Second_one  ;
 		}
 
 	}
-	
-
 
 }

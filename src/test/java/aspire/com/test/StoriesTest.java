@@ -17,6 +17,8 @@ import jo.aspire.web.automationUtil.PlatformInformation;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.embedder.MetaFilter;
+import org.jbehave.core.embedder.PerformableTree;
+import org.jbehave.core.embedder.PerformableTree.NormalPerformableScenario;
 import org.jbehave.core.embedder.StoryControls;
 import org.jbehave.core.embedder.StoryManager;
 import org.jbehave.core.failures.FailingUponPendingStep;
@@ -51,6 +53,7 @@ import com.aspire.automationReport.AspireReport;
 // @RunWith(JUnitReportingRunner.class)
 public class StoriesTest extends JUnitStories {
 	private static boolean rerunFailedFlag = false;
+
 
 	private String[] browsers;
 	static boolean isRunOnSauce;
@@ -87,7 +90,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/" + System.getProperty("storyFilter", "010-Get-a-Dog-Service-Negative") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "*") + ".story"),
 				null);
 
 	}
@@ -177,12 +180,15 @@ public class StoriesTest extends JUnitStories {
 			Embedder embedder = getEmbedder();
 //			embedder.systemProperties().setProperty("browser", browsers[i]);
 			AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
+			skipScenariosList(embedder);
 			startStories(embedder, false);
+			
 			if (rerunFailed) {
 				rerunFailedStories(rerunCount);
 			} else {
 				skipScenariosList(embedder);
 			}
+			
 		//}
 
 	}
@@ -261,7 +267,7 @@ public class StoriesTest extends JUnitStories {
 
 
 	public static void skipScenariosList(Embedder embedder) {
-		if (!rerunFailedFlag) {
+	
 			ArrayList<Scenario> skipScenarios = new ArrayList<Scenario>();
 			StoryManager storyManager = embedder.storyManager();
 			List<String> stories = new StoryFinder().findPaths(codeLocationFromClass(StoriesTest.class).getFile(),
@@ -280,9 +286,10 @@ public class StoriesTest extends JUnitStories {
 					}
 				}
 			}
-
 			AspireReport.getInstance().getReportDataManager().addSkippedScenarios(skipScenarios);
+			
 		}
-	}
+		
+	
 
 }

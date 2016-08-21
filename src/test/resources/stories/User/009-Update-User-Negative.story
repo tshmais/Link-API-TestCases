@@ -13,7 +13,6 @@ I want to make sure all return the code 2xx
 
 
 Scenario: TC-001_USER_Negative: Verify Update User service using mismatching data in url and body for user ID
-
 Given Create new user
 And Login with valid credentials
 And service method is put
