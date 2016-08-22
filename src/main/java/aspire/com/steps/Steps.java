@@ -605,15 +605,19 @@ public class Steps {
 		if (First_Param.equalsIgnoreCase("Existing_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
 		}
+		if (First_Param.equalsIgnoreCase("Same_Collar_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", resp2);
+		}
 		reqHandler.setRequestUrl(URL);
 
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
-	
+
 	@When("URL equal: $url with $user")
 	@Then("URL equal: $url with $user")
-	public void setServicesURLwithOneParametrsa(String url, String User) throws URISyntaxException {
+	public void setServicesURLwithOneParametrsa(String url, String User)
+			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -638,7 +642,7 @@ public class Steps {
 		if (User.equalsIgnoreCase("Existing_User_ID")) {
 			URL = URL.replaceFirst("\\[parameter1\\]", "1");
 		}
-		
+
 		reqHandler.setRequestUrl(URL);
 
 		ASReport.getInstance().append(URL);
@@ -1105,6 +1109,17 @@ public class Steps {
 		dataList = dbConn.ExecuteAPIQuery(getQuery);
 
 	}
+	
+	@Then("I want to pull the data from DB using $query query and response ID")
+	@When("I want to pull the data from DB using $query query and response ID")
+	public void getDB_DataID(String query) throws ClassNotFoundException,
+			SQLException {
+		String getQuery = String.format(EnvirommentManager.getInstance()
+				.getProperty(query));
+		getQuery = getQuery.replaceFirst("\\[parameter\\]", resp2);
+		dataList = dbConn.ExecuteAPIQuery(getQuery);
+
+	}
 
 	@When("Retrieve Json path $expression response")
 	@Then("Retrieve Json path $expression response")
@@ -1139,6 +1154,15 @@ public class Steps {
 
 	}
 
+	@Then("The Collar should be deleted")
+	@When("The Collar should be deleted")
+	public void AssertDeletedItem() throws JSONException {
+
+		String expected = dataList.get(0);
+		Assert.assertEquals("1", expected);
+
+	}
+
 	@Then("print the value")
 	public void print() {
 		String expected = dataList.get(0);
@@ -1156,14 +1180,6 @@ public class Steps {
 				.getInstance().getProperty("Number_Of_users")));
 		cds.writedata_user_type("Users");
 		cds.writedata_user(user_id_file, user_email_file, "Password");
-		// prepare URL
-		/*
-		 * String emailAddress1 = EnvirommentManager.getInstance()
-		 * .getProperty("User_Email_Address");
-		 */
-
-		// emails = emailAddress1.split(",");
-
 		for (int i = 1; i <= items1; i++) {
 			cds.create_Users(items1, url1, body1, i);
 
