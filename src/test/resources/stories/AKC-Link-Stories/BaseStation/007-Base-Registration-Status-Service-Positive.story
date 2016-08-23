@@ -11,7 +11,7 @@ In order to test Base Registration Status service
 As a tester
 I want to make sure all return the code 200
                                   
-Scenario: TC-001_COLLAR_Positive: Verify BaseStation Registration Status service using one MacAddr_ID for user with registered and access as "true"   
+Scenario: TC-001_COLLAR_Positive: Check BaseStation Registration Status service using one MacAddr_ID for user with registered and access as "true"   
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation
@@ -32,7 +32,7 @@ Then the service response should be: 200
 
 
 
-Scenario: TC-002_COLLAR_Positive: Verify BaseStation Registration Status service using multiple MacAddr_ID for user with registered and access as "true"   
+Scenario: TC-002_COLLAR_Positive: Check BaseStation Registration Status service using multiple MacAddr_ID for user with registered and access as "true"   
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation
@@ -55,7 +55,7 @@ And we set Body with {
 Then the service response should be: 200
 
 
-Scenario: TC-003_COLLAR_Positive: Verify BaseStation Registration Status service using one MacAddr_ID for user with registered and access as "false"   
+Scenario: TC-003_COLLAR_Positive: Check BaseStation Registration Status service using one MacAddr_ID for user with registered and access as "false"   
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation

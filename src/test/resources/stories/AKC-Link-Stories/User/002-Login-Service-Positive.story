@@ -5,7 +5,7 @@ Meta:
 @ReportName User_Positive
 @Link
 
-Scenario: TC-001_USER_Positive: Verify Login service using valid data  for new LINK user
+Scenario: TC-001_USER_Positive: Login using valid data for new LINK user
 Given Create new user
 And Login with valid credentials
 Then the service response should be: 200
