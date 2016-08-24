@@ -5,7 +5,7 @@ Meta:
 @ReportName User_Positive
 @Link
 
-Scenario: TC-001_USER_Positive: Login via FB using valid data for new LINK user
+Scenario: TC-001_USER_Positive: Verify Login using FB service using valid data  for new LINK user
 Given Check if FB user created
 And service method is post
 And the service url is: Login_service

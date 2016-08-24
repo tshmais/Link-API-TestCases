@@ -12,7 +12,7 @@ In order to test New_Collar service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario: TC-001_COLLAR_Positive: Add Collar service using valid data for New Collar
+Scenario: TC-001_COLLAR_Positive: Verify Add Collar service using valid data  for New Collar
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -35,7 +35,7 @@ And json path firmwareVersion should be : 3
 And json path primaryUserId should be : 4
 And json path deviceId should be : 5
 
-Scenario: TC-002_COLLAR_Positive: Add Collar service using valid data for FB Collar
+Scenario: TC-002_COLLAR_Positive: Verify Add Collar service using valid data for FB Collar
 
 Given Check if FB user created
 And service method is post

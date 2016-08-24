@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_DOG_Negative: Update Dog using empty data for name
+Scenario: TC-001_DOG_Negative: Verify Update Dog service using empty data  for name
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -46,7 +46,7 @@ Then the service response should be: 409
 
 
 
-Scenario: TC-003_DOG_Negative: Update Dog using empty data for gender
+Scenario: TC-003_DOG_Negative: Verify Update Dog service using empty data  for gender
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -79,7 +79,7 @@ And we set Body with {
 Then the service response should be: 200
 
 
-Scenario: TC-004_DOG_Negative: Update Dog using empty data for neutered
+Scenario: TC-004_DOG_Negative: Verify Update Dog service using empty data  for neutered
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -111,7 +111,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-005_DOG_Negative: Update Dog using empty data for age
+Scenario: TC-005_DOG_Negative: Verify Update Dog service using empty data  for age
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -144,7 +144,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: TC-007_DOG_Negative: Update Dog using empty data for description
+Scenario: TC-007_DOG_Negative: Verify Update Dog service using empty data for description
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -176,7 +176,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-008_DOG_Negative: Update Dog using empty data for dateOfBirth
+Scenario: TC-008_DOG_Negative: Verify Update Dog service using empty data for dateOfBirth
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -208,7 +208,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-009_DOG_Negative: Update Dog using empty data for weight
+Scenario: TC-009_DOG_Negative: Verify Update Dog service using empty data  for weight
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -240,7 +240,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-010_DOG_Negative: Update Dog using empty data for eyeColor
+Scenario: TC-010_DOG_Negative: Verify Update Dog service using empty data for eyeColor
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -272,7 +272,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-011_DOG_Negative: Update Dog using empty data for weightClass
+Scenario: TC-011_DOG_Negative: Verify Update Dog service using empty data  for weightClass
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -304,7 +304,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-012_DOG_Negative: Update Dog using empty data  for akcRegistrationNo
+Scenario: TC-012_DOG_Negative: Verify Update Dog service using empty data  for akcRegistrationNo
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -336,7 +336,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-013_DOG_Negative: Update Dog using empty data for All parameters
+Scenario: TC-013_DOG_Negative: Verify Update Dog service using empty data  for All parameters
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -374,7 +374,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-014_DOG_Negative: Update Dog using invalid data for name
+Scenario: TC-014_DOG_Negative: Verify Update Dog service using invalid data for name
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -406,7 +406,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-015_DOG_Negative: Update Dog using invalid data for gender
+Scenario: TC-015_DOG_Negative: Verify Update Dog service using invalid data for gender
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -438,7 +438,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-016_DOG_Negative: Update Dog using invalid data for neutered
+Scenario: TC-016_DOG_Negative: Verify Update Dog service using  invalid data  for neutered
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -470,7 +470,7 @@ And we set Body with {
 }
 Then the service response should be: 400
 
-Scenario: TC-017_DOG_Negative: Update Dog using invalid data for age
+Scenario: TC-017_DOG_Negative: Verify Update Dog service using invalid data for age
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -504,7 +504,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-019_DOG_Negative: Update Dog using invalid data for breedId1
+Scenario: TC-019_DOG_Negative: Verify Update Dog service using invalid data  for breedId1
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -536,7 +536,7 @@ And we set Body with {
 }
 Then the service response should be: 400
 
-Scenario: TC-020_DOG_Negative: Update Dog using invalid data for breedId2
+Scenario: TC-020_DOG_Negative: Verify Update Dog service using invalid data  for breedId2
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -573,7 +573,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-022_DOG_Negative: Update Dog using invalid data for description
+Scenario: TC-022_DOG_Negative: Verify Update Dog service using invalid data  for description
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -605,7 +605,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-023_DOG_Negative: Update Dog using invalid data for dateOfBirth
+Scenario: TC-023_DOG_Negative: Verify Update Dog service using invalid data  for dateOfBirth
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -637,7 +637,7 @@ And we set Body with {
 }
 Then the service response should be: 400
 
-Scenario: TC-024_DOG_Negative: Update Dog using invalid data for weight
+Scenario: TC-024_DOG_Negative: Verify Update Dog service using invalid data for weight
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -670,7 +670,7 @@ And we set Body with {
 Then the service response should be: 400
 
 
-Scenario: TC-026_DOG_Negative: Update Dog using invalid data for weightClass
+Scenario: TC-026_DOG_Negative: Verify Update Dog service using invalid data for weightClass
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -702,7 +702,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-027_DOG_Negative: Update Dog using invalid data for akcRegistrationNo
+Scenario: TC-027_DOG_Negative: Verify Update Dog service using invalid data  for akcRegistrationNo
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -734,7 +734,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-028_DOG_Negative: Update Dog using Future date for DOB 
+Scenario: TC-028_DOG_Negative: Verify Update Dog service using Future date for DOB 
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -767,7 +767,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: TC-029_DOG_Negative: Update Dog using Access denied for accountId
+Scenario: TC-029_DOG_Negative: Verify Update Dog service using Access denied for accountId
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -799,7 +799,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-031_DOG_Negative: Update Dog using data for not exist user
+Scenario: TC-031_DOG_Negative: Verify Update Dog service using data for not exist user
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -831,7 +831,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-006_DOG_Positive: Update Dog using "breedSource" as "Listed Breed" for Both breedId1 and breedId2 are provided
+Scenario: TC-006_DOG_Positive: Verify Update Dog service using "breedSource" as "Listed  Breed"  for Both breedId1 and breedId2 are provided
 Given Create new user
 And Login with valid credentials
 And Create new dog

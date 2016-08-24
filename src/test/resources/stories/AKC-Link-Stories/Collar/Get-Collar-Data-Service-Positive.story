@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_COLLAR_Positive: Get Collar data using valid registered data for collar ID  
+Scenario: TC-001_COLLAR_Positive: Verify Get Collar data service using valid registered data  for collar ID  
 
 Given Create new user
 And Login with valid credentials

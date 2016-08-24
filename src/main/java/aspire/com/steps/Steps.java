@@ -62,6 +62,8 @@ public class Steps {
 	String Third_one;
 	String Folder;
 	String Signature;
+	String getfirebaseToken;
+	String getdeviceID;
 
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
@@ -215,6 +217,34 @@ public class Steps {
 			json = json.replace("Generated-deviceId", Device_ID);
 		}
 
+		if (json.contains("Generated_deviceId")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String deviceId = "2345678" + newrand;
+			getdeviceID = deviceId;
+			json = json.replace("Generated_deviceId", deviceId);
+		}
+
+		if (json.contains("Same_Device_ID")) {
+
+			String deviceId = getdeviceID;
+			json = json.replace("Same_Device_ID", deviceId);
+		}
+
+		if (json.contains("Same_firebaseToken")) {
+
+			String deviceId = getfirebaseToken;
+			json = json.replace("Same_firebaseToken", deviceId);
+		}
+
+		if (json.contains("Generated_firebaseToken")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String firebaseToken = "token5678" + newrand;
+			getfirebaseToken = firebaseToken;
+			json = json.replace("Generated_firebaseToken", firebaseToken);
+		}
+
 		if (json.contains("Generated-macid")) {
 			int range = (99999 - 10000);
 			int newrand = (int) (Math.random() * range) + 10000;
@@ -222,8 +252,6 @@ public class Steps {
 
 			json = json.replace("Generated-macid", MAC_ID);
 		}
-		reqHandler.setRequestBody(json);
-		System.out.println(json);
 
 		if (json.contains("UserID")) {
 
@@ -267,11 +295,7 @@ public class Steps {
 			json = json.replace("collarID", cds.Generated_ID);
 
 		}
-		// if (json.contains("device_Id")) {
-		//
-		// json = json.replace("device_Id", Generated_device_ID);
-		//
-		// }
+
 		if (json.contains("device_Id")) {
 
 			json = json.replace("device_Id", cds.Generated_device_ID);
@@ -339,6 +363,12 @@ public class Steps {
 		if (json.contains("Generated_signature")) {
 
 			json = json.replace("Generated_signature", Signature);
+
+		}
+		
+		if (json.contains("ID")) {
+
+			json = json.replace("ID", resp1);
 
 		}
 
@@ -1109,7 +1139,7 @@ public class Steps {
 		dataList = dbConn.ExecuteAPIQuery(getQuery);
 
 	}
-	
+
 	@Then("I want to pull the data from DB using $query query and response ID")
 	@When("I want to pull the data from DB using $query query and response ID")
 	public void getDB_DataID(String query) throws ClassNotFoundException,

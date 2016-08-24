@@ -10,7 +10,7 @@ In order to test Create_User service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario:TC-001_USER_Positive: Create User using valid data for new user (M)
+Scenario:TC-001_USER_Positive: Verify Create User service using valid data for new user (M)
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json

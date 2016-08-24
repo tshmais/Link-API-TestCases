@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 4XX for GET scenarios
 
 
-Scenario: TC-002_DOG_Negative: Get all dogs for a user using invalid data for user parameter
+Scenario: TC-002_DOG_Negative: Verify Get all dogs for a user service using invalid data  for  user parameter
 
 Given Create new user
 And Login with valid credentials
@@ -24,7 +24,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-003_DOG_Negative: Get all dogs for a user using user not exist for user parameter
+Scenario: TC-003_DOG_Negative: Verify Get all dogs for a user service using user not exist  for  user parameter
 
 Given Create new user
 And Login with valid credentials
@@ -36,7 +36,7 @@ Then the service response should be: 404
 |--And json response should equal:
 
 
-Scenario: TC-004_DOG_Negative: Get all dogs for a user using user who has no access for user parameter
+Scenario: TC-004_DOG_Negative: Verify Get all dogs for a user service using user have no access for  user parameter
 
 Given Create new user
 And Login with valid credentials

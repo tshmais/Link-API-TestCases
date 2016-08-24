@@ -185,11 +185,7 @@ public class StoriesTest extends JUnitStories {
 			
 			if (rerunFailed) {
 				rerunFailedStories(rerunCount);
-			} else {
-				skipScenariosList(embedder);
-			}
-			
-		//}
+			} 
 
 	}
 
@@ -219,9 +215,7 @@ public class StoriesTest extends JUnitStories {
 			}
 			if (j == (rerunCount - 1)) {
 				rerunFailedFlag = false;
-				if (embedder != null) {
-					skipScenariosList(embedder);
-				}
+				
 			}
 		}
 
