@@ -7,7 +7,7 @@ Meta:
 
 
 
-Scenario: TC-001_COLLAR_Nigative: Delete Collar associated with dog
+Scenario: TC-001_COLLAR_Nigative: Delete Collar association with dog
 
 Given Create new user
 And Login with valid credentials
@@ -39,7 +39,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 403
 
-Scenario: TC-003_COLLAR_Positive: Delete Same collare twice
+Scenario: TC-003_COLLAR_Positive: Delete Same collar twice
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -68,7 +68,7 @@ And add Session Authorization to Request headers
 Then the service response should be: 405
 
 
-Scenario: TC-005_COLLAR_Negative: Delete Collar using not exist userId
+Scenario: TC-005_COLLAR_Negative: Delete Collar using not existing userId
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -91,7 +91,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 405
 
-Scenario: TC-007_COLLAR_Negative: Delete Collar using not exist collarId
+Scenario: TC-007_COLLAR_Negative: Delete Collar using not existing collarId
 Given Create new user
 And Login with valid credentials
 And Create new collar

@@ -10,7 +10,7 @@ In order to test Add Base Station service
 As a tester
 I want to make sure all return the code Pass
 
-Scenario:TC-001_BASE_Negative: Verify Create Base service using empty data for macAddrId
+Scenario:TC-001_BASE_Negative: Create Base using empty data for macAddrId
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -25,7 +25,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-002_BASE_Negative: Verify Create Base service using empty data for title
+Scenario:TC-002_BASE_Negative: Create Base using empty data for title
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -40,7 +40,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-003_BASE_Negative: Verify Create Base service using empty data for latitude
+Scenario:TC-003_BASE_Negative: Create Base using empty data for latitude
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -55,7 +55,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-004_BASE_Negative: Verify Create Base service using empty data for longitude
+Scenario:TC-004_BASE_Negative: Create Base using empty data for longitude
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -70,7 +70,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-005_BASE_Negative: Verify Create Base service using empty data for All parameters
+Scenario:TC-005_BASE_Negative: Create Base using empty data for All parameters
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -85,7 +85,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-006_BASE_Negative: Verify Create Base service using invalid data for macAddrId
+Scenario:TC-006_BASE_Negative: Create Base using invalid data for macAddrId
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -100,7 +100,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario:TC-007_BASE_Negative: Verify Create Base service using invalid data for title
+Scenario:TC-007_BASE_Negative: Create Base using invalid data for title
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -115,7 +115,7 @@ And we set Body with {
 }
 Then the service response should be: 201
 
-Scenario:TC-008_BASE_Negative: Verify Create Base service using invalid data for latitude
+Scenario:TC-008_BASE_Negative: Create Base using invalid data for latitude
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -130,7 +130,7 @@ And we set Body with {
 }
 Then the service response should be: 400
 
-Scenario:TC-009_BASE_Negative: Verify Create Base service using invalid data for longitude
+Scenario:TC-009_BASE_Negative: Create Base using invalid data for longitude
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -145,7 +145,7 @@ And we set Body with {
 }
 Then the service response should be: 400
 
-Scenario:TC-010_BASE_Negative: Verify Create Base service using invalid data for All
+Scenario:TC-010_BASE_Negative: Create Base using invalid data for All
 Given Create new user
 And Login with valid credentials
 And service method is post

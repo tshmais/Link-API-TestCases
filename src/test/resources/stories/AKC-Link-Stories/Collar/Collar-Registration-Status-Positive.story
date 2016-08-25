@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_COLLAR_Positive: Verify Collar Registration Status service using one deviceId for user with registered and access as "true"   
+Scenario: TC-001_COLLAR_Positive: Check Collar Registration Status using one deviceId for user with registered and access as "true"   
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -31,7 +31,7 @@ And we set Body with {
 Then the service response should be: 200
 
 
-Scenario: TC-002_COLLAR_Positive: Verify Collar Registration Status service using multiple deviceId for user with registered and access as "true"   
+Scenario: TC-002_COLLAR_Positive: Check Collar Registration Status using multiple deviceId for user with registered and access as "true"   
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -54,7 +54,7 @@ And we set Body with {
 Then the service response should be: 200
 
 
-Scenario: TC-003_COLLAR_Positive: Verify Collar Registration Status service using one deviceId for user with registered and access as "false"   
+Scenario: TC-003_COLLAR_Positive: Check Collar Registration Status using one deviceId for user with registered and access as "false"   
 Given Create new user
 And Login with valid credentials
 And Create new collar

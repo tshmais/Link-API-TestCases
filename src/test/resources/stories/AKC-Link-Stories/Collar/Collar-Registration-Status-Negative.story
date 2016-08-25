@@ -13,7 +13,7 @@ I want to make sure all return the code 2xx and 4xx
 
 
 
-Scenario: TC-001_COLLAR_Negative: Verify Collar Registration Status service using devices Id for Empty data
+Scenario: TC-001_COLLAR_Negative: Check Collar Registration Status using Empty data for devices Ids
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -29,7 +29,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-002_COLLAR_Negative: Verify Collar Registration Status service using devices Id for devices Id not exist 
+Scenario: TC-002_COLLAR_Negative: Check Collar Registration Status using not existing data for devices Ids
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -45,7 +45,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-004_COLLAR_Negative: Verify Collar Registration Status service using invalid data for Special char  
+Scenario: TC-004_COLLAR_Negative: Check Collar Registration Status using Special char  for Devices Ids
 Given Create new user
 And Login with valid credentials
 And Create new collar

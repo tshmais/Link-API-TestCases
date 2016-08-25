@@ -22,7 +22,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 400
 
-Scenario: TC-002_BASE_Negative: Get Base stations data for unexisting userId
+Scenario: TC-002_BASE_Negative: Get Base stations data for not existing userId
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation

@@ -10,7 +10,7 @@ In order to test User's_Dogs service
 As a tester
 I want to make sure all return the code 4xx for POST scenarios and 2xx for optinal parameter
 
-Scenario: TC-001_DOG_Negative: Verify Add Dog service using empty data  for name
+Scenario: TC-001_DOG_Negative: Add Dog using empty data for name
 
 Given Create new user
 And Login with valid credentials
@@ -46,7 +46,7 @@ Then the service response should be: 409
 
 
 
-Scenario: TC-003_DOG_Negative: Verify Add Dog service using empty data  for gender
+Scenario: TC-003_DOG_Negative: Add Dog using empty data for gender
 
 Given Create new user
 And Login with valid credentials
@@ -76,7 +76,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
-Scenario: TC-004_DOG_Negative: Verify Add Dog service using empty data  for neutered
+Scenario: TC-004_DOG_Negative: Add Dog using empty data  for neutered
 
 Given Create new user
 And Login with valid credentials
@@ -106,7 +106,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
-Scenario: TC-005_DOG_Negative: Verify Add Dog service using empty data  for age
+Scenario: TC-005_DOG_Negative: Add Dog using empty data  for age
 
 Given Create new user
 And Login with valid credentials
@@ -136,7 +136,7 @@ Then the service response should be: 409
 And json response should equal:Negative_TC-005_Post_Dog_to_User_service
 
 
-Scenario: TC-006_DOG_Negative: Verify Add Dog service using empty data  for mix
+Scenario: TC-006_DOG_Negative: Add Dog using empty data  for mix
 
 Given Create new user
 And Login with valid credentials
@@ -167,7 +167,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-007_DOG_Negative: Verify Add Dog service when breedSource is "listed Breed" and breedId1, breedId2 are empty
+Scenario: TC-007_DOG_Negative: Add Dog when breedSource is "listed Breed" and breedId1, breedId2 are empty
 
 
 Given Create new user
@@ -202,7 +202,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-008_DOG_Negative: Verify Add Dog service when breedSource is "listed Breed" and only breedId2 is provided
+Scenario: TC-008_DOG_Negative: Add Dog when breedSource is "listed Breed" and only breedId2 is provided
 
 Given Create new user
 And Login with valid credentials
@@ -236,7 +236,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-013_DOG_Negative: Verify Add a Dog service using empty data  for eyeColor
+Scenario: TC-013_DOG_Negative: Add a Dog using empty data for eyeColor
 
 Given Create new user
 And Login with valid credentials
@@ -270,7 +270,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-014_DOG_Negative: Verify Add a Dog service using empty data  for weightClass
+Scenario: TC-014_DOG_Negative: Add a Dog using empty data for weightClass
 
 Given Create new user
 And Login with valid credentials
@@ -304,7 +304,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-015_DOG_Negative: Verify Add a Dog service using empty data  for akcRegistrationNo
+Scenario: TC-015_DOG_Negative: Add a Dog using empty data for akcRegistrationNo
 
 Given Create new user
 And Login with valid credentials
@@ -338,7 +338,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-016_DOG_Negative: Verify Add a Dog service using  invalid data  for name
+Scenario: TC-016_DOG_Negative: Add a Dog using  invalid data for name
 
 Given Create new user
 And Login with valid credentials
@@ -371,7 +371,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: TC-018_DOG_Negative: Verify Add Dog service using invalid data  for gender
+Scenario: TC-018_DOG_Negative: Add Dog using invalid data for gender
 
 Given Create new user
 And Login with valid credentials
@@ -404,7 +404,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-0018_Post_Dog_to_User_service
 
 
-Scenario: TC-019_DOG_Negative: Verify Add Dog service using invalid data  for neutered
+Scenario: TC-019_DOG_Negative: Add Dog using invalid data for neutered
 
 Given Create new user
 And Login with valid credentials
@@ -436,7 +436,7 @@ And we set Body with {
 Then the service response should be: 400
 
 
-Scenario: TC-020_DOG_Negative: Verify Add Dog service using invalid data  for age
+Scenario: TC-020_DOG_Negative: Add Dog using invalid data for age
 
 Given Create new user
 And Login with valid credentials
@@ -471,7 +471,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-022_DOG_Negative: Verify Add a Dog service using invalid data  for breedId1
+Scenario: TC-022_DOG_Negative: Add a Dog using invalid data for breedId1
 
 Given Create new user
 And Login with valid credentials
@@ -500,7 +500,7 @@ And we set Body with {
 Then the service response should be: 400
 
 
-Scenario: TC-023_DOG_Negative: Verify Add a Dog service using invalid data  for breedId2
+Scenario: TC-023_DOG_Negative: Add a Dog using invalid data for breedId2
 
 Given Create new user
 And Login with valid credentials
@@ -533,7 +533,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-025_DOG_Negative: Verify Add Dog service using invalid data  for description
+Scenario: TC-025_DOG_Negative: Add Dog using invalid data for description
 
 Given Create new user
 And Login with valid credentials
@@ -566,7 +566,7 @@ Then the service response should be: 201
 |--And json response should equal:Negative_TC-0025_Post_Dog_to_User_service
 
 
-Scenario: TC-026_DOG_Negative: Verify Add Dog service using invalid data  for dateOfBirth
+Scenario: TC-026_DOG_Negative: Add Dog using invalid data for dateOfBirth
 
 Given Create new user
 And Login with valid credentials
@@ -595,7 +595,7 @@ And we set Body with {
 Then the service response should be: 400
 
 
-Scenario: TC-027_DOG_Negative: Verify Add Dog service using invalid data  for weight
+Scenario: TC-027_DOG_Negative: Add Dog using invalid data for weight
 
 Given Create new user
 And Login with valid credentials
@@ -627,7 +627,7 @@ And we set Body with {
 Then the service response should be: 400
 
 
-Scenario: TC-028_DOG_Negative: Verify Add a Dog service using Future date for dateOfBirth
+Scenario: TC-028_DOG_Negative: Add a Dog using Future date for dateOfBirth
 
 Given Create new user
 And Login with valid credentials
@@ -659,7 +659,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: TC-029_DOG_Negative: Verify Add a Dog service using invalid data  for weightClass
+Scenario: TC-029_DOG_Negative: Add a Dog using invalid data for weightClass
 
 Given Create new user
 And Login with valid credentials
@@ -691,7 +691,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-030_DOG_Negative: Verify Add a Dog service using invalid data  for akcRegistrationNo
+Scenario: TC-030_DOG_Negative: Add a Dog using invalid data for akcRegistrationNo
 
 Given Create new user
 And Login with valid credentials
@@ -723,7 +723,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-031_DOG_Negative: Verify Add Dog service using empty data  for all
+Scenario: TC-031_DOG_Negative: Add Dog using empty data for all
 
 Given Create new user
 And Login with valid credentials
@@ -760,7 +760,7 @@ Then the service response should be: 409
 
 
 
-Scenario: TC-033_DOG_Negative: Verify Add Dog service using  invalid data (-1) for age
+Scenario: TC-033_DOG_Negative: Add Dog using invalid data (-1) for age
 
 Given Create new user
 And Login with valid credentials
@@ -793,7 +793,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-0033_Post_Dog_to_User_service
 
 
-Scenario: TC-034_DOG_Negative: Verify Add Dog service using invalid data  (51) for age
+Scenario: TC-034_DOG_Negative: Add Dog using invalid data  (51) for age
 
 Given Create new user
 And Login with valid credentials
@@ -826,7 +826,7 @@ Then the service response should be: 409
 |--And json response should equal:Negative_TC-0034_Post_Dog_to_User_service
 
 
-Scenario: TC-035_DOG_Nigative: Verify Add Dog service using "breedSource" as Listed  Breed"  and Both breedId1 and breedId2 are provided
+Scenario: TC-035_DOG_Nigative: Add Dog using "breedSource" as Listed Breed" and Both breedId1 and breedId2 are provided
  
 Given Create new user
 And Login with valid credentials
@@ -857,7 +857,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-036_DOG_Nigative: Verify Add Dog service using age as 5,1
+Scenario: TC-036_DOG_Nigative: Add Dog using age as 5,1
 Given Create new user
 And Login with valid credentials
 And service method is post

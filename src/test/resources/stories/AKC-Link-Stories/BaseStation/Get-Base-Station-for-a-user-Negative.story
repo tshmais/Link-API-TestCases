@@ -34,7 +34,7 @@ And add Session Authorization to Request headers
 Then the service response should be: 403
 
 
-Scenario: TC-003_BASE_Negative:  Get BaseStations for unexisting data for User/Basestation
+Scenario: TC-003_BASE_Negative:  Get BaseStations using unexisting data for User/Basestation
 
 Given Create new user
 And Login with valid credentials
@@ -47,7 +47,7 @@ And add Session Authorization to Request headers
 Then the service response should be: 404
 
 
-Scenario: TC-004_BASE_Negative: Get BaseStations for a User does not have a Base stations
+Scenario: TC-004_BASE_Negative: Get BaseStations for a User who does not have a Base station
 
 Given Create new user
 And Login with valid credentials
@@ -59,7 +59,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 200
 
-Scenario: TC-005_BASE_Positive: Get Base station data for User did not have acsess
+Scenario: TC-005_BASE_Positive: Get Base station data for a User who does not have acsess to The Base station
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation

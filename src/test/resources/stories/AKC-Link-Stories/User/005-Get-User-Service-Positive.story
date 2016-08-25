@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_USER_Positive: Verify Get User's Data service using valid data  for new LINK user
+Scenario: TC-001_USER_Positive: Get User's Data using valid data for new LINK user
 Given Create new user
 And Login with valid credentials
 And service method is get

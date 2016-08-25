@@ -12,7 +12,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_USER_Negative: Verify Update User service using mismatching data in url and body for user ID
+Scenario: TC-001_USER_Negative: Update User using mismatching data in url and body for user ID
 Given Create new user
 And Login with valid credentials
 And service method is put
@@ -38,7 +38,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-002_USER_Negative: Verify Update User service using mismatching data for version
+Scenario: TC-002_USER_Negative: Update User using mismatching data for version
 
 Given Create new user
 And Login with valid credentials
@@ -64,7 +64,7 @@ And we set Body with
 
 Then the service response should be: 409
 
-Scenario: TC-003_USER_Negative: Verify Update User service using empty value in for name
+Scenario: TC-003_USER_Negative: Update User using empty value in for name
 
 Given Create new user
 And Login with valid credentials
@@ -91,7 +91,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-004_USER_Negative: Verify Update User service using empty value in for emailAddress
+Scenario: TC-004_USER_Negative: Update User using empty value in for emailAddress
 
 Given Create new user
 And Login with valid credentials
@@ -118,7 +118,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-005_USER_Negative: Verify Update User service using empty value in for phoneNo
+Scenario: TC-005_USER_Negative: Update User using empty value in for phoneNo
 
 Given Create new user
 And Login with valid credentials
@@ -145,7 +145,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-006_USER_Negative: Verify Update User service using empty value in for cellNo
+Scenario: TC-006_USER_Negative: Update User using empty value in for cellNo
 
 Given Create new user
 And Login with valid credentials
@@ -172,7 +172,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-007_USER_Negative: Verify Update User service using empty value in for facebookUserId
+Scenario: TC-007_USER_Negative: Update User using empty value in for facebookUserId
 
 Given Create new user
 And Login with valid credentials
@@ -199,7 +199,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-008_USER_Negative: Verify Update User service using empty value in for gender
+Scenario: TC-008_USER_Negative: Update User using empty value in for gender
 
 Given Create new user
 And Login with valid credentials
@@ -226,7 +226,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-009_USER_Negative: Verify Update User service using empty value in for passcode
+Scenario: TC-009_USER_Negative: Update User using empty value in for passcode
 
 Given Create new user
 And Login with valid credentials
@@ -252,7 +252,7 @@ And we set Body with
 
 Then the service response should be: 200
 
-Scenario: TC-010_USER_Negative: Verify Update User service using empty value in for timezone
+Scenario: TC-010_USER_Negative: Update User using empty value in for timezone
 
 Given Create new user
 And Login with valid credentials
@@ -278,7 +278,7 @@ And we set Body with
 
 Then the service response should be: 200
 
-Scenario: TC-011_USER_Negative: Verify Update User service using empty value in for locale
+Scenario: TC-011_USER_Negative: Update User using empty value in for locale
 
 Given Create new user
 And Login with valid credentials
@@ -304,7 +304,7 @@ And we set Body with
 
 Then the service response should be: 200
 
-Scenario: TC-012_USER_Negative: Verify Update User service using empty value in for version
+Scenario: TC-012_USER_Negative: Update User using empty value in for version
 
 Given Create new user
 And Login with valid credentials
@@ -331,7 +331,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-013_USER_Negative: Verify Update User service using invalid data for name
+Scenario: TC-013_USER_Negative: Update User using invalid data for name
 
 Given Create new user
 And Login with valid credentials
@@ -358,7 +358,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-014_USER_Negative: Verify Update User service using invalid data for emailAddress
+Scenario: TC-014_USER_Negative: Update User using invalid data for emailAddress
 
 Given Create new user
 And Login with valid credentials
@@ -385,7 +385,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-015_USER_Negative: Verify Update User service using invalid data for phoneNo
+Scenario: TC-015_USER_Negative: Update User using invalid data for phoneNo
 
 Given Create new user
 And Login with valid credentials
@@ -411,7 +411,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-016_USER_Negative: Verify Update User service using invalid data for cellNo
+Scenario: TC-016_USER_Negative: Update User using invalid data for cellNo
 
 Given Create new user
 And Login with valid credentials
@@ -438,7 +438,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-017_USER_Negative: Verify Update User service using invalid data for facebookUserId
+Scenario: TC-017_USER_Negative: Update User using invalid data for facebookUserId
 
 Given Create new user
 And Login with valid credentials
@@ -463,7 +463,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: TC-018_USER_Negative: Verify Update User service using invalid data for gender
+Scenario: TC-018_USER_Negative: Update User using invalid data for gender
 
 Given Create new user
 And Login with valid credentials
@@ -490,7 +490,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-019_USER_Negative: Verify Update User service using invalid data for passcode
+Scenario: TC-019_USER_Negative: Update User using invalid data for passcode
 
 Given Create new user
 And Login with valid credentials
@@ -517,7 +517,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-020_USER_Negative: Verify Update User service using invalid data for timezone
+Scenario: TC-020_USER_Negative: Update User using invalid data for timezone
 
 Given Create new user
 And Login with valid credentials
@@ -544,7 +544,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-021_USER_Negative: Verify Update User service using invalid data for locale
+Scenario: TC-021_USER_Negative: Update User using invalid data for locale
 
 Given Create new user
 And Login with valid credentials
@@ -571,7 +571,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-022_USER_Negative: Verify Update User service using invalid data for version
+Scenario: TC-022_USER_Negative: Update User using invalid data for version
 
 Given Create new user
 And Login with valid credentials
@@ -598,7 +598,7 @@ And we set Body with
 Then the service response should be: 400
 
 
-Scenario: TC-023_USER_Negative: Verify Update User service using invalid data for User ID not exist
+Scenario: TC-023_USER_Negative: Update User using invalid data for User ID not exist
 
 Given Create new user
 And Login with valid credentials
@@ -624,7 +624,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: TC-024_USER_Negative: Verify Update User service using invalid data for User ID already exist
+Scenario: TC-024_USER_Negative: Update User using invalid data for User ID already exist
 
 Given Create new user
 And Login with valid credentials
