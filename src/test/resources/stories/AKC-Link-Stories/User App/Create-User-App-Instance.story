@@ -31,7 +31,6 @@ Then the service response should be: 201
 
 Scenario: TC-002_Create_User_App_Positive: Add multiple user apps for the same user
 
-
 Given Create new user
 And Login with valid credentials
 And service method is post

@@ -18,8 +18,8 @@ And we set Body with
 {
  "name": "User123",
  "emailAddress": "Generated-Email",
- "phoneNo": "877-555-1234",
- "cellNo": "877-555-1234",
+ "phoneNo": "877-555-123412345678",
+ "cellNo": "877-555-123412345678",
  "facebookUserId": "",
  "gender": "M",
  "timezone": "America/New_York",

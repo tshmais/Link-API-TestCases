@@ -5,7 +5,6 @@ Meta:
 @Collar
 @Link
 
-
 Narrative:
 In order to test New_Collar service
 As a tester
@@ -23,7 +22,6 @@ And we set Body with {
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : "1.1"
 }
-
 Then the service response should be: 409
 
 Scenario: TC-002_COLLAR_Negative: Add Collar using empty data for hardwareVersion
@@ -56,72 +54,7 @@ And we set Body with {
 
 Then the service response should be: 201
 
-
-
-Scenario: TC-004_COLLAR_Negative: Add Collar using invalid data for deviceId
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Add_New_Collar_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "imei" : "@233%",
-    "hardwareVersion" : "DS5s60",
-    "firmwareVersion" : "1.1"
-}
-
-Then the service response should be: 409
-
-
-Scenario: TC-005_COLLAR_Negative: Add Collar using invalid data for hardwareVersion
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Add_New_Collar_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "deviceId" : "Generated-deviceId",
-    "hardwareVersion" : "%$",
-    "firmwareVersion" : "1.1"
-}
-
-Then the service response should be: 201
-
-
-Scenario: TC-006_COLLAR_Negative: Add Collar using invalid data for firmwareVersion
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Add_New_Collar_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {	
-    "deviceId" : "Generated-deviceId",
-    "hardwareVersion" : "123",
-    "firmwareVersion" : "(^)"
-}
-
-Then the service response should be: 201
-                                    
-Scenario: TC-008_COLLAR_Negative: Add Collar using data for a Non consistent token with the id
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Add_New_Collar_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And add to the header Authorization with value 55dffa77-870e-4c81-bfaf-c147944f2d31
-And we set Body with {
-    "deviceId" : "24634756734522",
-    "hardwareVersion" : "DS5s60",
-    "firmwareVersion" : "1.1"
-}
-
-Then the service response should be: 401
-
-Scenario: TC-009_COLLAR_Negative: Add Collar using empty data for All parametes
+Scenario: TC-004_COLLAR_Negative: Add Collar using empty data for all properties
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -134,4 +67,76 @@ And we set Body with {
     "firmwareVersion" : ""
 }
 
+Then the service response should be: 409
+
+
+Scenario: TC-005_COLLAR_Positive: Add Collar using more than the allowed Maximum number of digits
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "0000000000001",
+    "hardwareVersion" : "121212121212121212121",
+     "firmwareVersion" : "121212121212121212121"
+}
+Then the service response should be: 409
+
+Scenario: TC-006_COLLAR_Positive: Add Collar using less than the allowed minimum number of digits
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "00005",
+    "hardwareVersion" : "",
+     "firmwareVersion" : ""
+}
+Then the service response should be: 409
+
+Scenario: TC-007_COLLAR_Positive: Add Collar using Code & Syntax (HTML, Script, Query, URL, json) for deviceId
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "http://www.linkakc.com/",
+    "hardwareVersion" : "1frda",
+     "firmwareVersion" : "11.2"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-008_COLLAR_Positive: Add Collar using Special char & Non-English char for deviceId
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "¿…#∆≈",
+    "hardwareVersion" : "1frda",
+     "firmwareVersion" : "11.2"
+}
+Then the service response should be: 409
+
+Scenario: TC-008_COLLAR_Positive: Add Collar using reserved words for deviceId
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "Given",
+    "hardwareVersion" : "1frda",
+     "firmwareVersion" : "11.2"
+}
 Then the service response should be: 409

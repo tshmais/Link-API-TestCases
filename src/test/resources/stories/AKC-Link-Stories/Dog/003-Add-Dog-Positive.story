@@ -228,7 +228,7 @@ And json path accountId should be : 11
 
 
 
-Scenario: TC-007_DOG_Positive: Add Dog using "mix" as "True" and only Id1 , Id2 and name are provided
+Scenario: TC-007_DOG_Positive: Add Dog using "mix" as "True" and only Id1 , Id2 and name are provided with maximum limit digits in all fields
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -236,7 +236,7 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "Pucy",
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "gender" : "M",
     "neutered" : false,
     "age" : 4,
@@ -249,15 +249,15 @@ And we set Body with {
                     "id" : "2"
                     },
                     {
-                    "name" : "test"
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
                 ],
-    "description" : "My dog Pucy",
+    "description" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -277,7 +277,7 @@ And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
 
 
-Scenario:TC-008_DOG_Positive: Add Dog using "mix" as "true" and name provided 
+Scenario:TC-008_DOG_Positive: Add Dog using "mix" as "true" and name provided with special characters in all fields
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -285,23 +285,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "Pucy",
-    "gender" : "M",
+    "name" : "!@#",
+    "gender" : "m",
     "neutered" : false,
     "age" : 4,
     "mix": true,
     "breeds" : [
                     {
-                    "name" : "test"
+                 "name" : "Custom Breed"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "Custom Breed"
                     }
                 ],
-    "description" : "My dog Pucy",
-    "dateOfBirth" : "2016-07-22",
+    "description" : "sd",
     "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-    }
+     "dateOfBirth" : "2016-07-22",
+    "eyeColor" : "??",
+    "weightClass" : "$#@&*",
+    "akcRegistrationNo" : "()<>,."
+}
 Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
@@ -320,7 +326,7 @@ And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
     
     
-Scenario:TC-009_DOG_Positive: Add Dog using "mix" as "false" and name provided 
+Scenario:TC-009_DOG_Positive: Add Dog using "mix" as "false" and name provided with files and images formats in all fields
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -328,22 +334,22 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "Pucy",
+    "name" : "Pucy.html",
     "gender" : "M",
     "neutered" : false,
     "age" : 4,
     "mix": false,
     "breeds" : [
                     {
-                    "name" : "test"
+                    "name" : "test.JPEG"
                     }
                 ],
-    "description" : "My dog Pucy",
+    "description" : "My dog Pucy.g",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
+    "eyeColor" : "BROWN.GIF",
+    "weightClass" : "NA.PNG",
+    "akcRegistrationNo" : "ABC00123.css"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -365,7 +371,7 @@ And json path accountId should be : 11
 
 
 
-Scenario: TC-010_DOG_Positive: Add Dog using genser as F
+Scenario: TC-010_DOG_Positive: Add Dog using genser as F with scripts and queries in all fields
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -373,25 +379,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "Pucy",
+    "name" : "<script>alert(document.cookie);</script>",
     "gender" : "f",
     "neutered" : false,
     "age" : 4,
     "mix": true,
     "breeds" : [
                     {
-                    "id" : "1"
+                 "name" : "Custom Breed"
                     },
                     {
                     "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
                 ],
-    "description" : "My dog Pucy",
+    "description" : "<!DOCTYPE html> <html> <body> <h1>My First Heading</h1> <p>My first paragraph.</p> </body> </html>",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
+    "eyeColor" : "{}",
+    "weightClass" : "SELECT * FROM link_main.dog where id = 1;",
+    "akcRegistrationNo" : "https://www.google.jo"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -1215,3 +1224,241 @@ And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
 
+
+Scenario: TC-032_DOG_Positive: Add Dog without adding gender key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}  
+Then the service response should be: 201
+
+Scenario: TC-033_DOG_Positive: Add Dog without adding neutered key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+Scenario: TC-034_DOG_Positive: Add Dog without adding description key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+
+Scenario: TC-035_DOG_Positive: Add Dog without adding dateOfBirth key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+
+Scenario: TC-036_DOG_Positive: Add Dog without adding weight key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "eyeColor" : "BROWN",
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+
+Scenario: TC-037_DOG_Positive: Add Dog without adding eyeColor key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "weightClass" : "1",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+
+Scenario: TC-038_DOG_Positive: Add Dog without adding weightClass key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "akcRegistrationNo" : "NA"
+}   
+Then the service response should be: 201
+
+
+Scenario: TC-039_DOG_Positive: Add Dog without adding akcRegistrationNo key (Optional field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : true,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" :8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "1"
+}   
+Then the service response should be: 201

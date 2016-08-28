@@ -49,7 +49,7 @@ And service method is post
 And The service url equal : Associate_Dog_With_Collar with Empty_User_ID and Same_First_ID and Same_Second_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-Then the service response should be: 400
+Then the service response should be: 405
 
 
 Scenario: TC-004_Dog-Collar Association_Negative: Associate Dog With Collar using empty data for userId/dogId and valid data for collarId
@@ -63,7 +63,7 @@ And service method is post
 And The service url equal : Associate_Dog_With_Collar with Empty_User_ID and Empty_First_ID and Same_Second_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-Then the service response should be: 400
+Then the service response should be: 405
 
 
 Scenario: TC-005_Dog-Collar Association_Negative: Associate Dog With Collar using a collar that has already been associated with a dog

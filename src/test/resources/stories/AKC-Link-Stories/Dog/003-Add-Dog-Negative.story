@@ -878,7 +878,7 @@ And we set Body with {
                     "id" : "2"
                     },
                     {
-                    "name" : ""
+                    "name" : "aa"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -890,3 +890,365 @@ And we set Body with {
 }
 Then the service response should be: 400
 
+Scenario: TC-037_DOG_Positive: Add Dog with more than the maximum limit charecters in dog name field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-038_DOG_Positive: Add Dog with more than the maximum limit charecters in Custom breed name field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-039_DOG_Positive: Add Dog with more than the maximum limit charecters in description field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-040_DOG_Positive: Add Dog with more than the maximum limit charecters in eyeColor field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-041_DOG_Positive: Add Dog with more than the maximum limit charecters in weightClass field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-042_DOG_Positive: Add Dog with more than the maximum limit charecters in akcRegistrationNo field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "1234567890aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-043_DOG_Positive: Add Dog with invalid date format in dateOfBirth field
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-22-07",
+    "weight" : 8.9,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 400
+
+
+Scenario: TC-044_DOG_Positive: Add Dog without adding "mix" key (Mandatory field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 5000,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+
+Scenario: TC-045_DOG_Positive: Add Dog without adding "name" key (Mandatory field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                ],
+    "description" : "aaaaaaaaaaaaaaaaaaaaa",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 5000,
+    "eyeColor" : "aaaaaaaaaaaaaaaaaaaa",
+    "weightClass" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "akcRegistrationNo" : "123456789aaaaaaaaaaaa123456789"
+}
+Then the service response should be: 409
+
+
+
+Scenario: TC-046_DOG_Positive: Add Dog without adding "age" key (Mandatory field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    {
+                    "id" : "2"
+                    },
+                    {
+                    "name" : "new breed"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 409
+
+
+Scenario: TC-046_DOG_Positive: Add Dog with mix is true and witout breed details key (Mandatory field)
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "mix": false,
+    "breeds" : [
+                  
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 409
