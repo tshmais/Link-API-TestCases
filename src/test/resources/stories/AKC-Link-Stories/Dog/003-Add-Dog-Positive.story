@@ -228,7 +228,7 @@ And json path accountId should be : 11
 
 
 
-Scenario: TC-007_DOG_Positive: Add Dog using "mix" as "True" and only Id1 , Id2 and name are provided with maximum limit digits in all fields
+Scenario: TC-007_DOG_Positive: Add Dog using "mix" as "True" and only Id1 , Id2 and name are provided with maximum limit characters in all fields
 Given Create new user
 And Login with valid credentials
 And service method is post
