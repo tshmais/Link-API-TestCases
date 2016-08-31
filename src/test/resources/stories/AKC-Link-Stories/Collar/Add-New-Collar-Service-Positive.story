@@ -144,7 +144,7 @@ And json path primaryUserId should be : 4
 And json path deviceId should be : 5
 
 
-Scenario: TC-006_COLLAR_Positive: Add Collar using Special char & Non-English char
+Scenario: TC-006_COLLAR_Positive: Add Collar using Special characters & Non-English characters
 Given Create new user
 And Login with valid credentials
 And service method is post

@@ -11,7 +11,7 @@ As a tester
 I want to make sure all return the code 2xx
 
 
-Scenario: TC-001_COLLAR_Negative: Get user collars using empty data for user ID
+Scenario: TC-001_COLLAR_Negative: Get user collars using empty value for user ID
 
 Given Create new user
 And Login with valid credentials
@@ -24,7 +24,7 @@ Then the service response should be: 400
 
 
 
-Scenario: TC-002_COLLAR_Negative: Get user collars using invalid data for useer ID
+Scenario: TC-002_COLLAR_Negative: Get user collars using invalid value for useer ID
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -36,7 +36,7 @@ Then the service response should be: 403
 
 
 
-Scenario: TC-003_COLLAR_Negative: Get user collars using user not exist for user ID
+Scenario: TC-003_COLLAR_Negative: Get user collars using a not existing user ID
 Given Create new user
 And Login with valid credentials
 And Create new collar

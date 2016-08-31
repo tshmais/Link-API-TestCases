@@ -53,7 +53,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-003_COLLAR_Positive: Check Collar Registration Status for user without registered and have access to the Device
+Scenario: TC-003_COLLAR_Positive: Check Collar Registration Status for user that is not registered and have access to the Device
 Given Create new user
 And Login with valid credentials
 And Create new collar

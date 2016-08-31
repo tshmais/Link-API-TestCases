@@ -10,7 +10,7 @@ In order to test New_Collar service
 As a tester
 I want to make sure all return the code 4xx
     
-Scenario:TC-001_COLLAR_Negative: Add Collar using empty data for deviceId
+Scenario:TC-001_COLLAR_Negative: Add Collar using empty value for deviceId
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -24,7 +24,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-002_COLLAR_Negative: Add Collar using empty data for hardwareVersion
+Scenario: TC-002_COLLAR_Negative: Add Collar using empty value for hardwareVersion
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -39,7 +39,7 @@ And we set Body with {
 
 Then the service response should be: 201
 
-Scenario: TC-003_COLLAR_Negative: Add Collar using empty data for firmwareVersion
+Scenario: TC-003_COLLAR_Negative: Add Collar using empty value for firmwareVersion
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -54,7 +54,7 @@ And we set Body with {
 
 Then the service response should be: 201
 
-Scenario: TC-004_COLLAR_Negative: Add Collar using empty data for all properties
+Scenario: TC-004_COLLAR_Negative: Add Collar using empty values for all properties
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -84,7 +84,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: TC-006_COLLAR_Positive: Add Collar using less than the allowed minimum number of digits
+Scenario: TC-006_COLLAR_Positive: Add Collar using less than minimum number of digits
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -113,7 +113,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: TC-008_COLLAR_Positive: Add Collar using Special char & Non-English char for deviceId
+Scenario: TC-008_COLLAR_Positive: Add Collar using Special characters & Non-English char for deviceId
 Given Create new user
 And Login with valid credentials
 And service method is post

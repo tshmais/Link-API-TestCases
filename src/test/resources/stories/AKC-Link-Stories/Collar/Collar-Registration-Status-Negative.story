@@ -45,7 +45,7 @@ And we set Body with {
 }
 Then the service response should be: 200
 
-Scenario: TC-004_COLLAR_Negative: Check Collar Registration Status using Special char  for Devices Ids
+Scenario: TC-004_COLLAR_Negative: Check Collar Registration Status using Special characters for Devices Ids
 Given Create new user
 And Login with valid credentials
 And Create new collar
