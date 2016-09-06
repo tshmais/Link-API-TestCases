@@ -198,7 +198,7 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
     
-Then the service response should be: 409
+Then the service response should be: 201
 |--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
@@ -1016,7 +1016,7 @@ And we set Body with {
                     "name" : "new breed"
                     }
                 ],
-    "description" : "My dog Pucy",",
+    "description" : "My dog Pucy",
     "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
     "eyeColor" : "aaaaaaaaaaaaaaaaaaaaa",
