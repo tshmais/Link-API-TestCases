@@ -138,6 +138,46 @@ public class Create_Data_Steps {
 		}
 
 	}
+	
+	protected void createUserswithapps(int items, String url, String body,
+			int Apps, String App_Name, int i) throws URISyntaxException,
+			ClientProtocolException, IOException {
+
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+				getRootUrl());
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		System.out.println("The URL is: " + URL);
+
+		reqHandler.setRequestHeader(name, value);
+
+		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+		String user_appmail = EnvirommentManager.getInstance().getProperty(
+				"User_name_with_apps");
+
+		User_Email = user_appmail + i + "@LinkAKC.com";
+
+		if (jsonbody.contains("Generated-Email")) {
+
+			jsonbody = jsonbody.replace("Generated-Email", User_Email);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.println(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+
+		}
+		for (int z = 1; z <= Apps; z++) {
+
+			login();
+			create_app(App_Name, z, i);
+
+		}
+
+	}
 
 	protected void createUserswithbaseStation(int items, String url,
 			String body, int BaseStations, int i) throws URISyntaxException,
@@ -369,7 +409,7 @@ public class Create_Data_Steps {
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_Dog_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", user_id);
+		URL = URL.replaceFirst("\\[parameter1\\]", user_id);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
@@ -397,6 +437,74 @@ public class Create_Data_Steps {
 
 	}
 
+	
+	protected void create_app(String App_Name, int z, int i)
+			throws URISyntaxException, ParseException, IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_User_App"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter1\\]", user_id);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", access_token);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createAppbody");
+
+		String App_Name1 = App_Name + i + z;
+
+		if (jsonbody.contains("Generated-name")) {
+
+			jsonbody = jsonbody.replace("Generated-name", App_Name1);
+			reqHandler.setRequestBody(jsonbody);}
+		
+		if (jsonbody.contains("Generated_firebaseToken")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String firebaseToken = "token5678" + newrand;
+			
+			jsonbody = jsonbody.replace("Generated_firebaseToken", firebaseToken);
+		}
+		
+		if (jsonbody.contains("Generated_deviceId")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String deviceId = "2345678" + newrand;
+	
+			jsonbody = jsonbody.replace("Generated_deviceId", deviceId);
+		}
+		
+		if (jsonbody.contains("Generated_userId")) {
+			
+	
+			jsonbody = jsonbody.replace("Generated_userId", user_id);
+			
+		}
+		
+
+		reqHandler.setRequestBody(jsonbody);
+		System.out.println(jsonbody);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.err.println(jsonResponse);
+		String StringjsonResponse = jsonResponse.toString();
+		String expression2 = "$.id";
+		String App_ID = JsonPath.parse(StringjsonResponse).read(
+				expression2, String.class);
+		writedata_user_other(user_id, User_Email, App_ID, "P@ssw0rd");
+		
+		
+	
+
+		}
+
+	
+	
+	
 	protected void Create_BaseStation(String url) throws URISyntaxException,
 			ClientProtocolException, IOException {
 
@@ -407,7 +515,7 @@ public class Create_Data_Steps {
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_BaseStation_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", user_id);
+		URL = URL.replaceFirst("\\[parameter1\\]", user_id);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
@@ -448,7 +556,7 @@ public class Create_Data_Steps {
 		URL = String.format(
 				EnvirommentManager.getInstance().getProperty(
 						"Add_New_collars_service"), getRootUrl());
-		URL = URL.replaceFirst("\\[parameter\\]", user_id);
+		URL = URL.replaceFirst("\\[parameter1\\]", user_id);
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);

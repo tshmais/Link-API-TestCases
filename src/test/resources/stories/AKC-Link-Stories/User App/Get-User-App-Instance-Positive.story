@@ -22,7 +22,8 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 Then the service response should be: 201
 And service method is get

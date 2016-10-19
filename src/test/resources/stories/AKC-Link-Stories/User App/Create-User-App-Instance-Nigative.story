@@ -22,7 +22,8 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 Then the service response should be: 201
 And Create new user
@@ -41,9 +42,10 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
-Then the service response should be: 409
+Then the service response should be: 201
 
 Scenario: TC-002_Create_User_App_Nigative: Add new user app by another user
 Given Create new user
@@ -62,6 +64,7 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 Then the service response should be: 403

@@ -132,6 +132,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -177,6 +178,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -225,6 +227,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -275,6 +278,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 Scenario:TC-008_DOG_Positive: Add Dog using "mix" as "true" and name provided with special characters in all fields
@@ -324,8 +328,9 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
-    
-    
+And I want to close the MySQL DB connection
+
+
 Scenario:TC-009_DOG_Positive: Add Dog using "mix" as "false" and name provided with files and images formats in all fields
 Given Create new user
 And Login with valid credentials
@@ -367,6 +372,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -418,6 +424,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -465,6 +472,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-012_DOG_Positive: Add Dog using age as 1
@@ -511,6 +519,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -558,6 +567,9 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
+
+
 
 
 
@@ -605,6 +617,9 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
+
+
 
 Scenario: TC-017_DOG_Positive: Add Dog using age as 5.1
 Given Create new user
@@ -653,6 +668,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -700,6 +716,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-020_DOG_Positive: Add Dog description with short text 
@@ -746,6 +763,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 Scenario: TC-021_DOG_Positive: Add Dog dateOfBirth with correct format yyyy-mm-dd
 Given Create new user
@@ -791,6 +809,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -839,6 +858,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -891,6 +911,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -939,7 +960,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
-
+And I want to close the MySQL DB connection
 
 
 
@@ -988,6 +1009,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -1036,6 +1058,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 
@@ -1085,6 +1108,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-029_DOG_Positive: Add Dog using weightClass known
@@ -1131,7 +1155,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
-
+And I want to close the MySQL DB connection
 
 Scenario: TC-030_DOG_Positive: Add Dog using akcRegistrationNo known
 Given Create new user
@@ -1177,6 +1201,8 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
+
 
 
 Scenario: TC-031_DOG_Positive: Add Dog using akcRegistrationNo as NA
@@ -1223,6 +1249,7 @@ And json path weightClass should be : 8
 And json path eyeColor should be : 9
 And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-032_DOG_Positive: Add Dog without adding gender key (Optional field)

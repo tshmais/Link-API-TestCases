@@ -201,7 +201,7 @@ And we set Body with
     "loginProviderToken": ""
    }
 }
-Then the service response should be: 400
+Then the service response should be: 409
 
 
 Scenario: TC-011_USER_Negative: Create User using invalid data for email Address

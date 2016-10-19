@@ -417,6 +417,7 @@ public class Steps {
 						String.class);
 		System.err.println("The token for the created item is: " + response);
 	}
+	//
 
 	@When("Retrieve user id $expression response")
 	@Then("Retrieve user id $expression response")
@@ -514,6 +515,8 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
+	
+	
 
 	@When("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
 	@Then("service url equals : $url with $parameter1 and $parameter2 and $parameter3")
@@ -1231,6 +1234,24 @@ public class Steps {
 		for (int i = 1; i <= items1; i++) {
 
 			cds.createUserswithdogs(items1, url1, body1, dogs, Dog_Name, i);
+
+		}
+	}
+	
+	@Given("Create users to url : $url with body: $body with apps for each user and the same start with $name")
+	public void Create_Users_with_Apps(String url1, String body1,
+			String App_Name) throws URISyntaxException,
+			ClientProtocolException, IOException {
+		int items1 = Integer.parseInt(String.format(EnvirommentManager
+				.getInstance().getProperty("Number_Of_users")));
+		int apps = Integer.parseInt(String.format(EnvirommentManager
+				.getInstance().getProperty("Number_Of_apps")));
+		cds.writedata_user_type("Users With Apps");
+		cds.writedata_user_other(user_id_file, user_email_file, dog_ID_file,
+				"Password");
+		for (int i = 1; i <= items1; i++) {
+
+			cds.createUserswithapps(items1, url1, body1, apps, App_Name, i);
 
 		}
 	}

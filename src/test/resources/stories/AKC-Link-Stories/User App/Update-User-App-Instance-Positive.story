@@ -23,7 +23,8 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -43,7 +44,8 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 And the service response should be: 200
 
@@ -65,7 +67,8 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -85,6 +88,7 @@ And we set Body with {
   "applePushToken": "90jsdna78sdadsoo-updated",
   "bleEnabled": true,
   "notificationEnabled": true,
-  "locationEnabled": true
+  "locationEnabled": true,
+   "deviceName": "John's iPhone"
 }
 And the service response should be: 200
