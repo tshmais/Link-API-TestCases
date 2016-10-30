@@ -590,3 +590,47 @@ And we set Body with {
 }
 Then the service response should be: 200
 
+
+Scenario: TC-016_DOG_Positive: Update Dog profile with image 
+
+Given Create new user
+And Login with valid credentials
+And Create new dog
+When Retrieve first id from response
+And service method is put
+And service url equals : Update_Dog with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+      "id": Dog_Id,
+      "version": 0,
+      "name": "LS",
+      "gender": "M",
+      "neutered": false,
+      "description": "My dog Pucy",
+      "age" : 6,
+      "mix": true,
+      "breeds" : [
+                        {
+                        "name" : "w"
+                        },
+                        {
+                        "name" : "Hall's Heeler"
+                        },
+                        {
+                        "name" : "Cirneco dell'Etna"
+                        }
+                    ],
+      "dateOfBirth": "2013-03-07",
+      "weight": 8.9,
+      "weightClass": "NA",
+      "eyeColor": "BROWN",
+      "akcRegistrationNo": "ABC00123",
+      "accountId": UserID,
+  "photoLargeUrl": "http://res.cloudinary.com/linkakc/image/upload/c_fill,h_1080,w_1080/v1475998765/int/users/2460/dogs/1257/rmco3ujzngeitfmgkz1p.png",
+  "photoMediumUrl": "http://res.cloudinary.com/linkakc/image/upload/c_fill,h_200,w_200/v1475998765/int/users/2460/dogs/1257/rmco3ujzngeitfmgkz1p.png",
+  "photoSmallUrl": "http://res.cloudinary.com/linkakc/image/upload/c_fill,h_96,w_96/v1475998765/int/users/2460/dogs/1257/rmco3ujzngeitfmgkz1p.png"
+            
+    }
+Then the service response should be: 200
+

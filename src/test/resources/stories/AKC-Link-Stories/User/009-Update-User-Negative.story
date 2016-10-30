@@ -1,8 +1,8 @@
 Meta:
 @User
-@User_Profile_Positive_scenarios
-@User_Positive
-@ReportName User_Positive
+@Update_User_Profile_Negative_scenarios
+@User_Negative
+@ReportName User_Negative
 @Link
 
 

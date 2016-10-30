@@ -1,6 +1,6 @@
 Meta:
 @User
-@User_Profile_Positive_scenarios
+@Update_User_Profile_Positive_scenarios
 @User_Positive
 @ReportName User_Positive
 @Link

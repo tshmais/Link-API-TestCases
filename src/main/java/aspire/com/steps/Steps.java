@@ -56,6 +56,7 @@ public class Steps {
 	public String StringjsonResponse;
 	public String response;
 	public String response2;
+	public String response3;
 	private String params;
 	String First_one;
 	String Second_one;
@@ -371,6 +372,23 @@ public class Steps {
 			json = json.replace("ID", resp1);
 
 		}
+		
+		if (json.contains("First_id")) {
+
+			json = json.replace("First_id", resp1);
+
+		}
+		if (json.contains("Second_id")) {
+
+			json = json.replace("Second_id", resp2);
+
+		}
+		
+		
+		if (json.contains("Generated_RefreshToken")) {
+
+			json = json.replace("Generated_RefreshToken", response3);
+		}
 
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
@@ -469,6 +487,8 @@ public class Steps {
 		resp1 = JsonPath.parse(StringjsonResponse).read(first_id, String.class);
 		System.err.println("The first id is: " + resp1);
 	}
+	
+	
 
 	@When("Retrieve second id from response")
 	@Then("Retrieve second id from response")
@@ -867,6 +887,9 @@ public class Steps {
 
 		String expression2 = "$.userId";
 		response2 = JsonPath.parse(StringjsonResponse).read(expression2,
+				String.class);
+		String expression3 = "$.refresh_token";
+		response3 = JsonPath.parse(StringjsonResponse).read(expression3,
 				String.class);
 
 	}
