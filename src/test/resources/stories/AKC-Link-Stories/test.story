@@ -1,13 +1,34 @@
-Given Create new user
-And Login with valid credentials
-And Create new collar
-When Retrieve first id from response
-And service method is delete
-And The service url equals: Delete_Collar with Same_User_ID with Same_ID
+Scenario: TC-002_COLLAR_Positive: Add Collar for a FB user
+
+Given Check if FB user created
+And service method is post
+And the service url is: Login_service
 And add to the header Content-Type with value application/json
-And add Session Authorization to Request headers
-Then the service response should be: 200
+When we set Body with {
+  "loginProvider": "FB",
+  "loginProviderId": "1675940472725867",
+  "password": "",
+   "loginProviderToken": "generated_access_token"
+}
+And the service response should be: 200
+And Retrieve json path access_token response
+And Retrieve user id userId response
+And service method is post
+When service url equal : Add_New_Collar_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "deviceId" : "Generated-deviceId",
+    "hardwareVersion" : "DS5s60",
+    "firmwareVersion" : "1.1"
+}
+Then the service response should be: 201
+And Retrieve first id from response
 And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_Deleted_Collar query and response ID
-And I want to close the MySQL DB connection
-And The Collar should be deleted
+And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path hardwareVersion should be : 2
+And json path firmwareVersion should be : 3
+And json path primaryUserId should be : 4
+And json path deviceId should be : 5

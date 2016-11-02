@@ -506,11 +506,12 @@ public class Steps {
 	public void RetrieveJsonItemthirdID() throws JSONException {
 		// JsonReader.GenerateJson("sql_get_all_users");
 
-		String second_id = "$.id";
+		String third_id = "$.id";
 		resp3 = JsonPath.parse(StringjsonResponse)
-				.read(second_id, String.class);
-		System.err.println("The second id is: " + resp3);
+				.read(third_id, String.class);
+		System.err.println("The third id is: " + resp3);
 	}
+
 
 	@Given("the service url changes to: $url with $param")
 	@When("the service url changes to: $url with $param")
@@ -659,6 +660,9 @@ public class Steps {
 			URL = URL.replaceFirst("\\[parameter2\\]", "1");
 		}
 		if (First_Param.equalsIgnoreCase("Same_Collar_ID")) {
+			URL = URL.replaceFirst("\\[parameter2\\]", resp2);
+		}
+		if (First_Param.equalsIgnoreCase("Same_Adventure_ID")) {
 			URL = URL.replaceFirst("\\[parameter2\\]", resp2);
 		}
 		reqHandler.setRequestUrl(URL);
@@ -812,9 +816,15 @@ public class Steps {
 	@When("add Session $name to Request header")
 	@Then("add Session $name to Request header")
 	public void addToken(String name) {
-
-		reqHandler.setRequestHeader(name, response);
+		if (name.contains("Authorization")) {
+			reqHandler.setRequestHeader(name, response);
+		}
+		if (name.contains("link-app-id")) {
+			reqHandler.setRequestHeader(name, resp2);
+		}
+		
 	}
+
 
 	@When("add Session $name to Request headers")
 	@Then("add Session $name to Request headers")
@@ -944,6 +954,64 @@ public class Steps {
 		System.err.println(jsonResponse);
 
 	}
+	
+	@Given("Create new app")
+	@When("Create new app")
+	@Then("Create new app")
+	public void Create_App() throws URISyntaxException,
+			ClientProtocolException, IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_User_App"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		String json = EnvirommentManager.getInstance().getProperty(
+				"createAppbody");
+		String App_Name1 = "App_instance_user";
+		if (json.contains("Generated-name")) {
+
+			json = json.replace("Generated-name", App_Name1);
+			reqHandler.setRequestBody(json);}
+		
+		if (json.contains("Generated_firebaseToken")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String firebaseToken = "token5678" + newrand;
+			
+			json = json.replace("Generated_firebaseToken", firebaseToken);
+		}
+		
+		if (json.contains("Generated_deviceId")) {
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String deviceId = "2345678" + newrand;
+	
+			json = json.replace("Generated_deviceId", deviceId);
+		}
+		
+		if (json.contains("Generated_userId")) {
+			
+	
+			json = json.replace("Generated_userId", response2);
+			
+		}
+		reqHandler.setRequestBody(json);
+		System.out.println(json);
+
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.err.println(jsonResponse);
+		StringjsonResponse = jsonResponse.toString();
+
+	}
+
 
 	@Given("Check if FB user created")
 	@Then("Check if FB user created")
@@ -1358,8 +1426,7 @@ public class Steps {
 					body1, dogs, Dog_name, collars, basestations, i);
 
 		}
-	
+
 	}
-	
-	
+
 }

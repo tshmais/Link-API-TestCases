@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,10 @@ import jo.aspire.generic.Parsers;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.handler.codec.http.multipart.FileUpload;
+import org.jboss.netty.handler.codec.http.multipart.InterfaceHttpData;
+import org.jboss.netty.handler.codec.http.multipart.InterfaceHttpData.HttpDataType;
 
 import aspire.com.util.MysqlConnector;
 
@@ -655,7 +661,7 @@ public class Create_Data_Steps {
 		// pw.write(sb.toString());
 
 		System.err.println("Write the data to csv file is done!");
-
+		
 	}
 
 	protected void writedata_user_type(String name)
@@ -685,6 +691,198 @@ public class Create_Data_Steps {
 
 		System.err.println("Write the data to csv file is done!");
 
+	}
+	
+	protected void uploadPhoto(String U_id, String name,
+			String Dog_id, String Pass) throws FileNotFoundException {
+		FileUpload upload = new FileUpload() {
+			
+			@Override
+			public int compareTo(InterfaceHttpData arg0) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public String getName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public HttpDataType getHttpDataType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public void setContent(InputStream arg0) throws IOException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setContent(File arg0) throws IOException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setContent(ChannelBuffer arg0) throws IOException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setCharset(Charset arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public boolean renameTo(File arg0) throws IOException {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public long length() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public boolean isInMemory() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean isCompleted() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public String getString(Charset arg0) throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getString() throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public File getFile() throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ChannelBuffer getChunk(int arg0) throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Charset getCharset() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ChannelBuffer getChannelBuffer() throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public byte[] get() throws IOException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public void delete() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void addContent(ChannelBuffer arg0, boolean arg1) throws IOException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setFilename(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setContentType(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setContentTransferEncoding(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public String getFilename() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getContentType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getContentTransferEncoding() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		String buildName = System.getProperty("buildName");
+		String ReportName = System.getProperty("Report_Name");
+		String CSVName = ReportName == null ? null : ReportName.replaceFirst(
+				".html", ".csv");
+		if (CSVName == null) {
+			CSVName = "Extracted data file " + buildName + ".csv";
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(U_id);
+		sb.append(',');
+		sb.append(name);
+		sb.append(',');
+		sb.append(Pass);
+		sb.append(',');
+		sb.append(Dog_id);
+		sb.append(',');
+		try (FileWriter fw = new FileWriter(AspireReport.getInstance()
+				.getReportDataManager().getReportPath()
+				+ File.separator + CSVName, true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw)) {
+			out.println(sb.toString());
+			// more code
+		} catch (IOException e) {
+			// exception handling left as an exercise for the reader
+		}
+		// pw.write(sb.toString());
+
+		System.err.println("Write the data to csv file is done!");
+		
 	}
 
 }
