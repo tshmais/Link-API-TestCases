@@ -1,13 +1,11 @@
 Meta:
 @User_App
-@Get_User_App_Inctance_Negative_scenarios
+@Get_All_User_App_Positive_scenarios
 @User_App_Positive
-@ReportName User_App_Inctance_Negative
+@ReportName User_App_Positive
 @Link
 
-
-
-Scenario: TC-001_Get_User_App_Nigative by using Not_Exist_ID value for user ID
+Scenario: TC-001_Get_All_User_App_Positive: Get new user app instance
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -29,19 +27,18 @@ And we set Body with {
 }
 Then the service response should be: 201
 And service method is get
-When The service url equals: Get_User_App_Inctance with Same_User_ID with Not_Exist_ID
+And service url equal : Get_All_User_App
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And the service response should be: 404
+And the service response should be: 200
 
 
-Scenario: TC-002_DOG_Negative: Get a user app data using Existing_ID value for user ID
+
+Scenario: TC-002_Get_All_User_App_Positive: Get new user app instance for user doesn't have app
 Given Create new user
 And Login with valid credentials
-And Create new dog
-When Retrieve first id from response
 And service method is get
-And The service url equals: Get_User_App_Inctance with Same_User_ID with Existing_ID
+When service url equal : Get_All_User_App
 And add to the header Content-Type with value application/json
-And add Session Authorization to Request headers
-Then the service response should be: 403
+And add Session Authorization to Request header
+Then the service response should be: 200

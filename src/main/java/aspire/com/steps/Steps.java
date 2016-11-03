@@ -65,6 +65,7 @@ public class Steps {
 	String Signature;
 	String getfirebaseToken;
 	String getdeviceID;
+	String timeStamp;
 
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
@@ -389,6 +390,10 @@ public class Steps {
 
 			json = json.replace("Generated_RefreshToken", response3);
 		}
+		if (json.contains("Time")) {
+
+			json = json.replace("Time", timeStamp);
+		}
 
 		reqHandler.setRequestBody(json);
 		System.out.println(json);
@@ -498,6 +503,17 @@ public class Steps {
 		String second_id = "$.id";
 		resp2 = JsonPath.parse(StringjsonResponse)
 				.read(second_id, String.class);
+		System.err.println("The second id is: " + resp2);
+	}
+	
+	@When("Retrieve time stamp from response")
+	@Then("Retrieve time stamp from response")
+	public void RetrieveJsonItemtimeStamp() throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+		String time_stamp = "$.startTime";
+		timeStamp = JsonPath.parse(StringjsonResponse)
+				.read(time_stamp, String.class);
 		System.err.println("The second id is: " + resp2);
 	}
 
