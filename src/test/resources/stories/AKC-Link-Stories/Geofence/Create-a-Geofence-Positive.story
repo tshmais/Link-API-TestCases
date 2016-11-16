@@ -5,7 +5,6 @@ Meta:
 @ReportName Create_GEO_Positive
 @Link
 
-
 Narrative:
 In order to test Create_GEO service
 As a tester
@@ -70,7 +69,7 @@ And we set Body with
 }
 Then the service response should be: 201
 
-Scenario: TC-003_GEO_Negative: Create GEO without timeOut
+Scenario: TC-003_GEO_Positive: Create GEO without timeOut
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -88,5 +87,83 @@ And we set Body with
     }
     ],
     "timeout" : ""
+}
+Then the service response should be: 201
+
+
+Scenario: TC-004_GEO_Positive: Create GEO latitude & longitude limts
+Given Create new user
+And Login with valid credentials
+And Create new collar
+When Retrieve first id from response
+And service method is post
+And service url equals : Add_GEO with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with 
+{
+    "points" : [
+    {
+        "latitude" : 90.0,
+        "longitude" : 180.0
+    },
+     {
+        "latitude" : -90.0,
+        "longitude" : -180.0
+    }
+    ],
+    "timeout" : "15"
+}
+Then the service response should be: 201
+
+
+Scenario: TC-004_GEO_Positive: Create GEO when timeout ste to 0
+Given Create new user
+And Login with valid credentials
+And Create new collar
+When Retrieve first id from response
+And service method is post
+And service url equals : Add_GEO with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with 
+{
+    "points" : [
+    {
+        "latitude" : 90.0,
+        "longitude" : 180.0
+    },
+     {
+        "latitude" : -90.0,
+        "longitude" : -180.0
+    }
+    ],
+    "timeout" : "0"
+}
+Then the service response should be: 201
+
+
+Scenario: TC-005_GEO_Positive: Create GEO when latitude&longitude ste to 0
+Given Create new user
+And Login with valid credentials
+And Create new collar
+When Retrieve first id from response
+And service method is post
+And service url equals : Add_GEO with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with 
+{
+    "points" : [
+    {
+        "latitude" : 0,
+        "longitude" : 0
+    },
+     {
+        "latitude" : 0,
+        "longitude" : 0
+    }
+    ],
+    "timeout" : "0"
 }
 Then the service response should be: 201

@@ -10,7 +10,7 @@ In order to test GET_GEO service
 As a tester
 I want to make sure all return the code 200
 
-Scenario: TC-001_GEO Negative: Update GEO when mismatch GEO ID
+Scenario: TC-001_GEO_Negative: Update GEO when mismatch GEO ID
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -51,7 +51,7 @@ And we set Body with
 }
 And the service response should be: 409
 
-Scenario: TC-002_GEO Negative: Update GEO when mismatch version
+Scenario: TC-002_GEO_Negative: Update GEO when mismatch version
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -93,7 +93,7 @@ And we set Body with
 And the service response should be: 409
 
 
-Scenario: TC-003_GEO Negative: Update GEO When Latitude is greater than 90 or less than -90
+Scenario: TC-003_GEO_Negative: Update GEO When Latitude is greater than 90 or less than -90
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -135,7 +135,7 @@ And we set Body with
 And the service response should be: 409
 
 
-Scenario: TC-004_GEO Negative: Update GEO When Longitude is greater than 180 or less than -180
+Scenario: TC-004_GEO_Negative: Update GEO When Longitude is greater than 180 or less than -180
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -176,7 +176,7 @@ And we set Body with
 }
 And the service response should be: 409
 
-Scenario: TC-005_GEO Negative: Update GEO When When id is missing
+Scenario: TC-005_GEO_Negative: Update GEO When When id is missing
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -218,7 +218,7 @@ And we set Body with
 And the service response should be: 409
 
 
-Scenario: TC-006_GEO Negative: Update GEO When When version is missing
+Scenario: TC-006_GEO_Negative: Update GEO When When version is missing
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -259,7 +259,7 @@ And we set Body with
 }
 And the service response should be: 409
 
-Scenario: TC-007_GEO Negative: Update GEO When When Points is missing or null
+Scenario: TC-007_GEO_Negative: Update GEO When When Points is missing or null
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -293,7 +293,7 @@ And we set Body with
 }
 And the service response should be: 409
 
-Scenario: TC-008_GEO Negative: Update GEO When Latitude is missing or null
+Scenario: TC-008_GEO_Negative: Update GEO When Latitude is missing or null
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -337,7 +337,7 @@ And we set Body with
 And the service response should be: 409
 
 
-Scenario: TC-009_GEO Negative: Update GEO When Longitude is missing or null
+Scenario: TC-009_GEO_Negative: Update GEO When Longitude is missing or null
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -381,7 +381,7 @@ And we set Body with
 And the service response should be: 400
 
 
-Scenario: TC-010_GEO Negative: Update GEO When invalid timeout value is passed
+Scenario: TC-010_GEO_Negative: Update GEO When invalid timeout value is passed
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -420,7 +420,7 @@ And we set Body with
 }
 And the service response should be: 409
 
-Scenario: TC-011_GEO Negative: Update GEO When more than 5 points are passed
+Scenario: TC-011_GEO_Negative: Update GEO When more than 5 points are passed
 Given Create new user
 And Login with valid credentials
 And Create new collar

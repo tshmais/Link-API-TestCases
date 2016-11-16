@@ -230,7 +230,7 @@ And add Session Authorization to Request headers
 Then the service response should be: 400
 
 
-Scenario: TC-009: Get GEO when GEO ID Not Existing
+Scenario: TC-009_GEO_Negative: Get GEO when GEO ID Not Existing
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -257,7 +257,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 404
 
-Scenario: TC-010: Get GEO when GEO ID alrady Existing
+Scenario: TC-010_GEO_Negative: Get GEO when GEO ID alrady Existing
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -284,7 +284,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 404
 
-Scenario: TC-011: Get GEO when GEO ID is Empty
+Scenario: TC-011_GEO_Negative: Get GEO when GEO ID is Empty
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -311,7 +311,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 200
 
-Scenario: TC-011: Get GEO when GEO ID is Invalid
+Scenario: TC-012_GEO_Negative: Get GEO when GEO ID is Invalid
 Given Create new user
 And Login with valid credentials
 And Create new collar

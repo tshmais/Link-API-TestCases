@@ -4,7 +4,6 @@ Meta:
 @Create_GEO_Negative
 @ReportName Create_GEO_Negative
 @Link
-
 Narrative:
 In order to test Create_GEO service
 As a tester

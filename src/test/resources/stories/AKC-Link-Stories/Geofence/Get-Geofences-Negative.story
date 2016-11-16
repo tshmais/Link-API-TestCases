@@ -10,7 +10,7 @@ In order to test GET_GEO service
 As a tester
 I want to make sure all return the code 200
 
-Scenario: TC-001__GEO_Negative: GET GEO when User ID is Empty
+Scenario: TC-001_GEO_Negative: GET GEO when User ID is Empty
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -36,7 +36,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 404
 
-Scenario: TC-002__GEO_Negative: GET GEO when User ID Not Exist
+Scenario: TC-002_GEO_Negative: GET GEO when User ID Not Exist
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -62,7 +62,7 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
 Then the service response should be: 404
 
-Scenario: TC-003__GEO_Negative: GET GEO when User ID already existing
+Scenario: TC-003_GEO_Negative: GET GEO when User ID already existing
 Given Create new user
 And Login with valid credentials
 And Create new collar

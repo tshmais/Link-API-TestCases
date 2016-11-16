@@ -10,7 +10,7 @@ In order to test GET_GEO service
 As a tester
 I want to make sure all return the code 200
 
-Scenario: TC-001__GEO_Positive: Get GEO by ID
+Scenario: TC-001_GEO_Positive: Get GEO by ID
 Given Create new user
 And Login with valid credentials
 And Create new collar
