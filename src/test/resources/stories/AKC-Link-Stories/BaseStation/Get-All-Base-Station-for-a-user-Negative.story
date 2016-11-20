@@ -2,7 +2,7 @@ Meta:
 @Base
 @Retrieve_Base_Profile_Negative_scenarios
 @Base_Negative
-@ReportName Base_Negative
+@ReportName BaseStation_Negative
 @Link
 
 

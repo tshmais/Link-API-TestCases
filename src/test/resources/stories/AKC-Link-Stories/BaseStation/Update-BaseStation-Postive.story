@@ -2,7 +2,7 @@ Meta:
 @BaseStation
 @Update_BaseStation_Postive_scenario
 @BaseStation_Postive
-@ReportName BaseStation_Postive
+@ReportName BaseStation_Positive
 @Link
 
 Narrative:

@@ -942,7 +942,7 @@ public class Steps {
 		}
 		if (json.contains("Generated-Email")) {
 			emailAddress = "user"
-					+ Integer.toString((int) Math.round(Math.random() * 99999))
+					+ Integer.toString((int) Math.round(Math.random() * 9999999))
 					+ "@linkbyakc.com";
 			json = json.replace("Generated-Email", emailAddress);
 		}
@@ -1085,7 +1085,7 @@ public class Steps {
 				"createCollarbody");
 		int range = (99999 - 10000);
 		int newrand = (int) (Math.random() * range) + 10000;
-		String Device_ID = "2345678" + newrand;
+		String Device_ID = "2365478" + newrand;
 		System.err.println("The MacID for the created item is: " + Device_ID);
 
 		if (jsonbody.contains("Generated-deviceid")) {
@@ -1167,7 +1167,7 @@ public class Steps {
 				"createBaseStationbody");
 		int range = (99999 - 10000);
 		int newrand = (int) (Math.random() * range) + 10000;
-		String BaseStation_mac = "2345678" + newrand;
+		String BaseStation_mac = "2365478" + newrand;
 		System.err.println("The MacID for the created item is: "
 				+ BaseStation_mac);
 

@@ -2,7 +2,7 @@ Meta:
 @GEO
 @Update_GEO_Negative_scenarios
 @Update_GEO_Negative
-@ReportName Update_GEO_Negative
+@ReportName Geofence_Negative
 @Link
 
 Narrative:

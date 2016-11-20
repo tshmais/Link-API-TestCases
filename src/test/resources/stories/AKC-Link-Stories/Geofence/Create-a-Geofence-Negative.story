@@ -2,7 +2,7 @@ Meta:
 @GEO
 @Create_GEO_Negative_scenarios
 @Create_GEO_Negative
-@ReportName Create_GEO_Negative
+@ReportName Geofence_Negative
 @Link
 Narrative:
 In order to test Create_GEO service

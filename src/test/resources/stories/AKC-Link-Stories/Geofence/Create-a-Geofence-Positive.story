@@ -2,7 +2,7 @@ Meta:
 @GEO
 @Create_GEO_Positive_scenarios
 @Create_GEO_Positive
-@ReportName Create_GEO_Positive
+@ReportName Geofence_Positive
 @Link
 
 Narrative:

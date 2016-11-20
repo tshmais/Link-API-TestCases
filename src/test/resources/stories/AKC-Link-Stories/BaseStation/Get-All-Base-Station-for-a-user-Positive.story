@@ -2,7 +2,7 @@ Meta:
 @Base
 @Retrieve_All_Base_Profile_Positive_scenarios
 @Base_Positive
-@ReportName Base_Positive
+@ReportName BaseStation_Positive
 @Link
 
 
@@ -28,7 +28,7 @@ Given Create new user
 And Login with valid credentials
 And Create new BaseStation
 When Retrieve first id from response
-When service method is get
+And service method is get
 And service url equal : Get_All_Basestation_data
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers

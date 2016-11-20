@@ -80,10 +80,17 @@ public class LifecycleSteps {
               int totalTestCount = passedTestCount + failedTestCount + skippedTestCount;
      	     PrintWriter writer = new PrintWriter(AspireReport.getInstance().getReportDataManager().getReportPath() + File.separator + "High_Level_Results.txt", "UTF-8");
      	   
-     	     String HighLevelResults = "  - Number of test cases ran: "+totalTestCount+ "<br/>" + "<font color='green'>  - Number of test cases passed: </font>" +passedTestCount+ "<br/>" + "<font color='red'>  - Number of test cases failed: </font>" +failedTestCount + "<br/>" + "<font color='blue'>  - Number of test cases skipped: </font>" + skippedTestCount + "<br/>";
+     	     String HighLevelResults = "  - Number of test cases ran: "+totalTestCount+ "<br/>" + "<font color='green'>  - Number of test cases passed: </font>" +passedTestCount+ "<br/>" + "<font color='red'>  - Number of test cases failed: </font>" +failedTestCount + "<br/>" + "<font color='blue'>  - Number of test cases skipped: </font>" + skippedTestCount + "<br/>" +"<br/>" + "<b> Details: </b>"+ "<br/>";
      	     for(String key : AspireReport.getInstance().getReportDataManager().getTestCounters().getMetaInfo().keySet()){
      	    	MetaStoryInfo metaInfo = AspireReport.getInstance().getReportDataManager().getTestCounters().getMetaInfo().get(key);
-     	    	HighLevelResults = HighLevelResults + "<font color='green'>  - Number of " + key + " test cases passed: </font>" + metaInfo.getPassedCount() + "<br/>" + "<font color='red'>  - Number of " + key + " test cases failed: </font>" + metaInfo.getFailedCount()+ "<br/>";
+     	    	if (metaInfo.getPassedCount() > 0){
+     	    		HighLevelResults = HighLevelResults + "<font color='green'>  - Number of " + key + " test cases passed: </font>" + metaInfo.getPassedCount() + "<br/>" ;
+     	    	}
+     	    	if (metaInfo.getFailedCount() > 0){
+     	    		HighLevelResults = HighLevelResults + "<font color='red'>  - Number of " + key + " test cases failed: </font>" + metaInfo.getFailedCount()+ "<br/>";
+     	    	}
+     	    	
+
      	     }
      	     
      	     String email_body = "Hi Team,"+ "<br/>" + "<br/>" +"Please see attached acceptance test results"+ "<br/>" + "<br/>" +environment+ "<br/>" + "<br/>"+"<b> High Level Results</b>" + "<br/>" + HighLevelResults + "<br/>" + "<br/>" +"Thanks,"+ "<br/>" +"QA Team";

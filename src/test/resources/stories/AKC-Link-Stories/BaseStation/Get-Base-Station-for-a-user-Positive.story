@@ -2,7 +2,7 @@ Meta:
 @Base
 @Retrieve_Base_Profile_Positive_scenarios
 @Base_Positive
-@ReportName Base_Positive
+@ReportName BaseStation_Positive
 @Link
 
 
