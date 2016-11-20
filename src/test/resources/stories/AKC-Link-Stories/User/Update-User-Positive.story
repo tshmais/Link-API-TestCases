@@ -302,3 +302,83 @@ And we set Body with
 }
 
 Then the service response should be: 200
+
+
+Scenario: TC-013_USER_Positive: Update User User using valid data to Validate maximum limitation
+
+Given Create new user
+And Login with valid credentials
+And service method is put
+When service url equal : Update_User 
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 
+{
+    "id" : "UserID",
+    "name" : "User123412 User123412 User123412 User123412 5",
+    "emailAddress" : "Same_User_Email",
+    "phoneNo" : "123456789 1234567890",
+    "cellNo" : "123456789 1234567890",
+    "facebookUserId" : "",
+    "loginProvider" : "LINK",
+    "gender" : "M",
+    "passcode" : "2683",
+    "timezone" : "Etc/GMT-6",
+    "locale" : "en_US",
+    "version" : "0"
+}
+
+Then the service response should be: 200
+
+
+Scenario: TC-014_USER_Positive: Update User User using valid data to Validate minimum limitation
+
+Given Create new user
+And Login with valid credentials
+And service method is put
+When service url equal : Update_User 
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 
+{
+    "id" : "UserID",
+    "name" : "1",
+    "emailAddress" : "Same_User_Email",
+    "phoneNo" : "1",
+    "cellNo" : "1",
+    "facebookUserId" : "",
+    "loginProvider" : "LINK",
+    "gender" : "M",
+    "passcode" : "2683",
+    "timezone" : "Etc/GMT-6",
+    "locale" : "en_US",
+    "version" : "0"
+}
+
+Then the service response should be: 200
+
+Scenario: TC-015_USER_Positive: Update User using special character
+
+Given Create new user
+And Login with valid credentials
+And service method is put
+When service url equal : Update_User 
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 
+{
+    "id" : "UserID",
+    "name" : "יי",
+    "emailAddress" : "Same_User_Email",
+    "phoneNo" : "1",
+    "cellNo" : "1",
+    "facebookUserId" : "",
+    "loginProvider" : "LINK",
+    "gender" : "M",
+    "passcode" : "2683",
+    "timezone" : "Etc/GMT-6",
+    "locale" : "en_US",
+    "version" : "0"
+}
+
+Then the service response should be: 200

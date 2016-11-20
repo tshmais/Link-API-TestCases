@@ -211,7 +211,7 @@ And add to the header Content-Type with value application/json
 And we set Body with 
 {
  "name": "User123",
- "emailAddress": "Generated-Email",
+ "emailAddress": "#Generated-Email",
  "phoneNo": "877-555-1234",
  "cellNo": "877-555-1234",
  "facebookUserId": "",
@@ -290,7 +290,7 @@ And we set Body with
  "facebookUserId": "",
  "gender": "M",
  "timezone": "America/New_York",
- "locale": "en_USz",
+ "locale": "en_US",
  "credentials": 
    {
     "loginProvider": "LINK@",
@@ -314,7 +314,7 @@ And we set Body with
  "facebookUserId": "",
  "gender": "M",
  "timezone": "America/New_York",
- "locale": "en_USz",
+ "locale": "en_US",
  "credentials": 
    {
     "loginProvider": "LINK",
@@ -338,7 +338,7 @@ And we set Body with
  "facebookUserId": "",
  "gender": "M",
  "timezone": "America/New_York",
- "locale": "en_USz",
+ "locale": "en_US",
  "credentials": 
    {
     "loginProvider": "LINK",
@@ -373,3 +373,126 @@ And we set Body with
    }
 }
 Then the service response should be: 409
+
+Scenario:TC-021_USER_Negative: Create User to Validate Password without digit characters
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "User123",
+ "emailAddress": "Generated-Email",
+ "phoneNo": "877-555-1234",
+ "cellNo": "877-555-1234",
+ "facebookUserId": "",
+ "gender": "M",
+ "timezone": "America/New_York",
+ "locale": "en_US",
+ "credentials": 
+   {
+    "loginProvider": "LINK",
+    "loginProviderId": "Generated-Email",
+    "passwordText": "Passwrrrd",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 400
+
+
+
+Scenario:TC-022_USER_Negative: Create User to Validate Password without lowercase characters
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "User123",
+ "emailAddress": "Generated-Email",
+ "phoneNo": "877-555-1234",
+ "cellNo": "877-555-1234",
+ "facebookUserId": "",
+ "gender": "M",
+ "timezone": "America/New_York",
+ "locale": "en_US",
+ "credentials": 
+   {
+    "loginProvider": "LINK",
+    "loginProviderId": "Generated-Email",
+    "passwordText": "PASSWORD0",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 400
+
+
+Scenario:TC-023_USER_Negative: Create User to Validate Password when Password without uppercase characters
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "User123",
+ "emailAddress": "Generated-Email",
+ "phoneNo": "877-555-1234",
+ "cellNo": "877-555-1234",
+ "facebookUserId": "",
+ "gender": "M",
+ "timezone": "America/New_York",
+ "locale": "en_US",
+ "credentials": 
+   {
+    "loginProvider": "LINK",
+    "loginProviderId": "Generated-Email",
+    "passwordText": "password0",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 400
+
+Scenario:TC-024_USER_Negative: Create User to Validate Password when Password grater than maximum limitation 
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "User123",
+ "emailAddress": "Generated-Email",
+ "phoneNo": "877-555-1234",
+ "cellNo": "877-555-1234",
+ "facebookUserId": "",
+ "gender": "M",
+ "timezone": "America/New_York",
+ "locale": "en_US",
+ "credentials": 
+   {
+    "loginProvider": "LINK",
+    "loginProviderId": "Generated-Email",
+    "passwordText": "Paw0rd",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 400
+
+Scenario:TC-025_USER_Negative: Create User to Validate Password when Password less than minimum limitation 
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "User123",
+ "emailAddress": "Generated-Email",
+ "phoneNo": "877-555-1234",
+ "cellNo": "877-555-1234",
+ "facebookUserId": "",
+ "gender": "M",
+ "timezone": "America/New_York",
+ "locale": "en_US",
+ "credentials": 
+   {
+    "loginProvider": "LINK",
+    "loginProviderId": "Generated-Email",
+    "passwordText": "Paw0rd",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 400

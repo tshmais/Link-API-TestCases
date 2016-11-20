@@ -10,7 +10,7 @@ In order to test Create_User service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario:TC-001_USER_Positive: Create User using valid data for new user (M)
+Scenario:TC-001_USER_Positive: Create User using valid data for new user
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -34,7 +34,9 @@ And we set Body with
 }
 Then the service response should be: 201
 
-Scenario:TC-002_USER_Positive: Create User using valid data max limitation
+
+
+Scenario:TC-002_USER_Positive: Create User using valid data to Validate maximum limitation
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -52,37 +54,13 @@ And we set Body with
    {
     "loginProvider": "LINK",
     "loginProviderId": "Generated-Email",
-    "passwordText": "P@ssw0rd",
+    "passwordText": "P@ssw0rdP@ssw0rd",
     "loginProviderToken": ""
    }
 }
 Then the service response should be: 201
 
-Scenario:TC-003_USER_Positive: Create User using valid data maximum limitation
-Given service method is post
-When the service url is: Create_User_service
-And add to the header Content-Type with value application/json
-And we set Body with 
-{
- "name": "1",
- "emailAddress": "Generated-Email",
- "phoneNo": "1",
- "cellNo": "1",
- "facebookUserId": "",
- "gender": "M",
- "timezone": "America/New_York",
- "locale": "en_US",
- "credentials": 
-   {
-    "loginProvider": "LINK",
-    "loginProviderId": "Generated-Email",
-    "passwordText": "P@ssw0rd",
-    "loginProviderToken": ""
-   }
-}
-Then the service response should be: 201
-
-Scenario:TC-004_USER_Positive: Create User using valid data minimum limitation
+Scenario:TC-003_USER_Positive: Create User using valid data to Validate minimum limitation
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -107,7 +85,7 @@ And we set Body with
 Then the service response should be: 201
 
 
-Scenario:TC-005_USER_Positive: Create User using valid data as special character
+Scenario:TC-004_USER_Positive: Create User using special character
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -131,7 +109,7 @@ And we set Body with
 }
 Then the service response should be: 201
 
-Scenario:TC-006_USER_Positive: Create User with password did not contain a special character
+Scenario:TC-005_USER_Positive: Create User - Validate Password without special character 
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -149,8 +127,9 @@ And we set Body with
    {
     "loginProvider": "LINK",
     "loginProviderId": "Generated-Email",
-    "passwordText": "Passw0rd",
+    "passwordText": "Passwr0rd",
     "loginProviderToken": ""
    }
 }
 Then the service response should be: 201
+

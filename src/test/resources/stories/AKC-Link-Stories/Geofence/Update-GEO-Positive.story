@@ -177,7 +177,7 @@ And we set Body with
 }
 And the service response should be: 200
 
-Scenario: Scenario: TC-005_GEO_Positive: Update GEO when timeout ste to 0
+Scenario: TC-005_GEO_Positive: Update GEO when timeout ste to 0
 Given Create new user
 And Login with valid credentials
 And Create new collar
@@ -216,7 +216,7 @@ And we set Body with
 }
 And the service response should be: 200
 
-Scenario: Scenario: TC-006_GEO_Positive: Update GEO when latitude&longitude ste to 0
+Scenario: TC-006_GEO_Positive: Update GEO when latitude&longitude ste to 0
 Given Create new user
 And Login with valid credentials
 And Create new collar
