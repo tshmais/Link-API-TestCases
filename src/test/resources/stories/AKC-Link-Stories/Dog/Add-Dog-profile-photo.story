@@ -1,9 +1,5 @@
 Meta:
-@Dog
-@Add_Dog_Photo_Positive_scenarios
-@Dog_Positive
-@ReportName Dog_Positive
-@Link
+@skip
 
 
 Narrative:

@@ -1147,6 +1147,45 @@ public class Steps {
 		}
 	}
 
+	
+	@Given("Create new purebreeds dog")
+	@When("Create new purebreeds dog")
+	@Then("Create a new purebreeds dog")
+	public void Create_purebreedsdog() throws URISyntaxException,
+			ClientProtocolException, IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_New_Dog_service"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createpurebreedsdogbody");
+
+		String Dog_Name1 = "Pucy";
+
+		if (jsonbody.contains("Generated-name")) {
+
+			jsonbody = jsonbody.replace("Generated-name", Dog_Name1);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.println(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.err.println(jsonResponse);
+			StringjsonResponse = jsonResponse.toString();
+			String expression2 = "$.id";
+			String Dog_id = JsonPath.parse(StringjsonResponse).read(
+					expression2, String.class);
+			Generated_ID = Dog_id;
+		}
+	}
+	
 	@Given("Create new BaseStation")
 	@When("Create new BaseStation")
 	public void Create_BaseStation() throws URISyntaxException,

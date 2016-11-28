@@ -11,32 +11,31 @@ As a tester
 I want to make sure all return the code 4xx
 
 
-Scenario:TC-002_USER_Negative: Get User's Data using invalid data for user ID not exist "0"
+Scenario:TC-001_USER_Negative: Get User's Data using Empty_User_ID
 Given Create new user
 And Login with valid credentials
 And service method is get
-When the service url equal: Get_User_service with 0
+When URL equal: Get_User_service with Empty_User_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+Then the service response should be: 405
+
+Scenario: TC-002_USER_Negative: Get User's Data using User ID not exist
+Given Create new user
+And Login with valid credentials
+And service method is get
+When URL equal: Get_User_service with Not_Exist_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 404
-And json response should equal:Negative_TC-002_Get_User_service
 
-Scenario: TC-003_USER_Negative: Get User's Data using invalid data for user ID not exist "109876"
+
+
+Scenario: TC-003_USER_Negative: Get User's Data using User ID already exist
 Given Create new user
 And Login with valid credentials
 And service method is get
-When the service url equal: Get_User_service with 109876
+When URL equal: Get_User_service with Existing_User_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-Then the service response should be: 404
-And json response should equal:Negative_TC-003_Get_User_service
-
-
-Scenario: TC-004_USER_Negative: Get User's Data using invalid data for user ID  "*"
-Given Create new user
-And Login with valid credentials
-And service method is get
-When the service url equal:  Get_User_service with *
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-Then the service response should be: 400
+Then the service response should be: 403

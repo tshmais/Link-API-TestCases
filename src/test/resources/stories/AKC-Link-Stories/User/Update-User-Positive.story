@@ -170,7 +170,8 @@ And we set Body with
 }
 
 Then the service response should be: 200
-Scenario: TC-008_USER_Positive: Update User using valid data for gender
+
+Scenario: TC-007_USER_Positive: Update User using valid data for gender
 
 Given Create new user
 And Login with valid credentials
@@ -197,7 +198,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-009_USER_Positive: Update User using valid data for passcode
+Scenario: TC-008_USER_Positive: Update User using valid data for passcode
 
 Given Create new user
 And Login with valid credentials
@@ -224,7 +225,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-010_USER_Positive: Update User using valid data for timezone
+Scenario: TC-009_USER_Positive: Update User using valid data for timezone
 
 Given Create new user
 And Login with valid credentials
@@ -251,7 +252,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-011_USER_Positive: Update User using valid data for locale
+Scenario: TC-010_USER_Positive: Update User using valid data for locale
 
 Given Create new user
 And Login with valid credentials
@@ -277,7 +278,7 @@ And we set Body with
 
 Then the service response should be: 200
 
-Scenario: TC-012_USER_Positive: Update User using valid data for version
+Scenario: TC-011_USER_Positive: Update User using valid data for version
 
 Given Create new user
 And Login with valid credentials
@@ -304,7 +305,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-013_USER_Positive: Update User User using valid data to Validate maximum limitation
+Scenario: TC-012_USER_Positive: Update User User using valid data to Validate maximum limitation
 
 Given Create new user
 And Login with valid credentials
@@ -331,7 +332,7 @@ And we set Body with
 Then the service response should be: 200
 
 
-Scenario: TC-014_USER_Positive: Update User User using valid data to Validate minimum limitation
+Scenario: TC-013_USER_Positive: Update User User using valid data to Validate minimum limitation
 
 Given Create new user
 And Login with valid credentials
@@ -357,7 +358,7 @@ And we set Body with
 
 Then the service response should be: 200
 
-Scenario: TC-015_USER_Positive: Update User using special character
+Scenario: TC-014_USER_Positive: Update User using special character
 
 Given Create new user
 And Login with valid credentials

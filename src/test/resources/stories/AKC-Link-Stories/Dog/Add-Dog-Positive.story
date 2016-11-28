@@ -11,14 +11,15 @@ As a tester
 I want to make sure all return the code 201 for POST scenarios and 200 for GET scenarios
 
 
-Scenario: TC-001_DOG_Positive: Add Dog using valid user data for valid dog data
+
+Scenario: TC-001_DOG_Positive: Add mix breeds Dog using one breed ID
 Given Create new user
 And Login with valid credentials
 And service method is post
 When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And we set Body with {
+And we set Body with  {
     "name" : "Pucy",
     "gender" : "M",
     "neutered" : false,
@@ -27,12 +28,6 @@ And we set Body with {
     "breeds" : [
                     {
                     "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    },
-                    {
-                    "name" : "custom Name"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -43,8 +38,77 @@ And we set Body with {
     "akcRegistrationNo" : "ABC00123"
 }
 
+Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
+And I want to close the MySQL DB connection
 
-Scenario: TC-002_DOG_Positive: Add Dog using valid user data for valid dog data
+Scenario: TC-002_DOG_Positive: Add mix breeds Dog using two breed ID
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with  {
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    
+                    {
+                    "id" : "2"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+
+Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
+And I want to close the MySQL DB connection
+
+
+
+
+
+Scenario: TC-003_DOG_Positive: Add mix breeds Dog using custom breeds Name For FB user
 Given Check if FB user created
 And service method is post
 And the service url is: Login_service
@@ -70,13 +134,7 @@ And we set Body with {
     "mix": true,
     "breeds" : [
                     {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    },
-                    {
-                    "name" : "custom Name"
+                    "name" : "test"
                     }
                 ],
     "description" : "My dog Pucy",
@@ -92,7 +150,7 @@ Then the service response should be: 201
 
 
 
-Scenario: TC-002_DOG_Positive: Add Dog using "mix" as "false"  and Only Id1 is entered
+Scenario: TC-004_DOG_Positive: Add Pure breeds Dog
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -137,105 +195,11 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-005_DOG_Positive: Add Dog using "mix" as "True" and only Id1 is provided
+Scenario: TC-005_DOG_Positive: Add mix breeds Dog using valid data to Validate maximum limitation
 Given Create new user
 And Login with valid credentials
 And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with  {
-    "name" : "Pucy",
-    "gender" : "M",
-    "neutered" : false,
-    "age" : 4,
-    "mix": true,
-    "breeds" : [
-                    {
-                    "id" : "1"
-                    }
-                ],
-    "description" : "My dog Pucy",
-    "dateOfBirth" : "2016-07-22",
-    "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-}
-Then the service response should be: 201
-And Retrieve first id from response
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_dog query and response ID
-And json path id should be : 0
-And json path version should be : 1
-And json path name should be : 2
-And json path gender should be : 3
-And json path description should be : 4
-And json path age should be : 5
-And json path dateOfBirth should be : 6
-And json path weight should be : 7
-And json path weightClass should be : 8
-And json path eyeColor should be : 9
-And json path akcRegistrationNo should be : 10
-And json path accountId should be : 11
-And I want to close the MySQL DB connection
-
-
-
-
-Scenario: TC-006_DOG_Positive: Add Dog using "mix" as "True" and only Id1 and Id2 are provided
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "name" : "Pucy",
-    "gender" : "M",
-    "neutered" : false,
-    "age" : 4,
-    "mix": true,
-    "breeds" : [
-                    {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    }
-                ],
-    "description" : "My dog Pucy",
-    "dateOfBirth" : "2016-07-22",
-    "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-}
-Then the service response should be: 201
-And Retrieve first id from response
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_dog query and response ID
-And json path id should be : 0
-And json path version should be : 1
-And json path name should be : 2
-And json path gender should be : 3
-And json path description should be : 4
-And json path age should be : 5
-And json path dateOfBirth should be : 6
-And json path weight should be : 7
-And json path weightClass should be : 8
-And json path eyeColor should be : 9
-And json path akcRegistrationNo should be : 10
-And json path accountId should be : 11
-And I want to close the MySQL DB connection
-
-
-
-Scenario: TC-007_DOG_Positive: Add Dog using "mix" as "True" and only Id1 , Id2 and name are provided with maximum limit characters in all fields
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Post_Dog_to_User_service
+When service url equal : Post_Dog_to_User_service 
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -245,12 +209,7 @@ And we set Body with {
     "age" : 4,
     "mix": true,
     "breeds" : [
-                    {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    },
+                  
                     {
                     "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
@@ -281,7 +240,7 @@ And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
 
-Scenario:TC-008_DOG_Positive: Add Dog using "mix" as "true" and name provided with special characters in all fields
+Scenario: TC-006_DOG_Positive: Add mix breeds Dog using valid data to Validate minimum limitation
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -289,28 +248,23 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "!@#",
-    "gender" : "m",
+    "name" : "a",
+    "gender" : "M",
     "neutered" : false,
     "age" : 4,
     "mix": true,
     "breeds" : [
+                  
                     {
-                 "name" : "Custom Breed"
-                    },
-                    {
-                    "id" : "2"
-                    },
-                    {
-                    "name" : "Custom Breed"
+                    "name" : "a"
                     }
                 ],
-    "description" : "sd",
+    "description" : "a",
+    "dateOfBirth" : "2016-07-22",
     "weight" : 8.9,
-     "dateOfBirth" : "2016-07-22",
-    "eyeColor" : "??",
-    "weightClass" : "$#@&*",
-    "akcRegistrationNo" : "()<>,."
+    "eyeColor" : "a",
+    "weightClass" : "a",
+    "akcRegistrationNo" : "1"
 }
 Then the service response should be: 201
 And Retrieve first id from response
@@ -331,7 +285,53 @@ And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
 
-Scenario:TC-009_DOG_Positive: Add Dog using "mix" as "false" and name provided with files and images formats in all fields
+Scenario: TC-007_DOG_Positive: Add Dog using special character
+Given Create new user
+And Login with valid credentials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "יי",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                  
+                    {
+                    "name" : "יי"
+                    }
+                ],
+    "description" : "יי",
+    "dateOfBirth" : "2016-07-22",
+    "weight" : 8.9,
+    "eyeColor" : "יי",
+    "weightClass" : "יי",
+    "akcRegistrationNo" : "1"
+}
+Then the service response should be: 201
+And Retrieve first id from response
+And I want to open a connection to MySQL DB
+And I want to pull the data from the DB using Get_dog query and response ID
+And json path id should be : 0
+And json path version should be : 1
+And json path name should be : 2
+And json path gender should be : 3
+And json path description should be : 4
+And json path age should be : 5
+And json path dateOfBirth should be : 6
+And json path weight should be : 7
+And json path weightClass should be : 8
+And json path eyeColor should be : 9
+And json path akcRegistrationNo should be : 10
+And json path accountId should be : 11
+And I want to close the MySQL DB connection
+
+
+
+Scenario:TC-008_DOG_Positive: Add mix breeds Dog using files and images formats
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -376,8 +376,7 @@ And I want to close the MySQL DB connection
 
 
 
-
-Scenario: TC-010_DOG_Positive: Add Dog using genser as F with scripts and queries in all fields
+Scenario: TC-009_DOG_Positive: Add female dog using scripts and queries
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -391,13 +390,8 @@ And we set Body with {
     "age" : 4,
     "mix": true,
     "breeds" : [
-                    {
-                 "name" : "Custom Breed"
-                    },
-                    {
-                    "id" : "2"
-                    },
-                    {
+                   
+                   {
                     "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
                 ],
@@ -428,7 +422,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-011_DOG_Positive: Add Dog using neutered as true
+Scenario: TC-010_DOG_Positive: Add neutered Dog
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -475,7 +469,7 @@ And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
 
-Scenario: TC-012_DOG_Positive: Add Dog using age as 1
+Scenario: TC-011_DOG_Positive: Add Dog has age of 0 
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -486,7 +480,7 @@ And we set Body with {
     "name" : "Pucy",
     "gender" : "f",
     "neutered" : true,
-    "age" : 1,
+    "age" : 0,
     "mix": true,
     "breeds" : [
                     {
@@ -523,7 +517,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-013_DOG_Positive: Add Dog using age as 25
+Scenario: TC-012_DOG_Positive: Add Dog has age of 25
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -573,7 +567,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-014_DOG_Positive: Add Dog using age as 50
+Scenario: TC-013_DOG_Positive: Add Dog has age of 50 
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -621,7 +615,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-017_DOG_Positive: Add Dog using age as 5.1
+Scenario: TC-014_DOG_Positive: Add Dog has age of 5.1
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -672,100 +666,8 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-019_DOG_Positive: Add Dog description with long text 
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "name" : "Pucy",
-    "gender" : "f",
-    "neutered" : true,
-    "age" : 50,
-    "mix": true,
-    "breeds" : [
-                    {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    }
-                ],
-    "description" : "My dog Pucy My dog PucyMy dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy My dog Pucy",
-    "dateOfBirth" : "2016-07-22",
-    "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-}
-Then the service response should be: 201
-And Retrieve first id from response
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_dog query and response ID
-And json path id should be : 0
-And json path version should be : 1
-And json path name should be : 2
-And json path gender should be : 3
-And json path description should be : 4
-And json path age should be : 5
-And json path dateOfBirth should be : 6
-And json path weight should be : 7
-And json path weightClass should be : 8
-And json path eyeColor should be : 9
-And json path akcRegistrationNo should be : 10
-And json path accountId should be : 11
-And I want to close the MySQL DB connection
 
-
-Scenario: TC-020_DOG_Positive: Add Dog description with short text 
-Given Create new user
-And Login with valid credentials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-    "name" : "Pucy",
-    "gender" : "f",
-    "neutered" : true,
-    "age" : 50,
-    "mix": true,
-    "breeds" : [
-                    {
-                    "id" : "1"
-                    },
-                    {
-                    "id" : "2"
-                    }
-                ],
-    "description" : "My dog",
-    "dateOfBirth" : "2016-07-22",
-    "weight" : 8.9,
-    "eyeColor" : "BROWN",
-    "weightClass" : "NA",
-    "akcRegistrationNo" : "ABC00123"
-}
-Then the service response should be: 201
-And Retrieve first id from response
-And I want to open a connection to MySQL DB
-And I want to pull the data from the DB using Get_dog query and response ID
-And json path id should be : 0
-And json path version should be : 1
-And json path name should be : 2
-And json path gender should be : 3
-And json path description should be : 4
-And json path age should be : 5
-And json path dateOfBirth should be : 6
-And json path weight should be : 7
-And json path weightClass should be : 8
-And json path eyeColor should be : 9
-And json path akcRegistrationNo should be : 10
-And json path accountId should be : 11
-And I want to close the MySQL DB connection
-
-Scenario: TC-021_DOG_Positive: Add Dog dateOfBirth with correct format yyyy-mm-dd
+Scenario: TC-015_DOG_Positive: Add DOB for Dog using ISO 8601 date format
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -814,7 +716,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-022_DOG_Positive: Add Dog dateOfBirth with correct format yyyy-mm-dd curent date
+Scenario: TC-016_DOG_Positive: Add DOB for Dog using ISO 8601 date format curent date
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -864,7 +766,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-024_DOG_Positive: Add Dog using weight samll 0.5
+Scenario: TC-017_DOG_Positive: Add dog has a small weight 
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -873,9 +775,9 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
     "name" : "Pucy",
-    "gender" : "M",
+    "gender" : "f",
     "neutered" : true,
-    "age" : 4,
+    "age" : 50,
     "mix": true,
     "breeds" : [
                     {
@@ -883,18 +785,15 @@ And we set Body with {
                     },
                     {
                     "id" : "2"
-                    },
-                    {
-                    "name" : ""
                     }
                 ],
-    "description" : "My dog Pucy",
+    "description" : "My dog",
     "dateOfBirth" : "2016-07-22",
-    "weight" :0.5,
+    "weight" : 0.9,
     "eyeColor" : "BROWN",
     "weightClass" : "NA",
     "akcRegistrationNo" : "ABC00123"
-}   
+}
 Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
@@ -916,7 +815,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-025_DOG_Positive: Add Dog using weight large 500
+Scenario: TC-018_DOG_Positive: Add Dog has large weight
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -965,7 +864,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-026_DOG_Positive: Add Dog using eyeColor known colcor
+Scenario: TC-019_DOG_Positive: Add Dog with known eyeColor
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1014,7 +913,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-027_DOG_Positive: Add Dog using eyeColor unknown colcor
+Scenario: TC-020_DOG_Positive: Add Dog with unknown eyeColor
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1064,7 +963,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-028_DOG_Positive: Add Dog using weightClass unknown
+Scenario: TC-021_DOG_Positive: Add Dog with unknown weightClass
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1111,7 +1010,7 @@ And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
 
-Scenario: TC-029_DOG_Positive: Add Dog using weightClass known
+Scenario: TC-022_DOG_Positive: Add Dog with known weightClass
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1157,7 +1056,7 @@ And json path akcRegistrationNo should be : 10
 And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
-Scenario: TC-030_DOG_Positive: Add Dog using akcRegistrationNo known
+Scenario: TC-023_DOG_Positive: Add Dog with known akcRegistrationNo 
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1205,7 +1104,7 @@ And I want to close the MySQL DB connection
 
 
 
-Scenario: TC-031_DOG_Positive: Add Dog using akcRegistrationNo as NA
+Scenario: TC-024_DOG_Positive: Add Dog with not applicable akc Registration No
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1252,7 +1151,7 @@ And json path accountId should be : 11
 And I want to close the MySQL DB connection
 
 
-Scenario: TC-032_DOG_Positive: Add Dog without adding gender key (Optional field)
+Scenario: TC-025_DOG_Positive: Add Dog without gender - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1281,7 +1180,7 @@ And we set Body with {
 }  
 Then the service response should be: 201
 
-Scenario: TC-033_DOG_Positive: Add Dog without adding neutered key (Optional field)
+Scenario: TC-026_DOG_Positive: Add Dog without neutered - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1311,7 +1210,7 @@ And we set Body with {
 }   
 Then the service response should be: 201
 
-Scenario: TC-034_DOG_Positive: Add Dog without adding description key (Optional field)
+Scenario: TC-027_DOG_Positive: Add Dog without description - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1341,7 +1240,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-035_DOG_Positive: Add Dog without adding dateOfBirth key (Optional field)
+Scenario: TC-028_DOG_Positive: Add Dog without DOB - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1371,7 +1270,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-036_DOG_Positive: Add Dog without adding weight key (Optional field)
+Scenario: TC-029_DOG_Positive: Add Dog without weight - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1401,7 +1300,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-037_DOG_Positive: Add Dog without adding eyeColor key (Optional field)
+Scenario: TC-030_DOG_Positive: Add Dog without eyeColor - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1431,7 +1330,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-038_DOG_Positive: Add Dog without adding weightClass key (Optional field)
+Scenario: TC-031_DOG_Positive: Add Dog without weightClass - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post
@@ -1461,7 +1360,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: TC-039_DOG_Positive: Add Dog without adding akcRegistrationNo key (Optional field)
+Scenario: TC-032_DOG_Positive: Add Dog without akcRegistrationNo - key (Optional field)
 Given Create new user
 And Login with valid credentials
 And service method is post

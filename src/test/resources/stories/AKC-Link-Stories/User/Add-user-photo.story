@@ -1,9 +1,5 @@
 Meta:
-@User
-@Add_User_Photo_Positive_scenarios
-@User_Positive
-@ReportName User_Positive
-@Link
+@skip
 
 
 Narrative:

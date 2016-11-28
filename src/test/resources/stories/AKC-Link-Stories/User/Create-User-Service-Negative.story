@@ -467,7 +467,7 @@ And we set Body with
    {
     "loginProvider": "LINK",
     "loginProviderId": "Generated-Email",
-    "passwordText": "Paw0rd",
+    "passwordText": "P@ssw0rdP@ssw0rd123412345678911234567891123456789112345678911234567891123456789112345678911234567891",
     "loginProviderToken": ""
    }
 }
