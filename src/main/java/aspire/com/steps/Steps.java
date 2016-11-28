@@ -66,6 +66,7 @@ public class Steps {
 	String getfirebaseToken;
 	String getdeviceID;
 	String timeStamp;
+	String startTime;
 
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
@@ -390,10 +391,12 @@ public class Steps {
 
 			json = json.replace("Generated_RefreshToken", response3);
 		}
-		if (json.contains("Time")) {
+		if (json.contains("\\[Time\\]")) {
 
-			json = json.replace("Time", timeStamp);
+			json = json.replace("\\[Time\\]", timeStamp);
 		}
+		
+		
 
 		reqHandler.setRequestBody(json);
 		System.out.println(json);

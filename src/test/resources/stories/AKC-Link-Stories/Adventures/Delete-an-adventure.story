@@ -16,7 +16,8 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
     "name" : "Adventure in Boston",
-    "dogIds" : [ID]  
+    "dogIds" : [ID],
+    "startTime" : "2017-11-27T06:10:54Z"    
 }
 Then the service response should be: 201
 And Retrieve second id from response

@@ -17,7 +17,8 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
     "name" : "Adventure in Boston",
-    "dogIds" : [ID]  
+    "dogIds" : [ID],  
+     "startTime" : "2017-11-27T06:10:54Z"
 }
 Then the service response should be: 201
 And Retrieve second id from response
@@ -26,6 +27,9 @@ And The service url equals: Update_an_adventure with Same_User_ID with Same_Adve
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "name" : "Updated Adventure Name"
-} 
+    "name" : "Adventure in Boston",
+    "dogIds" : [ID],  
+    "startTime" : "2018-11-27T06:10:54Z"
+     
+}
 And the service response should be: 200
