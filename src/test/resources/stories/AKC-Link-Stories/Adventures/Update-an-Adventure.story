@@ -6,7 +6,7 @@ Meta:
 @Link
 
 
-Scenario: TC-001__ADVENTURE_Positive: Update an Adventure name
+Scenario: TC-001__ADVENTURE_Positive: Update an Adventure name.
 Given Create new user
 And Login with valid credentials
 And Create new dog
@@ -26,10 +26,14 @@ And service method is put
 And The service url equals: Update_an_adventure with Same_User_ID with Same_Adventure_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And we set Body with {
-    "name" : "Adventure in Boston",
-    "dogIds" : [ID],  
-    "startTime" : "2018-11-27T06:10:54Z"
-     
-}
-And the service response should be: 200
+And we set Body with 
+{
+    "name" : "Adventure in Newyork",
+    "photoIdsToRemove" : [],
+    "coverPhotoId" : 532,
+    "distance" : 40.3
+    
+    
+} 
+
+
