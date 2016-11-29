@@ -33,7 +33,7 @@ And we set Body with {
             "point" : {
               "latitude" : 42.7200681,
               "longitude" : -75.8043038,
-              "time" : "Time"
+              "time" : "2016-08-04T09:45:04Z"
              },
              "photo" : {
                 "details" : {
@@ -44,7 +44,7 @@ And we set Body with {
                   "height": 350,
                   "format": "jpg",
                   "resource_type": "image",
-                  "created_at": "Time",
+                  "created_at": "2016-08-04T09:45:04Z",
                   "tags": [
                     "adventure,user,userID,user'semailId"
                   ],
@@ -56,14 +56,14 @@ And we set Body with {
                   "original_filename": "myphoto"
                },
                "coverPhoto" : true,
-               "time" : "Time"
+               "time" : "2016-08-04T09:45:04Z"
             }
          },
          {
             "point" : {
               "latitude" : 42.7200681,
               "longitude" : -75.8043038,
-              "time" : "Time"
+              "time" : "2016-08-04T09:45:04Z"
              }
          }
     ]
