@@ -17,7 +17,8 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
     "name" : "Adventure in Boston",
-    "dogIds" : [ID]  
+    "dogIds" : [ID],
+    "startTime" : "2017-11-27T06:10:54Z"  
 }
 Then the service response should be: 201
 And Retrieve second id from response
@@ -32,7 +33,7 @@ And we set Body with {
             "point" : {
               "latitude" : 42.7200681,
               "longitude" : -75.8043038,
-              "time" : "Time"
+              "time" : "2016-08-04T09:45:04Z"
              },
              "photo" : {
                 "details" : {
@@ -43,7 +44,7 @@ And we set Body with {
                   "height": 350,
                   "format": "jpg",
                   "resource_type": "image",
-                  "created_at": "Time",
+                  "created_at": "2016-08-04T09:45:04Z",
                   "tags": [
                     "adventure,user,userID,user'semailId"
                   ],
@@ -55,14 +56,14 @@ And we set Body with {
                   "original_filename": "myphoto"
                },
                "coverPhoto" : true,
-               "time" : "Time"
+               "time" : "2016-08-04T09:45:04Z"
             }
          },
          {
             "point" : {
               "latitude" : 42.7200681,
               "longitude" : -75.8043038,
-              "time" : "Time"
+              "time" : "2016-08-04T09:45:04Z"
              }
          }
     ]
