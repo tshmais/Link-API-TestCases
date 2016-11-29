@@ -861,3 +861,101 @@ And we set Body with 	{
 }
 
 Then the service response should be: 409
+
+
+Scenario: TC-029_DOG_Negative: Add Dog for Empty user ID
+Given Create new user
+And Login with valid credentials
+And service method is post
+When URL equal: Post_Dog_to_User_service with Empty_User_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 	{
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    
+                    {
+                    "name" : "test"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2013-03-07",
+    "weight" : -8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+
+Then the service response should be: 405
+
+
+Scenario: TC-030_DOG_Negative: Add Dog for Not Existing User ID
+Given Create new user
+And Login with valid credentials
+And service method is post
+When URL equal: Post_Dog_to_User_service with Not_Exist_User_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 	{
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    
+                    {
+                    "name" : "test"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2013-03-07",
+    "weight" : -8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+
+Then the service response should be: 404
+
+Scenario: TC-031_DOG_Negative: Add Dog for Existing User ID
+Given Create new user
+And Login with valid credentials
+And service method is post
+When URL equal: Post_Dog_to_User_service with Existing_User_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with 	{
+    "name" : "Pucy",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "mix": true,
+    "breeds" : [
+                    {
+                    "id" : "1"
+                    },
+                    
+                    {
+                    "name" : "test"
+                    }
+                ],
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2013-03-07",
+    "weight" : -8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+
+Then the service response should be: 403
