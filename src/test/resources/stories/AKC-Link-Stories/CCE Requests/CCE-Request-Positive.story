@@ -115,6 +115,21 @@ And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
 And service method is post
+And service url equals : Add_GEO with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with 
+{
+    "points" : [
+    {
+        "latitude" : 42.7208661,
+        "longitude" : -75.8043122
+    }
+    ],
+    "timeout" : 30 
+}
+Then the service response should be: 201
+And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
@@ -129,13 +144,28 @@ Then the service response should be: 200
 
 
 
-Scenario: TC-006_CCE-Request-Positive: Deactive a geofence request
+Scenario: TC-007_CCE-Request-Positive: Deactive a geofence request
 Given Create new user
 And Login with valid credentials
 When Create new collar
 And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
+And service method is post
+And service url equals : Add_GEO with 1 parameters
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request headers
+And we set Body with 
+{
+    "points" : [
+    {
+        "latitude" : 42.7208661,
+        "longitude" : -75.8043122
+    }
+    ],
+    "timeout" : 30 
+}
+Then the service response should be: 201
 And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json

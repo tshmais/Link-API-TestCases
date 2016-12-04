@@ -1133,7 +1133,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: TC-035_DOG_Negative: Add Dog using minus weight
+Scenario: TC-035_DOG_Negative: update Dog using minus weight
 Given Create new user
 And Login with valid credentials
 And Create new dog
