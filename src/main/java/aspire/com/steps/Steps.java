@@ -1107,10 +1107,12 @@ public class Steps {
 		
 		
 		
-		String queryCheck = "SELECT device_id FROM `collar` WHERE `device_id` ="+Device_ID;
-		dataList = dbConn.ExecuteAPIQuery(queryCheck);
+		String queryCheck = "SELECT device_id  FROM link_main.collar WHERE device_id ='" + Device_ID + "'";
 		
-		if (dataList==null){
+		String queryResult = dbConn.GetDBValue(queryCheck);
+		
+		
+		if (queryResult.equals("")){
 
 		if (jsonbody.contains("Generated-deviceid")) {
 			jsonbody = jsonbody.replace("Generated-deviceid", Device_ID);

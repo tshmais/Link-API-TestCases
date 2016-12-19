@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetMetaData;
 
 import jo.aspire.generic.EnvirommentManager;
@@ -282,6 +283,28 @@ import org.json.JSONObject;
 			return rowList;
 		}
 		
+		public String GetDBValue(String Query) {
+			  try {
+			   String Json = "";
+			   Class.forName("com.mysql.jdbc.Driver").newInstance();
+			   java.sql.Connection conn = DriverManager.getConnection(dbUrl, username, password);
+			   
+			   Statement statement = conn.createStatement();
+			   ResultSet rs = statement.executeQuery(Query);
+
+			   while (rs.next()) {
+			    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+			     Json =rs.getString(i).trim();
+			    }
+			   }
+			   conn.close();
+
+			   return Json;
+			  } catch (Exception e) {
+			   e.printStackTrace();
+			   return null;
+			  }
+			 }
 		  
 		
 	}
