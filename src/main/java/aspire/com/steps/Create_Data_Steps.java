@@ -81,6 +81,7 @@ public class Create_Data_Steps {
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
 
+
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
 		reqHandler.setRequestUrl(URL);
@@ -263,6 +264,7 @@ public class Create_Data_Steps {
 			String url, String body, int collars, int basestations, int i)
 			throws ClientProtocolException, URISyntaxException, IOException {
 		String name = "Content-Type";
+		
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
 
@@ -306,6 +308,7 @@ public class Create_Data_Steps {
 		}
 
 	}
+	
 
 	protected void createUserswith_dogs_collarsAnd_Basestations(int items,
 			String url, String body, int dogs, String dog_name, int collars,

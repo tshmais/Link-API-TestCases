@@ -22,6 +22,7 @@ import org.jbehave.core.annotations.When;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;
+import org.openqa.selenium.html5.ResultSet;
 import org.skyscreamer.jsonassert.JSONAssert;
 
 import aspire.com.util.MysqlConnector;
@@ -33,6 +34,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.jayway.jsonpath.JsonPath;
+import com.mysql.jdbc.PreparedStatement;
 
 import jo.aspire.api.automationUtil.HttpRequestHandler;
 import jo.aspire.api.automationUtil.MethodEnum;
@@ -45,6 +47,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+
 
 public class Steps {
 	private static String JsonResponse = null;
@@ -117,6 +120,7 @@ public class Steps {
 		}
 
 		reqHandler.setRequestUrl(URL);
+		
 		ASReport.getInstance().append(URL);
 		System.out.println("The URL is: " + URL);
 	}
@@ -393,7 +397,7 @@ public class Steps {
 		}
 		if (json.contains("\\[Time\\]")) {
 
-			json = json.replace("\\[Time\\]", timeStamp);
+			json = json.replace("Time", timeStamp);
 		}
 		
 		
@@ -1067,11 +1071,12 @@ public class Steps {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Given("Create new collar")
 	@When("Create new collar")
 	@Then("Create new collar")
 	public void Create_collar() throws ClientProtocolException,
-			URISyntaxException, IOException {
+			URISyntaxException, IOException, ClassNotFoundException, SQLException {
 		String name = "Content-Type";
 		String value = "application/json";
 		reqHandler.createNewRequest(Method.POST, myResponse);
@@ -1086,13 +1091,28 @@ public class Steps {
 		reqHandler.setRequestHeader("Authorization", response);
 		String jsonbody = EnvirommentManager.getInstance().getProperty(
 				"createCollarbody");
-		int range = (99999 - 10000);
-		int newrand = (int) (Math.random() * range) + 10000;
-		String Device_ID = "2365478" + newrand;
+		
+		
+		
+		
+		
+		
+		
+		int range = (99999999 - 10000000);
+		int newrand = (int) (Math.random() * range) + 10000000;
+		String Device_ID = "1901" + newrand;
 		System.err.println("The MacID for the created item is: " + Device_ID);
+		
+		
+		
+		
+		
+		String queryCheck = "SELECT device_id FROM `collar` WHERE `device_id` ="+Device_ID;
+		dataList = dbConn.ExecuteAPIQuery(queryCheck);
+		
+		if (dataList==null){
 
 		if (jsonbody.contains("Generated-deviceid")) {
-
 			jsonbody = jsonbody.replace("Generated-deviceid", Device_ID);
 			reqHandler.setRequestBody(jsonbody);
 			System.out.println(jsonbody);
@@ -1108,9 +1128,13 @@ public class Steps {
 			String Collar_Device_ID = JsonPath.parse(StringjsonResponse).read(
 					expression3, String.class);
 			Generated_device_ID = Collar_Device_ID;
-
+			}
+		else {
+			GenreateRandomiteger();
+		}
 		}
 	}
+
 
 	@Given("Create new dog")
 	@When("Create new dog")
@@ -1148,6 +1172,15 @@ public class Steps {
 					expression2, String.class);
 			Generated_ID = Dog_id;
 		}
+	}
+	
+	public String GenreateRandomiteger()
+	{
+		int range = (999999999 - 100000000);
+		int newrand = (int) (Math.random() * range) + 100000000;
+		String Device_ID = "1901" + newrand;
+		System.err.println("The MacID for the created item is: " + Device_ID);
+		return Device_ID;
 	}
 
 	
@@ -1484,7 +1517,10 @@ public class Steps {
 					body1, dogs, Dog_name, collars, basestations, i);
 
 		}
-
 	}
+		
+		
 
-}
+	
+		}
+
