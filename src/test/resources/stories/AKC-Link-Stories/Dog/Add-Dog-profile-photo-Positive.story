@@ -1,5 +1,9 @@
 Meta:
-@skip
+@Dog
+@Add_Dog_Profile_Photo_Positive_scenarios
+@Dog_Positive
+@ReportName Dog_Positive
+@Link
 
 
 Narrative:
@@ -7,11 +11,13 @@ In order to test Add_User_Profile_Photo service
 As a tester
 I want to make sure all return the code 200
                                   
-Scenario: TC-001_USER_Profile Photo: Add Photo to user profile
+Scenario: TC-001_DOG_Profile Photo: Add Photo to dog profile
 Given Create new user
 And Login with valid credentials
+And Create new dog
+When Retrieve first id from response
 And service method is get
-When service url equal : Get_User_Profile_Photo_details
+When The service url equals: Get_Dog_Profile_Photo_details with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
