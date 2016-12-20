@@ -1101,18 +1101,19 @@ public class Steps {
 		int range = (99999999 - 10000000);
 		int newrand = (int) (Math.random() * range) + 10000000;
 		String Device_ID = "1901" + newrand;
-		System.err.println("The MacID for the created item is: " + Device_ID);
+		System.err.println("The DeviceID for the created item is: " + Device_ID);
 		
 		
 		
 		
-		
+		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
 		String queryCheck = "SELECT device_id  FROM link_main.collar WHERE device_id ='" + Device_ID + "'";
+		dataList = dbConn.ExecuteAPIQuery(queryCheck);
 		
-		String queryResult = dbConn.GetDBValue(queryCheck);
+		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
+		System.out.println("The deviceId result is" + dataList);
 		
-		
-		if (queryResult.equals("")){
+		if (dataList.isEmpty()){
 
 		if (jsonbody.contains("Generated-deviceid")) {
 			jsonbody = jsonbody.replace("Generated-deviceid", Device_ID);
@@ -1131,9 +1132,10 @@ public class Steps {
 					expression3, String.class);
 			Generated_device_ID = Collar_Device_ID;
 			}
-		else {
-			GenreateRandomiteger();
+		
 		}
+		else {
+			Create_collar();
 		}
 	}
 
