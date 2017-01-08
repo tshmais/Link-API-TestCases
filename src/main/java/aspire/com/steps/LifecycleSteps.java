@@ -95,8 +95,13 @@ public class LifecycleSteps {
      	     
      	     String email_body = "Hi Team,"+ "<br/>" + "<br/>" +"Please see attached acceptance test results"+ "<br/>" + "<br/>" +environment+ "<br/>" + "<br/>"+"<b> High Level Results</b>" + "<br/>" + HighLevelResults + "<br/>" + "<br/>" +"Thanks,"+ "<br/>" +"QA Team";
      	     writer.println("email_body = " + email_body);
-     	     writer.close();
-           
+     	      writer.println("tc_ran =  " + totalTestCount);
+     	      writer.println("tc_passed = " + passedTestCount);
+     	      writer.println("tc_failed = " + failedTestCount);
+     	      writer.println("tc_skipped = " + skippedTestCount);
+     	      writer.close();
+     	     
+     	     
         } catch (Exception e) {
             e.printStackTrace();
         }
