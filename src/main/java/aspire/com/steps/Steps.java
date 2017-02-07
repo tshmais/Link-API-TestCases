@@ -244,7 +244,7 @@ public class Steps {
 			json = json.replace("Same_firebaseToken", deviceId);
 		}
 
-		if (json.contains("Generated_firebaseToken")) {
+		if (json.contains("")) {
 			int range = (9999999 - 10000);
 			int newrand = (int) (Math.random() * range) + 10000;
 			String firebaseToken = "token5678" + newrand;
@@ -258,6 +258,14 @@ public class Steps {
 			String MAC_ID = "000567A" + newrand;
 
 			json = json.replace("Generated-macid", MAC_ID);
+		}
+		
+		if (json.contains("Generated-applePushToken")) {
+			int range = (99999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String applePushToken = "cef4j63na" + newrand;
+
+			json = json.replace("Generated-applePushToken", applePushToken);
 		}
 
 		if (json.contains("UserID")) {
@@ -1011,6 +1019,14 @@ public class Steps {
 			json = json.replace("Generated_firebaseToken", firebaseToken);
 		}
 		
+		if (json.contains("applePushToken"))
+		{
+			int range = (9999999 - 10000);
+			int newrand = (int) (Math.random() * range) + 10000;
+			String applePushToken1 = "applePushToken" + newrand;
+			json = json.replace("applePushToken", applePushToken1);
+		}
+		
 		if (json.contains("Generated_deviceId")) {
 			int range = (9999999 - 10000);
 			int newrand = (int) (Math.random() * range) + 10000;
@@ -1100,6 +1116,8 @@ public class Steps {
 		
 		int range = (99999999 - 10000000);
 		int newrand = (int) (Math.random() * range) + 10000000;
+		
+		
 		String Device_ID = "1901" + newrand;
 		System.err.println("The DeviceID for the created item is: " + Device_ID);
 		
@@ -1109,6 +1127,9 @@ public class Steps {
 		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
 		String queryCheck = "SELECT device_id  FROM link_main.collar WHERE device_id ='" + Device_ID + "'";
 		dataList = dbConn.ExecuteAPIQuery(queryCheck);
+		
+//		String SecQueryCheck = "SELECT id From link_main.subscription WHERE id = '" + id + "'";
+		
 		
 		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
 		System.out.println("The deviceId result is" + dataList);
@@ -1523,6 +1544,50 @@ public class Steps {
 		}
 	}
 		
+	@When("Create New Subscrption")
+	public void CreateSubscrption()throws URISyntaxException,
+	ClientProtocolException, IOException, ClassNotFoundException, SQLException {
+    String name = "Content-Type";
+     String value = "application/json";
+     reqHandler.createNewRequest(Method.POST, myResponse);
+
+     URL = String.format(
+		EnvirommentManager.getInstance().getProperty(
+				"Create_Subscrption"), getRootUrl());
+     URL = URL.replaceFirst("\\[parameter1\\]", response2);
+     reqHandler.setRequestUrl(URL);
+     ASReport.getInstance().append(URL);
+     reqHandler.setRequestHeader(name, value);
+     reqHandler.setRequestHeader("Authorization", response);
+     String jsonbody = EnvirommentManager.getInstance().getProperty(
+		"createdogbody");
+     
+     
+        assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
+		String queryCheck = "SELECT id  FROM link_main.subscription WHERE id ='" + id + "'";
+		dataList = dbConn.ExecuteAPIQuery(queryCheck);
+		
+		
+		assertThat(dbConn.dbcloseConn(), Matchers.equalTo(true));
+     
+
+     String accountId = "Pucy";
+
+     if (jsonbody.contains("Generated-name")) {
+
+	jsonbody = jsonbody.replace("Generated-name", accountId);
+	reqHandler.setRequestBody(jsonbody);
+	System.out.println(jsonbody);
+	CloseableHttpResponse resp = reqHandler.execute(myResponse);
+	jsonResponse = parsers.asJson(resp);
+	System.err.println(jsonResponse);
+	StringjsonResponse = jsonResponse.toString();
+	String expression2 = "$.id";
+	String Dog_id = JsonPath.parse(StringjsonResponse).read(
+			expression2, String.class);
+	Generated_ID = Dog_id;
+}
+}
 		
 
 	
