@@ -654,6 +654,7 @@ public class Steps {
 	@Then("The service url equals: $url with $user with $First_Param")
 	public void setServicesURLwithTwoParametrsa(String url, String User,
 			String First_Param) throws URISyntaxException {
+		url = EnvirommentManager.getInstance().getProperty(url);
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
@@ -1105,6 +1106,7 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
 		reqHandler.setRequestHeader("Authorization", response);
+		reqHandler.setRequestHeader("link-app-id", response);
 		String jsonbody = EnvirommentManager.getInstance().getProperty(
 				"createCollarbody");
 		
@@ -1263,6 +1265,7 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
 		reqHandler.setRequestHeader("Authorization", response);
+		reqHandler.setRequestHeader("link-app-id", response);
 		String jsonbody = EnvirommentManager.getInstance().getProperty(
 				"createBaseStationbody");
 		int range = (99999 - 10000);
@@ -1291,6 +1294,28 @@ public class Steps {
 		}
 
 	}
+
+	@Given("I want to change the state to connected")
+	@When("I want to change the state to connected")
+	public void Change_State() throws URISyntaxException,
+			ClientProtocolException, IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+		reqHandler.createNewRequest(Method.POST, myResponse);
+
+		URL = String.format(
+				EnvirommentManager.getInstance().getProperty(
+						"Add_New_collars_service"), getRootUrl());
+		URL = URL.replaceFirst("\\[parameter1\\]", response2);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", response);
+		reqHandler.setRequestHeader("link-app-id", response);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createCollarbody");
+	}
+	
 
 	@Given("I want to open a connection to MySQL DB")
 	@When("I want to open a connection to MySQL DB")

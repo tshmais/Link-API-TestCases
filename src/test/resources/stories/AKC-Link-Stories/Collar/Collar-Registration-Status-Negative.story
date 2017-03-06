@@ -16,12 +16,15 @@ I want to make sure all return the code 2xx and 4xx
 Scenario: TC-001_COLLAR_Negative: Check Collar Registration Status using Empty data for devices Ids
 Given Create new user
 And Login with valid credentials
+And Create new app
+When Retrieve second id from response
 And Create new collar
 When Retrieve first id from response
 And service method is post
 And the service url is: Collar_Registration_Status
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 And we set Body with {
   "deviceIds": [
     ""

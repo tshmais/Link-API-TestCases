@@ -589,7 +589,7 @@ And we set Body with  {
                         "id" : "1"
                         }
                     ],
-      "dateOfBirth": "2017-02-02",
+      "dateOfBirth": "2017-07-07",
       "weight": "",
       "weightClass": "",
       "eyeColor": "",

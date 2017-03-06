@@ -45,11 +45,11 @@ And we set Body with {
   "osVersion": "Android 4.1",
   "deviceId": "Generated_deviceId",
   "firebaseToken": "Generated_firebaseToken",
-  "applePushToken": "Generated-applePushToken,
+  "applePushToken": "Generated-applePushToken",
   "bleEnabled": true,
   "notificationEnabled": true,
   "locationEnabled": true,
-   "deviceName": "John's iPhone"
+  "deviceName": "Daja"
 }
 Then the service response should be: 201
 And service method is post

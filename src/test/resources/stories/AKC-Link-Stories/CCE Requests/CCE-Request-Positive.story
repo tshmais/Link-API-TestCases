@@ -12,6 +12,20 @@ And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
 And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
+And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
@@ -32,18 +46,31 @@ And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
 And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
+And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And add Session link-app-id to Request header
-And we set Body with {       
-    "command" : "status",
-    "params"  : {              
-        "type" : 2        
-    } 
+And we set Body with {
+  "command": "status",
+  "params": {
+    "type": 2
+  }
 }
 Then the service response should be: 200
-
 
 Scenario: TC-003_CCE-Request-Positive: Switch on LED Request
 Given Create new user
@@ -52,6 +79,20 @@ When Create new collar
 And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
+And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
 And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
@@ -75,6 +116,20 @@ And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
 And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
+And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
@@ -96,6 +151,20 @@ And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
 And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
+And service method is post
 And The service url equals: Create_CCE_Request with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
@@ -114,6 +183,20 @@ When Create new collar
 And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
+And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
 And service method is post
 And service url equals : Add_GEO with 1 parameters
 And add to the header Content-Type with value application/json
@@ -151,6 +234,20 @@ When Create new collar
 And Retrieve first id from response
 And Create new app
 And Retrieve second id from response
+And service method is post
+And The service url equals: Cahnge_State_Service with Same_User_ID with Same_ID
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And add Session link-app-id to Request header
+And we set Body with 
+{
+
+"messageType": "statechange",
+"state" : "connected",
+"location" :
+{ "latitude":38.706863, "longitude":-90.298205, "accuracy": 30 }
+}
+Then the service response should be: 200
 And service method is post
 And service url equals : Add_GEO with 1 parameters
 And add to the header Content-Type with value application/json

@@ -16,6 +16,7 @@ And service method is delete
 And The service url equals: Delete_Base_Station with Existing_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 Then the service response should be: 403
 
 Scenario: TC-002_Base_Positive: Delete Same base twice
@@ -32,6 +33,7 @@ And service method is delete
 And The service url equals: Delete_Base_Station with Same_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 Then the service response should be: 404
 
 
@@ -56,6 +58,7 @@ And service method is delete
 And The service url equals: Delete_Base_Station with Not_Exist_User_ID with Same_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 Then the service response should be: 404
 
 
@@ -79,9 +82,10 @@ And service method is delete
 And The service url equals: Delete_Base_Station with Same_User_ID with Not_Exist_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 Then the service response should be: 404
 
-Scenario: TC-008_Base_Negative: Delete Base using Invalid baseId
+Scenario: TC-007_Base_Negative: Delete Base using Invalid baseId
 Given Create new user
 And Login with valid credentials
 And Create new BaseStation
@@ -90,5 +94,6 @@ And service method is delete
 And The service url equals: Delete_Base_Station with Same_User_ID with Existing_ID
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request headers
+And add Session link-app-id to Request header
 Then the service response should be: 403
 
