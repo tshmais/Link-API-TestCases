@@ -29,7 +29,7 @@ And service url equal : Add_User_Profile_Photo
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "public_id": "qa/users/359/rgvaaw3ot9jekegrm4mx",
+  "public_id": "qa/users/360/rgvaaw3ot9jekegrm4mx",
   "version": 1475411888,
   "signature": "b286d9f615a21c4e94c41e0090cd6db09d0f7044",
   "width": 1024,
@@ -40,7 +40,7 @@ And we set Body with {
   "tags": [
     "userprofile",
     "QAuser",
-    "359",
+    "360",
     "test1@gmail.com"
   ],
   "bytes": 879394,
