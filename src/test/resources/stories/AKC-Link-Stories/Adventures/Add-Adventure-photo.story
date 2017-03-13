@@ -41,27 +41,26 @@ And service url equal : Add_User_Profile_Photo
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "public_id": "Generated_folder",
-  "version": 1469088465,
-  "signature": "Generated_signature",
-  "width": 960,
-  "height": 942,
+  "public_id": "qa/users/360/rgvaaw3ot9jekegrm4mx",
+  "version": 1475411888,
+  "signature": "b286d9f615a21c4e94c41e0090cd6db09d0f7044",
+  "width": 1024,
+  "height": 768,
   "format": "jpg",
   "resource_type": "image",
-  "created_at": "2016-07-21T08:07:45Z",
+  "created_at": "2016-10-02T12:38:08Z",
   "tags": [
-    "First_Tag",
-    "Second_Tag",
-    "Third_Tag",
-    "Fourth_Tag"
+    "userprofile",
+    "QAuser",
+    "360",
+    "test1@gmail.com"
   ],
-  "bytes": 407319,
+  "bytes": 879394,
   "type": "upload",
-  "etag": "f9c53d36a80f56a2d91c8ea29d1e4e65",
-  "url": "http://res.cloudinary.com/linkakc/image/upload/v1469088465/int/users/10/ikjt0vdjivzupxdbfv0s.jpg",
-  "secure_url": "https://res.cloudinary.com/linkakc/image/upload/v1469088465/int/users/10/ikjt0vdjivzupxdbfv0s.jpg",
-  "original_filename": "test"
-
+  "etag": "076e3caed758a1c18c91a0e9cae3368f",
+  "url": "http://res.cloudinary.com/linkakc/image/upload/v1475411888/qa/users/359/rgvaaw3ot9jekegrm4mx.jpg",
+  "secure_url": "https://res.cloudinary.com/linkakc/image/upload/v1475411888/qa/users/359/rgvaaw3ot9jekegrm4mx.jpg",
+  "original_filename": "Chrysanthemum"
 }
 
 Then the service response should be: 200
