@@ -31,6 +31,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -71,6 +72,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -98,6 +100,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -125,6 +128,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -151,6 +155,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -178,6 +183,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -205,6 +211,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path hardwareVersion should be : 2
@@ -230,6 +237,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Add-New-Collar-Service-Positive query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0
 And json path version should be : 1
 And json path primaryUserId should be : 4

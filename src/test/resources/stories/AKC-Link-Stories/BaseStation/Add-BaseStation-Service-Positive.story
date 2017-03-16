@@ -48,6 +48,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Get_base query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0 
 And json path version should be : 1
 And json path macAddrId should be : 2
@@ -55,6 +56,7 @@ And json path title should be : 3
 And json path latitude should be : 4
 And json path longitude should be : 5
 And json path primaryOwnerId should be : 6
+And I want to close the MySQL DB connection
 
 Scenario: TC-007_BASE_Positive: Add BaseStation that has a one word title with spicial characters in title field
 Given Create new user
@@ -83,6 +85,7 @@ And json path title should be : 3
 And json path latitude should be : 4
 And json path longitude should be : 5
 And json path primaryOwnerId should be : 6
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-008_BASE_Positive: Add BaseStation that has a latitude with range 90 with text file format in title feild
@@ -112,6 +115,7 @@ And json path title should be : 3
 And json path latitude should be : 4
 And json path longitude should be : 5
 And json path primaryOwnerId should be : 6
+And I want to close the MySQL DB connection
 
 
 Scenario: TC-009_BASE_Positive: Add BaseStation that has a longitude in range 185 with photo format in title feild
@@ -134,6 +138,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Get_base query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0 
 And json path version should be : 1
 And json path macAddrId should be : 2
@@ -165,6 +170,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Get_base query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0 
 And json path version should be : 1
 And json path macAddrId should be : 2
@@ -339,6 +345,7 @@ Then the service response should be: 201
 And Retrieve first id from response
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using Get_base query and response ID
+And I want to close the MySQL DB connection
 And json path id should be : 0 
 And json path version should be : 1
 And json path macAddrId should be : 2
